@@ -317,6 +317,675 @@
                                 
                                 <h1 id="trabalhando-com-template-django-e-arquivos-est&#xE1;ticos">Trabalhando com template Django e arquivos est&#xE1;ticos</h1>
 <p>Esse post &#xE9; uma tradu&#xE7;&#xE3;o <a href="https://scotch.io/tutorials/working-with-django-templates-static-files" target="_blank">desse post</a></p>
+<p>No <a href="primeira-aplicacao-em-django.html">tutorial anterior</a>, foi mostrado como instalar e botar pra funcionar um site em Django. Mas os templates eram muito b&#xE1;sicos.</p>
+<p>Definitivamente n&#xE3;o &#xE9; assim que voc&#xEA; deseja que seu site pare&#xE7;a:</p>
+<p><img src="../../assets/images/ugly-site.png" alt="Ugly site"></p>
+<p>Como voc&#xEA; faz seu site ficar melhor? Simples! Adicione algum estilo. Neste tutorial, vou mostrar-lhe como adicionar alguns CSS e JavaScript para os seus templates Django, a fim de torn&#xE1;-los mais bonitos. Para fazer isso, primeiro voc&#xEA; precisa entender o conceito de arquivos est&#xE1;ticos no Django.</p>
+<hr>
+<h2 id="configurando-um-projeto-em-django">Configurando um projeto em Django</h2>
+<p>Vamos configurar o nosso projeto de teste do Django.</p>
+<p>Primeiro crie um projeto com a ajuda do <a href="https://virtualenvwrapper.readthedocs.io/en/latest/" target="_blank">virtualenvwrapper</a></p>
+<pre class="language-"><code>mkproject projects
+</code></pre><p>Vamos agora usar pip para instalar o Django em nosso ambiente.</p>
+<pre class="language-"><code>pip install django
+</code></pre><p>Esse comando deve instalar o Django em seu ambiente. At&#xE9; a data desse post, a vers&#xE3;o de Django &#xE9; 1.10.4.</p>
+<p>Em seguida, vamos chamar o script <code>django-admin</code> para criar nossa aplica&#xE7;&#xE3;o em Django. Vamos fazer isso assim:</p>
+<pre class="language-"><code>django-admin startproject djangotemplates
+</code></pre><p>Se voc&#xEA; verificar a estrutura de pastas de seus projetos, agora dever&#xE1; ter uma nova pasta chamada <code>djangotemplates</code> criada pelo Django al&#xE9;m da pasta anterior que criamos.</p>
+<p>D&#xEA; um <code>cd</code> em <code>djangotemplates</code></p>
+<p>Sua estrutura de pasta agora deve ser semelhante a esta:</p>
+<pre class="language-"><code>djangotemplates
+--djangotemplates
+----__init__.py
+----settings.py
+----urls.py
+----wsgi.py
+--manage.py
+</code></pre><p>Tudo feito? Agora voc&#xEA; est&#xE1; pronto para come&#xE7;ar!</p>
+<hr>
+<h2 id="configura&#xE7;&#xF5;es-para-gerenciar-arquivos-est&#xE1;ticos">Configura&#xE7;&#xF5;es para gerenciar arquivos est&#xE1;ticos</h2>
+<p>Arquivos est&#xE1;ticos incluem coisas como CSS, JavaScript e imagens que voc&#xEA; pode querer servir ao lado de seu site. Django &#xE9; muito opinativo sobre como voc&#xEA; deve incluir seus arquivos est&#xE1;ticos. Neste artigo, vou mostrar como adicionar arquivos est&#xE1;ticos em uma aplica&#xE7;&#xE3;o Django.</p>
+<p>Abra o arquivo <code>settings.py</code> dentro da pasta interna <code>djangotemplates</code>. Na parte inferior do arquivo voc&#xEA; deve ver estas linhas:</p>
+<pre class="language-"><code class="lang-python"><span class="token comment" spellcheck="true"># djangotemplates/djangotemplates/settings.py</span>
+
+<span class="token comment" spellcheck="true"># Static files (CSS, JavaScript, Images)</span>
+<span class="token comment" spellcheck="true"># https://docs.djangoproject.com/en/1.10/howto/static-files/</span>
+
+STATIC_URL <span class="token operator">=</span> <span class="token string">&apos;/static/&apos;</span>
+</code></pre>
+<p>Esta linha diz ao Django para anexar <code>static</code> na url base (no nosso caso <code>localhost:8000</code>) quando for procurar por arquivos est&#xE1;ticos. No Django, voc&#xEA; poderia ter uma pasta <code>static</code> quase em qualquer lugar que voc&#xEA; quiser. Voc&#xEA; pode at&#xE9; ter mais de uma pasta <code>static</code>, uma em cada app por exemplo. No entanto, para manter as coisas simples, vou usar apenas uma pasta <code>static</code> na ra&#xED;z da nossa pasta do projeto. Vamos criar uma mais tarde. Por enquanto, vamos adicionar algumas linhas no arquivo <code>settings.py</code> para que fique assim:</p>
+<pre class="language-"><code class="lang-python"><span class="token comment" spellcheck="true"># djangotemplates/djangotemplates/settings.py</span>
+
+<span class="token comment" spellcheck="true"># Static files (CSS, JavaScript, Images)</span>
+<span class="token comment" spellcheck="true"># https://docs.djangoproject.com/en/1.10/howto/static-files/</span>
+
+STATIC_URL <span class="token operator">=</span> <span class="token string">&apos;/static/&apos;</span>
+
+<span class="token comment" spellcheck="true"># Add these new lines</span>
+STATICFILES_DIRS <span class="token operator">=</span> <span class="token punctuation">(</span>
+    os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>BASE_DIR<span class="token punctuation">,</span> <span class="token string">&apos;static&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span>
+
+STATIC_ROOT <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>BASE_DIR<span class="token punctuation">,</span> <span class="token string">&apos;staticfiles&apos;</span><span class="token punctuation">)</span>
+</code></pre>
+<p>O tuple <code>STATICFILES_DIRS</code> diz ao Django onde procurar arquivos est&#xE1;ticos que n&#xE3;o est&#xE3;o vinculados a nenhum app espec&#xED;fico. Nesse caso, acabamos de dizer ao Django que tamb&#xE9;m procure arquivos est&#xE1;ticos em uma pasta chamada <code>static</code> em nossa pasta ra&#xED;z, e n&#xE3;o apenas em nossos apps.</p>
+<p>O Django tamb&#xE9;m fornece um mecanismo para coletar arquivos est&#xE1;ticos em um &#xFA;nico local para que possam ser facilmente servidos. Usando o comando <code>collectstatic</code>, o Django procura todos os arquivos est&#xE1;ticos em seus apps e entrega onde no lugar que voc&#xEA; configurou o <code>STATIC_ROOT</code>. No nosso caso, estamos dizendo ao Django que, quando executamos <code>python manage.py collecttstatic</code>, reunimos todos os arquivos est&#xE1;ticos em uma pasta chamada <code>staticfiles</code> no diret&#xF3;rio ra&#xED;z do projeto. Esse recurso &#xE9; muito &#xFA;til para arquivos est&#xE1;ticos, especialmente em configura&#xE7;&#xF5;es de produ&#xE7;&#xE3;o.</p>
+<hr>
+<h2 id="setup-do-app">Setup do App</h2>
+<p>Crie uma pasta chamada <code>static</code> no mesmo n&#xED;vel que a pasta interna <code>djangotemplates</code> e o arquivo <code>manage.py</code>. Agora voc&#xEA; deve ter essa estrutura:</p>
+<pre class="language-"><code>djangotemplates
+--djangotemplates
+----__init__.py
+----settings.py
+----urls.py
+----wsgi.py
+--static
+--manage.py
+</code></pre><p>Dentro desta pasta &#xE9; onde vamos ter todos os CSS e JS. Vamos adicionar duas pastas dentro da pasta <code>static</code> para armazenar nossos arquivos, uma chamada <code>css</code> e a outra chamada <code>js</code>. Dentro da pasta <code>css</code>, crie um arquivo chamado <code>main.css</code>. Adicione um <code>main.js</code> na pasta <code>js</code> tamb&#xE9;m. Sua pasta <code>static</code> deve agora ter esta apar&#xEA;ncia:</p>
+<pre class="language-"><code>--static
+----css
+------main.cs
+----js
+------main.js
+</code></pre><p>Uma vez feito isso, vamos criar um novo app chamado <code>example</code> com o qual estaremos trabalhando. Voc&#xEA; se lembra de como fazer isso? N&#xE3;o se preocupe, &#xE9; muito simples:</p>
+<pre class="language-"><code>python manage.py startapp example
+</code></pre><p>Uma vez feito isso, voc&#xEA; deve ter uma pasta chamada <code>example</code> ao lado de <code>djangotemplates</code> e <code>static</code>. E &#xE9; claro que voc&#xEA; ainda poder&#xE1; ver o arquivo <code>manage.py</code></p>
+<pre class="language-"><code>djangotemplates
+--djangotemplates
+----__init__.py
+----settings.py
+----urls.py
+----wsgi.py
+--example
+--static
+--manage.py
+</code></pre><p>Precisamos informar o Django sobre nosso novo app. V&#xE1; para a pasta interna <code>djangotemplates</code>, abra <code>settings.py</code> e procure por <code>INSTALLED_APPS</code>. Adicione <code>example</code> junto com os outros apps.</p>
+<pre class="language-"><code class="lang-python"><span class="token comment" spellcheck="true"># djangotemplates/djangotemplates/settings.py</span>
+
+DEBUG <span class="token operator">=</span> <span class="token boolean">True</span>
+
+ALLOWED_HOSTS <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+
+<span class="token comment" spellcheck="true"># Application definition</span>
+
+INSTALLED_APPS <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token string">&apos;django.contrib.admin&apos;</span><span class="token punctuation">,</span>
+    <span class="token string">&apos;django.contrib.auth&apos;</span><span class="token punctuation">,</span>
+    <span class="token string">&apos;django.contrib.contenttypes&apos;</span><span class="token punctuation">,</span>
+    <span class="token string">&apos;django.contrib.sessions&apos;</span><span class="token punctuation">,</span>
+    <span class="token string">&apos;django.contrib.messages&apos;</span><span class="token punctuation">,</span>
+    <span class="token string">&apos;django.contrib.staticfiles&apos;</span><span class="token punctuation">,</span>
+    <span class="token string">&apos;example&apos;</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true"># Add this line</span>
+<span class="token punctuation">]</span>
+</code></pre>
+<p>Apenas para recapitular, agora temos a seguinte estrutura de pastas:</p>
+<pre class="language-"><code>djangotemplates
+--djangotemplates
+----__init__.py
+----settings.py
+----urls.py
+----wsgi.py
+--example
+----migrations
+------__init__.py
+----admin.py
+----apps.py
+----models.py
+----tests.py
+----views.py
+--static
+----css
+------main.cs
+----js
+------main.js
+--manage.py
+</code></pre><h2 id="defini&#xE7;&#xE3;o-de-url">Defini&#xE7;&#xE3;o de URL</h2>
+<p>Vamos definir uma URL para ir para o nosso novo app. Vamos editar <code>djangotemplates/djangotemplates/urls.py</code> para isso:</p>
+<pre class="language-"><code class="lang-python"><span class="token comment" spellcheck="true"># djangotemplates/djangotemplates/urls.py</span>
+
+<span class="token keyword">from</span> django<span class="token punctuation">.</span>conf<span class="token punctuation">.</span>urls <span class="token keyword">import</span> url<span class="token punctuation">,</span> include <span class="token comment" spellcheck="true"># Add include to the imports here</span>
+<span class="token keyword">from</span> django<span class="token punctuation">.</span>contrib <span class="token keyword">import</span> admin
+
+urlpatterns <span class="token operator">=</span> <span class="token punctuation">[</span>
+    url<span class="token punctuation">(</span>r<span class="token string">&apos;^admin/&apos;</span><span class="token punctuation">,</span> admin<span class="token punctuation">.</span>site<span class="token punctuation">.</span>urls<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    url<span class="token punctuation">(</span>r<span class="token string">&apos;^&apos;</span><span class="token punctuation">,</span> include<span class="token punctuation">(</span><span class="token string">&apos;example.urls&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># tell django to read urls.py in example app</span>
+<span class="token punctuation">]</span>
+</code></pre>
+<p>Depois disso, na pasta do app <code>example</code>, crie um novo arquivo chamado <code>urls.py</code> e adicione o seguinte c&#xF3;digo:</p>
+<pre class="language-"><code class="lang-python"><span class="token comment" spellcheck="true"># djangotemplates/example/urls.py</span>
+
+<span class="token keyword">from</span> django<span class="token punctuation">.</span>conf<span class="token punctuation">.</span>urls <span class="token keyword">import</span> url
+<span class="token keyword">from</span> example <span class="token keyword">import</span> views
+
+urlpatterns <span class="token operator">=</span> <span class="token punctuation">[</span>
+    url<span class="token punctuation">(</span>r<span class="token string">&apos;^$&apos;</span><span class="token punctuation">,</span> views<span class="token punctuation">.</span>HomePageView<span class="token punctuation">.</span>as_view<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> name<span class="token operator">=</span><span class="token string">&apos;home&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true"># Notice the URL has been named</span>
+    url<span class="token punctuation">(</span>r<span class="token string">&apos;^about/$&apos;</span><span class="token punctuation">,</span> views<span class="token punctuation">.</span>AboutPageView<span class="token punctuation">.</span>as_view<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> name<span class="token operator">=</span><span class="token string">&apos;about&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span>
+</code></pre>
+<p>O c&#xF3;digo que acabamos de escrever indica ao Django que relacione uma rota vazia (isto &#xE9;, <code>localhost:8000</code>) a uma view chamada <code>HomePageView</code> e a rota <code>/about/</code> para uma view chamada <code>AboutPageView</code>. Lembre-se, as views do Django aceitam requisi&#xE7;&#xF5;es HTTP e retornam respostas HTTP. Em nosso caso, usaremos uma <code>TemplateView</code> que retorna um template de P&#xE1;gina Inicial e outro para a p&#xE1;gina About. Para fazer isso, dentro de sua pasta do app <code>example</code>, crie outra pasta chamada <code>templates</code>. Dentro da nova pasta de templates, crie dois novos arquivos chamados <code>index.html</code> e <code>about.html</code>. A pasta do app <code>example</code> deve agora ter essa estrutura:</p>
+<pre class="language-"><code>--example
+----migrations
+------__init__.py
+----templates
+------index.html
+------about.html
+----admin.py
+----apps.py
+----models.py
+----tests.py
+----urls.py
+----views.py
+</code></pre><p>Dentro do index.html, cole o seguinte c&#xF3;digo:</p>
+<pre class="language-"><code class="lang-html"><span class="token comment" spellcheck="true">&lt;!-- djangotemplates/example/templates/index.html--&gt;</span>
+
+<span class="token doctype">&lt;!DOCTYPE html&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>en<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>UTF-8<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>Welcome Home<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&quot;
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>{% url <span class="token punctuation">&apos;</span>home<span class="token punctuation">&apos;</span> %}<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>Go Home<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>{% url <span class="token punctuation">&apos;</span>about<span class="token punctuation">&apos;</span> %}<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>About This Site<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<p>E esse c&#xF3;digo na about.html:</p>
+<pre class="language-"><code class="lang-html"><span class="token comment" spellcheck="true">&lt;!-- djangotemplates/example/templates/about.html--&gt;</span>
+
+<span class="token doctype">&lt;!DOCTYPE html&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>en<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>UTF-8<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>About Us<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>
+  We are a group of Django enthusiasts with the following idiosyncrasies:
+
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ol</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span>We only eat bananas on Saturdays.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span>We love making playing football on rainy days.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ol</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>{% url <span class="token punctuation">&apos;</span>home<span class="token punctuation">&apos;</span> %}<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>Go Home<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>{% url <span class="token punctuation">&apos;</span>about<span class="token punctuation">&apos;</span> %}<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>About This Site<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<p>Observe como estamos nos referindo aos nossos links para <code>Go home</code> e <code>About This Site</code> em nossos temapltes. Podemos usar o recurso <code>automatic URL reverse lookup</code> do Django porque nomeamos nossas URLs no arquivo <code>urls.py</code>. </p>
+<p>Veremos o efeito desse c&#xF3;digo na pr&#xF3;xima se&#xE7;&#xE3;o.</p>
+<hr>
+<h2 id="integrando-as-views">Integrando as views</h2>
+<p>Vamos adicionar o c&#xF3;digo final para servir os nossos templates.</p>
+<p>Precisamos editar <code>djangotemplates/example/views.py</code> para isso:</p>
+<pre class="language-"><code class="lang-python"><span class="token comment" spellcheck="true"># djangotemplates/example/views.py</span>
+<span class="token keyword">from</span> django<span class="token punctuation">.</span>shortcuts <span class="token keyword">import</span> render
+<span class="token keyword">from</span> django<span class="token punctuation">.</span>views<span class="token punctuation">.</span>generic <span class="token keyword">import</span> TemplateView <span class="token comment" spellcheck="true"># Import TemplateView</span>
+
+<span class="token comment" spellcheck="true"># Add the two views we have been talking about  all this time :)</span>
+<span class="token keyword">class</span> <span class="token class-name">HomePageView</span><span class="token punctuation">(</span>TemplateView<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    template_name <span class="token operator">=</span> <span class="token string">&quot;index.html&quot;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">AboutPageView</span><span class="token punctuation">(</span>TemplateView<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    template_name <span class="token operator">=</span> <span class="token string">&quot;about.html&quot;</span>
+</code></pre>
+<p>Agora podemos executar a nossa aplica&#xE7;&#xE3;o. Primeiro precisamos fazer as migra&#xE7;&#xF5;es padr&#xE3;o do Django, uma vez que esta &#xE9; a primeira vez que estamos executando a nossa aplica&#xE7;&#xE3;o.</p>
+<pre class="language-"><code>python manage.py migrate
+</code></pre><p>Uma vez feito isso, inicie o servidor.</p>
+<pre class="language-"><code>python manage.py runserver
+</code></pre><p>Abra o navegador e navegue at&#xE9; <code>http://localhost:8000</code>. Voc&#xEA; deve ser capaz de ver a home.</p>
+<p><img src="../../assets/images/home.png" alt="Home"></p>
+<p>Clicando nos links na parte inferior deve ser poss&#xED;vel navegar entre as p&#xE1;ginas. Aqui est&#xE1; a p&#xE1;gina About:</p>
+<p><img src="../../assets/images/about-page-post-2.png" alt="About 2"></p>
+<h2 id="heran&#xE7;a-de-templates">Heran&#xE7;a de templates</h2>
+<p>Vamos mudar nosso foco para a pasta de templates dentro da pasta do app <code>example</code>. No momento, ele cont&#xE9;m dois templates, <code>index.html</code> e <code>about.html</code>.</p>
+<p>Gostar&#xED;amos que ambos os templates tenham alguns CSS. Em vez de reescrever o mesmo c&#xF3;digo em ambos, o Django nos permite criar um modelo base que ambos herdar&#xE3;o. Isso nos impede de ter que escrever um monte de c&#xF3;digo repetido em nossos templates quando precisamos modificar tudo o que &#xE9; compartilhado.</p>
+<p>Vamos criar o template base agora. Crie um arquivo chamado <code>base.html</code> em <code>djangotemplates/example/templates</code>. </p>
+<p>Escreva este c&#xF3;digo dentro dele:</p>
+<pre class="language-"><code class="lang-html"><span class="token comment" spellcheck="true">&lt;!-- djangotemplates/example/templates/base.html --&gt;</span>
+
+{% load static %}
+<span class="token doctype">&lt;!DOCTYPE html&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>utf-8<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>
+      Django Sample Site - {% block title %}{% endblock %}
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>{% static <span class="token punctuation">&apos;</span>js/main.js<span class="token punctuation">&apos;</span> %}<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span> <span class="token comment" spellcheck="true">&lt;!-- This is how to include a static file --&gt;</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>stylesheet<span class="token punctuation">&quot;</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>{% static <span class="token punctuation">&apos;</span>css/main.css<span class="token punctuation">&apos;</span> %}<span class="token punctuation">&quot;</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>text/css<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>container<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+      {% block pagecontent %}
+      {% endblock %}
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<p>A primeira linha do arquivo, <code>{% load static%}</code>, usa a sintaxe de tag do template especial do Django para indicar ao template engine que use os arquivos na pasta <code>static</code> para esse template.</p>
+<p>Na tag <code>title</code>, usamos um bloco Django. O que isto significa &#xE9; que em qualquer template do Django que herda desse template de base, qualquer HTML que esteja dentro de um bloco chamado <code>title</code> ser&#xE1; conectado ao bloco de t&#xED;tulo. O mesmo vale para o bloco de pagina&#xE7;&#xE3;o da tag body. Se isso soa confuso, n&#xE3;o se preocupe. Voc&#xEA; vai v&#xEA;-lo em a&#xE7;&#xE3;o em breve.</p>
+<p>Se voc&#xEA; n&#xE3;o estiver executando o servidor Django, execute-o escrevendo <code>python manage.py runserver</code> no seu terminal. V&#xE1; para <code>http://localhost:8000</code>. Voc&#xEA; deve ver o template anterior.</p>
+<p><img src="../../assets/images/home.png" alt="Home"></p>
+<p>Agora edite o template <code>index.html</code> para herdar do template base.</p>
+<pre class="language-"><code class="lang-html"><span class="token comment" spellcheck="true">&lt;!-- djangotemplates/example/templates/index.html --&gt;</span>
+
+{% extends &apos;base.html&apos; %} <span class="token comment" spellcheck="true">&lt;!-- Add this for inheritance --&gt;</span>
+
+<span class="token doctype">&lt;!DOCTYPE html&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>en<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>UTF-8<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>Welcome Home<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&quot;
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>{% url <span class="token punctuation">&apos;</span>home<span class="token punctuation">&apos;</span> %}<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>Go Home<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>{% url <span class="token punctuation">&apos;</span>about<span class="token punctuation">&apos;</span> %}<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>About This Site<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<p>Recarregue a p&#xE1;gina no seu navegador. Nada aparece! Isso ocorre porque o Django espera que seu conte&#xFA;do seja escrito dentro dos blocos que definimos no template base para que possam ser renderizados. Edite o <code>index.html</code> para adicionar os blocos:</p>
+<pre class="language-"><code class="lang-html"><span class="token comment" spellcheck="true">&lt;!-- djangotemplates/example/templates/index.html --&gt;</span>
+
+{% extends &apos;base.html&apos; %}
+
+<span class="token doctype">&lt;!DOCTYPE html&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>en<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>UTF-8<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>{% block title %}Welcome Home {% endblock %}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+  {% block pagecontent %}
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&quot;
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>{% url <span class="token punctuation">&apos;</span>home<span class="token punctuation">&apos;</span> %}<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>Go Home<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>{% url <span class="token punctuation">&apos;</span>about<span class="token punctuation">&apos;</span> %}<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>About This Site<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>
+  {% endblock %}
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<p>Recarregue a p&#xE1;gina no navegador e voila! Seu conte&#xFA;do deve aparecer novamente:</p>
+<p><img src="../../assets/images/home.png" alt="Home"></p>
+<p>Tamb&#xE9;m podemos editar o template about.html para usar o mesmo:</p>
+<pre class="language-"><code class="lang-html"><span class="token comment" spellcheck="true">&lt;!-- djangotemplates/example/templates/about.html --&gt;</span>
+
+{% extends &apos;base.html&apos; %} <span class="token comment" spellcheck="true">&lt;!-- Add this for inheritance --&gt;</span>
+
+<span class="token doctype">&lt;!DOCTYPE html&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>en<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>UTF-8<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>{% block title %}About Us {% endblock %}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+  {% block pagecontent %}
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>
+    We are a group of Django enthusiasts with the following idiosyncrasies:
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ol</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span>We only eat bananas on Saturdays.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span>We love making playing football on rainy days.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ol</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>{% url <span class="token punctuation">&apos;</span>home<span class="token punctuation">&apos;</span> %}<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>Go Home<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>{% url <span class="token punctuation">&apos;</span>about<span class="token punctuation">&apos;</span> %}<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>About This Site<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>
+  {% endblock %}
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<p>Agora voc&#xEA; deve ver isso na p&#xE1;gina About:</p>
+<p><img src="../../assets/images/about-page-post-2.png" alt="About 2"></p>
+<p>Que &#xE9; exatamente o mesmo de antes!</p>
+<p>No entanto, agora, uma vez que ambos os modelos herdam de um template base, eu posso facilmente estiliz&#xE1;-los. Abra o main.css na sua pasta css e adicione estes estilos:</p>
+<pre class="language-"><code class="lang-css"><span class="token selector">.container</span> <span class="token punctuation">{</span>
+    <span class="token property">background</span><span class="token punctuation">:</span> #eac656<span class="token punctuation">;</span>
+    <span class="token property">margin</span><span class="token punctuation">:</span> 10 10 10 10<span class="token punctuation">;</span>
+    <span class="token property">border</span><span class="token punctuation">:</span> 3px solid black<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Isso vai estilizar a div container que estamos carregando o nosso conte&#xFA;do. D&#xEA; um refresh seu navegador. Voc&#xEA; deve ver isso:</p>
+<p>P&#xE1;gina inicial:</p>
+<p><img src="../../assets/images/home-style.png" alt="Home style"></p>
+<p>P&#xE1;gina About:</p>
+<p><img src="../../assets/images/about-style.png" alt="About style"></p>
+<hr>
+<h2 id="renderizando-templates-com-dados-vindos-da-view">Renderizando templates com dados vindos da view</h2>
+<p>Voc&#xEA; pode usar a template engine do Django para exibir dados nos templates. Nesta se&#xE7;&#xE3;o, vou criar uma view do Django que passar&#xE1; dados para um template. Vou ent&#xE3;o mostrar-lhe como acessar esses dados no template e exibi-lo para o usu&#xE1;rio.</p>
+<p>Primeiro, abra <code>views.py</code> na pasta do app <code>example</code>. Vamos adicionar uma nova view para servir dados em nosso template <code>data.html</code> ainda existente. Modifique o arquivo <code>views.py</code> para que fique assim:</p>
+<pre class="language-"><code class="lang-python"><span class="token comment" spellcheck="true"># djangotemplates/example/views.py</span>
+
+<span class="token keyword">from</span> django<span class="token punctuation">.</span>shortcuts <span class="token keyword">import</span> render
+<span class="token keyword">from</span> django<span class="token punctuation">.</span>views<span class="token punctuation">.</span>generic <span class="token keyword">import</span> TemplateView
+
+<span class="token keyword">class</span> <span class="token class-name">HomePageView</span><span class="token punctuation">(</span>TemplateView<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    template_name <span class="token operator">=</span> <span class="token string">&quot;index.html&quot;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">AboutPageView</span><span class="token punctuation">(</span>TemplateView<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    template_name <span class="token operator">=</span> <span class="token string">&quot;about.html&quot;</span>
+
+<span class="token comment" spellcheck="true"># Add this view</span>
+<span class="token keyword">class</span> <span class="token class-name">DataPageView</span><span class="token punctuation">(</span>TemplateView<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">get</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> request<span class="token punctuation">,</span> <span class="token operator">**</span>kwargs<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment" spellcheck="true"># we will pass this context object into the</span>
+        <span class="token comment" spellcheck="true"># template so that we can access the data</span>
+        <span class="token comment" spellcheck="true"># list in the template</span>
+        context <span class="token operator">=</span> <span class="token punctuation">{</span>
+            <span class="token string">&apos;data&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>
+                <span class="token punctuation">{</span>
+                    <span class="token string">&apos;name&apos;</span><span class="token punctuation">:</span> <span class="token string">&apos;Celeb 1&apos;</span><span class="token punctuation">,</span>
+                    <span class="token string">&apos;worth&apos;</span><span class="token punctuation">:</span> <span class="token string">&apos;3567892&apos;</span>
+                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                <span class="token punctuation">{</span>
+                    <span class="token string">&apos;name&apos;</span><span class="token punctuation">:</span> <span class="token string">&apos;Celeb 2&apos;</span><span class="token punctuation">,</span>
+                    <span class="token string">&apos;worth&apos;</span><span class="token punctuation">:</span> <span class="token string">&apos;23000000&apos;</span>
+                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                <span class="token punctuation">{</span>
+                    <span class="token string">&apos;name&apos;</span><span class="token punctuation">:</span> <span class="token string">&apos;Celeb 3&apos;</span><span class="token punctuation">,</span>
+                    <span class="token string">&apos;worth&apos;</span><span class="token punctuation">:</span> <span class="token string">&apos;1000007&apos;</span>
+                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                <span class="token punctuation">{</span>
+                    <span class="token string">&apos;name&apos;</span><span class="token punctuation">:</span> <span class="token string">&apos;Celeb 4&apos;</span><span class="token punctuation">,</span>
+                    <span class="token string">&apos;worth&apos;</span><span class="token punctuation">:</span> <span class="token string">&apos;456789&apos;</span>
+                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                <span class="token punctuation">{</span>
+                    <span class="token string">&apos;name&apos;</span><span class="token punctuation">:</span> <span class="token string">&apos;Celeb 5&apos;</span><span class="token punctuation">,</span>
+                    <span class="token string">&apos;worth&apos;</span><span class="token punctuation">:</span> <span class="token string">&apos;7890000&apos;</span>
+                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                <span class="token punctuation">{</span>
+                    <span class="token string">&apos;name&apos;</span><span class="token punctuation">:</span> <span class="token string">&apos;Celeb 6&apos;</span><span class="token punctuation">,</span>
+                    <span class="token string">&apos;worth&apos;</span><span class="token punctuation">:</span> <span class="token string">&apos;12000456&apos;</span>
+                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                <span class="token punctuation">{</span>
+                    <span class="token string">&apos;name&apos;</span><span class="token punctuation">:</span> <span class="token string">&apos;Celeb 7&apos;</span><span class="token punctuation">,</span>
+                    <span class="token string">&apos;worth&apos;</span><span class="token punctuation">:</span> <span class="token string">&apos;896000&apos;</span>
+                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                <span class="token punctuation">{</span>
+                    <span class="token string">&apos;name&apos;</span><span class="token punctuation">:</span> <span class="token string">&apos;Celeb 8&apos;</span><span class="token punctuation">,</span>
+                    <span class="token string">&apos;worth&apos;</span><span class="token punctuation">:</span> <span class="token string">&apos;670000&apos;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">]</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">return</span> render<span class="token punctuation">(</span>request<span class="token punctuation">,</span> <span class="token string">&apos;data.html&apos;</span><span class="token punctuation">,</span> context<span class="token punctuation">)</span>
+</code></pre>
+<p>Estamos usando o mesmo tipo de view que usamos para processar os outros templates. No entanto, agora estamos passando um objeto de <code>context</code> para o m&#xE9;todo de renderiza&#xE7;&#xE3;o. Os pares chave-valor definidos no context estar&#xE3;o dispon&#xED;veis no template que est&#xE1; sendo renderizado, e podemos iterar atrav&#xE9;s deles como qualquer outra lista.</p>
+<p>Para terminar, acesse o arquivo <code>urls.py</code> no app <code>howdy</code> e adicione o padr&#xE3;o de URL para nossa nova view, para que fique assim:</p>
+<pre class="language-"><code class="lang-python"><span class="token comment" spellcheck="true"># djangotemplates/example/urls.py</span>
+
+<span class="token keyword">from</span> django<span class="token punctuation">.</span>conf<span class="token punctuation">.</span>urls <span class="token keyword">import</span> url
+<span class="token keyword">from</span> example <span class="token keyword">import</span> views
+
+urlpatterns <span class="token operator">=</span> <span class="token punctuation">[</span>
+    url<span class="token punctuation">(</span>r<span class="token string">&apos;^$&apos;</span><span class="token punctuation">,</span> views<span class="token punctuation">.</span>HomePageView<span class="token punctuation">.</span>as_view<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> name<span class="token operator">=</span><span class="token string">&apos;home&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    url<span class="token punctuation">(</span>r<span class="token string">&apos;^about/$&apos;</span><span class="token punctuation">,</span> views<span class="token punctuation">.</span>AboutPageView<span class="token punctuation">.</span>as_view<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> name<span class="token operator">=</span><span class="token string">&apos;about&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    url<span class="token punctuation">(</span>r<span class="token string">&apos;^data/$&apos;</span><span class="token punctuation">,</span> views<span class="token punctuation">.</span>DataPageView<span class="token punctuation">.</span>as_view<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> name<span class="token operator">=</span><span class="token string">&apos;data&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>  <span class="token comment" spellcheck="true"># Add this URL pattern</span>
+<span class="token punctuation">]</span>
+</code></pre>
+<p>Por fim, vamos criar o template. Na pasta de templates, crie um arquivo chamado <code>data.html</code> e escreva esse c&#xF3;digo dentro dele:</p>
+<pre class="language-"><code class="lang-html"><span class="token comment" spellcheck="true">&lt;!-- djangotemplates/example/templates/data.html --&gt;</span>
+
+{% extends &apos;base.html&apos; %}
+<span class="token doctype">&lt;!DOCTYPE html&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>utf-8<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+    {% block pagecontent %}
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>table-div<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token comment" spellcheck="true">&lt;!-- We will display our data in a normal HTML table using Django&apos;s
+    template for-loop to generate our table rows for us--&gt;</span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>table</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>table<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>thead</span><span class="token punctuation">&gt;</span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tr</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>th</span><span class="token punctuation">&gt;</span></span>Celebrity Name<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>th</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>th</span><span class="token punctuation">&gt;</span></span>Net Worth<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>th</span><span class="token punctuation">&gt;</span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tr</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>thead</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tbody</span><span class="token punctuation">&gt;</span></span>
+          {% for celebrity in data %}
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tr</span><span class="token punctuation">&gt;</span></span>
+              <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span><span class="token punctuation">&gt;</span></span>{{ celebrity.name }}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">&gt;</span></span>
+              <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span><span class="token punctuation">&gt;</span></span>{{ celebrity.worth }}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tr</span><span class="token punctuation">&gt;</span></span>
+          {% endfor %}
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tbody</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>table</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    {% endblock %}
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<p>No arquivo <code>data.html</code>, voc&#xEA; pode ver que usamos o que &#xE9; essencialmente um <code>for</code> loop para percorrer a lista de dados. A vincula&#xE7;&#xE3;o de valores em templates do Django &#xE9; feita usando <code>{{}}</code> colchetes como no AngularJS.</p>
+<p>Com o servidor em execu&#xE7;&#xE3;o, v&#xE1; para <code>http://localhost:8000/data/</code> para ver o template:</p>
+<p><img src="../../assets/images/data-page.png" alt="Data page"></p>
+<hr>
+<h2 id="incluindo-snippets-em-seus-templates">Incluindo snippets em seus templates</h2>
+<p>Agora temos tr&#xEA;s templates, <code>index.html</code>, <code>about.html</code> e <code>data.html</code>. Vamos uni-los usando uma simples barra de navega&#xE7;&#xE3;o. Primeiro, vamos escrever o c&#xF3;digo para a barra de navega&#xE7;&#xE3;o em outro template HTML.</p>
+<p>Na pasta de templates dentro do app <code>example</code>, crie uma nova pasta chamada <code>partials</code>. Dentro dela, crie um arquivo chamado <code>nav-bar.html</code>. A estrutura de pasta de templates agora deve ser assim:</p>
+<pre class="language-"><code>templates
+----index.html
+----about.html
+----data.html
+----partials
+------nav-bar.html
+</code></pre><p>Edite o arquivo <code>nav-bar.html</code> para que ele contenha esse c&#xF3;digo:</p>
+<pre class="language-"><code class="lang-html"><span class="token comment" spellcheck="true">&lt;!-- djangotemplates/example/templates/partials/nav-bar.html --&gt;</span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>nav<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>{% url <span class="token punctuation">&apos;</span>home<span class="token punctuation">&apos;</span> %}<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>Go Home<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>{% url <span class="token punctuation">&apos;</span>about<span class="token punctuation">&apos;</span> %}<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>About This Site<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>{% url <span class="token punctuation">&apos;</span>data<span class="token punctuation">&apos;</span> %}<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>View Data<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<p>Incluir snippets em um template &#xE9; muito simples. Usamos a palavra-chave <code>includes</code> fornecida pelo template engine do Django. V&#xE1; em frente e modifique o <code>index.html</code> para isso:</p>
+<pre class="language-"><code class="lang-html"><span class="token comment" spellcheck="true">&lt;!-- djangotemplates/example/templates/index.html --&gt;</span>
+
+{% extends &apos;base.html&apos; %}
+
+<span class="token doctype">&lt;!DOCTYPE html&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>en<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>UTF-8<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>{% block title %}Welcome Home {% endblock %}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+  {% block pagecontent %}
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>&quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&quot;
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+    {% include &apos;partials/nav-bar.html&apos; %} <span class="token comment" spellcheck="true">&lt;!--Add this--&gt;</span>
+
+    <span class="token comment" spellcheck="true">&lt;!-- Remove these two lines -- &gt;
+    &lt;!-- &lt;a href=&quot;{% url &apos;home&apos; %}&quot;&gt;Go Home&lt;/a&gt; --&gt;</span>
+    <span class="token comment" spellcheck="true">&lt;!-- &lt;a href=&quot;{% url &apos;about&apos; %}&quot;&gt;About This Site&lt;/a&gt; --&gt;</span>
+  {% endblock %}
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<p>Modifique o <code>about.html</code> para isso:</p>
+<pre class="language-"><code class="lang-html"><span class="token comment" spellcheck="true">&lt;!-- djangotemplates/example/templates/about.html --&gt;</span>
+
+{% extends &apos;base.html&apos; %}
+
+<span class="token doctype">&lt;!DOCTYPE html&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>en<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>UTF-8<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>{% block title %}About Us {% endblock %}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+  {% block pagecontent %}
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>
+    We are a group of Django enthusiasts with the following idiosyncrasies:
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ol</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span>We only eat bananas on Saturdays.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">&gt;</span></span>We love making playing football on rainy days.<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ol</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+    {% include &apos;partials/nav-bar.html&apos; %} <span class="token comment" spellcheck="true">&lt;!--Add this--&gt;</span>
+
+    <span class="token comment" spellcheck="true">&lt;!-- Remove these two lines -- &gt;
+    &lt;!-- &lt;a href=&quot;{% url &apos;home&apos; %}&quot;&gt;Go Home&lt;/a&gt; --&gt;</span>
+    <span class="token comment" spellcheck="true">&lt;!-- &lt;a href=&quot;{% url &apos;about&apos; %}&quot;&gt;About This Site&lt;/a&gt; --&gt;</span>
+  {% endblock %}
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<p>E por &#xFA;ltimo modifique o <code>data.html</code></p>
+<pre class="language-"><code class="lang-html"><span class="token comment" spellcheck="true">&lt;!-- djangotemplates/example/templates/data.html --&gt;</span>
+
+{% extends &apos;base.html&apos; %}
+<span class="token doctype">&lt;!DOCTYPE html&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>utf-8<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+    {% block pagecontent %}
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>table-div<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>table</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>table<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>thead</span><span class="token punctuation">&gt;</span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tr</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>th</span><span class="token punctuation">&gt;</span></span>Celebrity Name<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>th</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>th</span><span class="token punctuation">&gt;</span></span>Net Worth<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>th</span><span class="token punctuation">&gt;</span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tr</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>thead</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tbody</span><span class="token punctuation">&gt;</span></span>
+          {% for celebrity in data %}
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tr</span><span class="token punctuation">&gt;</span></span>
+              <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span><span class="token punctuation">&gt;</span></span>{{ celebrity.name }}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">&gt;</span></span>
+              <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span><span class="token punctuation">&gt;</span></span>{{ celebrity.worth }}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tr</span><span class="token punctuation">&gt;</span></span>
+          {% endfor %}
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tbody</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>table</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    {% include &apos;partials/nav-bar.html&apos; %} <span class="token comment" spellcheck="true">&lt;!--Add this--&gt;</span>
+    {% endblock %}
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<p>Hora de verificar o nosso trabalho! Abra o navegador e navegue at&#xE9; <code>http://localhost:8000</code>.</p>
+<p>Voc&#xEA; deve ver isso:</p>
+<p><img src="../../assets/images/home-final.png" alt="Home final"></p>
+<p>Todas as p&#xE1;ginas agora est&#xE3;o ligadas com a navbar para que voc&#xEA; possa facilmente navegar de um lado para outro atrav&#xE9;s deles, todos com o m&#xED;nimo de c&#xF3;digo escrito. Aqui est&#xE1; o template <code>data.html</code>:</p>
+<p><img src="../../assets/images/data-final.png" alt="Data final"></p>
+<p>E o <code>about.html</code></p>
+<p><img src="../../assets/images/about-final.png" alt="About final"></p>
+<p>Agora foi adicionado o seguinte CSS para estilizar os links na barra de navega&#xE7;&#xE3;o. Fique &#xE0; vontade para us&#xE1;-lo ou usar seus pr&#xF3;prios estilos:</p>
+<pre class="language-"><code class="lang-css"><span class="token selector">// djangtotemplates/static/css/main.css
+
+.container</span> <span class="token punctuation">{</span>
+    <span class="token property">background</span><span class="token punctuation">:</span> #eac656<span class="token punctuation">;</span>
+    <span class="token property">margin</span><span class="token punctuation">:</span> 10 10 10 10<span class="token punctuation">;</span>
+    <span class="token property">border</span><span class="token punctuation">:</span> 3px solid black<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.nav a</span> <span class="token punctuation">{</span>
+    <span class="token property">background</span><span class="token punctuation">:</span> #dedede<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="filtros">Filtros</h2>
+<p>Os filtros pegam os dados passados para eles e os formatam. Os templates do Django t&#xEA;m acesso &#xE0; cole&#xE7;&#xE3;o <code>humanize</code> de filtros, que tornam os dados mais leg&#xED;veis para o usu&#xE1;rio. Vamos fazer com que o campo <code>networth</code> da celebridade no template de dados seja mais leg&#xED;vel usando alguns desses filtros.</p>
+<p>Para usar os filtros <code>humanize</code> do Django, primeiro voc&#xEA; precisa editar algumas configura&#xE7;&#xF5;es. Abra <code>djangotemplates/settings.py</code> e edite a lista <code>INSTALLED_APPS</code> para isso:</p>
+<pre class="language-"><code class="lang-python"><span class="token comment" spellcheck="true"># djangotemplates/djangotemplates/settings.py</span>
+
+ALLOWED_HOSTS <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+
+<span class="token comment" spellcheck="true"># Application definition</span>
+
+INSTALLED_APPS <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token string">&apos;django.contrib.admin&apos;</span><span class="token punctuation">,</span>
+    <span class="token string">&apos;django.contrib.auth&apos;</span><span class="token punctuation">,</span>
+    <span class="token string">&apos;django.contrib.contenttypes&apos;</span><span class="token punctuation">,</span>
+    <span class="token string">&apos;django.contrib.sessions&apos;</span><span class="token punctuation">,</span>
+    <span class="token string">&apos;django.contrib.messages&apos;</span><span class="token punctuation">,</span>
+    <span class="token string">&apos;django.contrib.staticfiles&apos;</span><span class="token punctuation">,</span>
+    <span class="token string">&apos;django.contrib.humanize&apos;</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true"># Add this line. Don&apos;t forget the trailing comma</span>
+    <span class="token string">&apos;example&apos;</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span>
+</code></pre>
+<p>Agora podemos usar um filtro em nossos templates. Vamos usar o filtro <code>intcomma</code> para adicionar v&#xED;rgulas em n&#xFA;meros muito grandes para torn&#xE1;-los mais f&#xE1;ceis de ler. Vamos modificar <code>data.html</code> para isso:</p>
+<pre class="language-"><code class="lang-html"><span class="token comment" spellcheck="true">&lt;!-- djangotemplates/example/templates/data.html --&gt;</span>
+
+{% extends &apos;base.html&apos; %}
+{% load humanize %} <span class="token comment" spellcheck="true">&lt;!-- Add this--&gt;</span>
+
+<span class="token doctype">&lt;!DOCTYPE html&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>utf-8<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+    {% block pagecontent %}
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>table-div<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>table</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>table<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>thead</span><span class="token punctuation">&gt;</span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tr</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>th</span><span class="token punctuation">&gt;</span></span>Celebrity Name<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>th</span><span class="token punctuation">&gt;</span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>th</span><span class="token punctuation">&gt;</span></span>Net Worth<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>th</span><span class="token punctuation">&gt;</span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tr</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>thead</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tbody</span><span class="token punctuation">&gt;</span></span>
+          {% for celebrity in data %}
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tr</span><span class="token punctuation">&gt;</span></span>
+              <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span><span class="token punctuation">&gt;</span></span>{{ celebrity.name }}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">&gt;</span></span>
+              <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>td</span><span class="token punctuation">&gt;</span></span>$ {{ celebrity.worth | intcomma }}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>td</span><span class="token punctuation">&gt;</span></span> <span class="token comment" spellcheck="true">&lt;!--Modify this line--&gt;</span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tr</span><span class="token punctuation">&gt;</span></span>
+          {% endfor %}
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tbody</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>table</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+    {% include &apos;partials/nav-bar.html&apos; %}
+    {% endblock %}
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<p>Quando voc&#xEA; vai para <code>http://localhost:8000/data/</code>, agora voc&#xEA; deve ter uma lista mais amig&#xE1;vel de valores de patrim&#xF4;nio l&#xED;quido:</p>
+<p><img src="../../assets/images/data-filter.png" alt="Data filter"></p>
+<p>H&#xE1; muitos mais filtros inclu&#xED;dos no pacote de filtros <code>humanize</code>. Leia sobre eles <a href="https://docs.djangoproject.com/en/1.10/ref/contrib/humanize/" target="_blank">aqui</a></p>
+<hr>
+<h2 id="coletando-arquivos-est&#xE1;ticos">Coletando arquivos est&#xE1;ticos</h2>
+<p>Lembre-se que conversamos sobre a coleta de arquivos est&#xE1;ticos? Experimente o seguinte comando:</p>
+<pre class="language-"><code>python manage.py collectstatic
+</code></pre><p>Voc&#xEA; deve ver um prompt como o seguinte:</p>
+<pre class="language-"><code>You have requested to collect static files at the destination
+location as specified in your settings:
+
+      /Users/amos/projects/djangotemplates/staticfiles
+
+This will overwrite existing files!
+Are you sure you want to do this?
+
+Type &apos;yes&apos; to continue, or &apos;no&apos; to cancel:
+</code></pre><p>V&#xE1; em frente e escreva <code>sim</code>.</p>
+<p>Este comando pedir&#xE1; ao Django para percorrer todas as pastas do seu projeto, procurar todos os arquivos est&#xE1;ticos e armazen&#xE1;-los em um lugar (a pasta est&#xE1;tica ra&#xED;z que definimos nas configura&#xE7;&#xF5;es). Isso &#xE9; muito eficiente, especialmente se voc&#xEA; estiver fazendo deploy do seu site para a produ&#xE7;&#xE3;o.</p>
+<p>Quando voc&#xEA; executa o comando <code>collectstatic</code>, voc&#xEA; deve ver uma nova pasta chamada <code>staticfiles</code> criada na ra&#xED;z da pasta do seu projeto. Voc&#xEA; pode alterar esse local para outro editando a configura&#xE7;&#xE3;o da pasta est&#xE1;tica ra&#xED;z, definida no arquivo <code>settings.py</code> do seu projeto. Para usar esses arquivos est&#xE1;ticos, em seus templates voc&#xEA; dir&#xE1; escrever&#xE1; <code>load staticfiles</code> ao inv&#xE9;z de <code>load static</code>. Todo o resto &#xE9; o mesmo que usando a pasta <code>static</code> anterior.</p>
+<h2 id="conclus&#xE3;o">Conclus&#xE3;o</h2>
+<p>Parab&#xE9;ns por ter chegado ao final deste tutorial! At&#xE9; agora voc&#xEA; deve ter uma compreens&#xE3;o mais detalhada de como funcionam os templates no Django. Se voc&#xEA; precisa de informa&#xE7;&#xF5;es mais profundas, lembre-se que a documenta&#xE7;&#xE3;o &#xE9; sua amiga. Voc&#xEA; pode encontrar o c&#xF3;digo completo para este tutorial <a href="https://github.com/andela-aomondi/djangotemplates" target="_blank">aqui</a>. </p>
 
                                 
                                 </section>
@@ -350,7 +1019,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Trabalhando com template Django e arquivos estáticos","level":"1.3.2","depth":2,"previous":{"title":"Construa sua primeira aplicação em Django","level":"1.3.1","depth":2,"path":"content/posts/primeira-aplicacao-em-django.md","ref":"content/posts/primeira-aplicacao-em-django.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","livereload"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"theme-api":{"languages":[],"split":true,"theme":"dark"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Python e Django Básico","gitbook":"*","description":"Anotações sobre Python e Django"},"file":{"path":"content/posts/trabalhando-com-templates-django-e-arquivos-estaticos.md","mtime":"2017-03-18T21:40:17.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-18T21:44:21.159Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Trabalhando com template Django e arquivos estáticos","level":"1.3.2","depth":2,"previous":{"title":"Construa sua primeira aplicação em Django","level":"1.3.1","depth":2,"path":"content/posts/primeira-aplicacao-em-django.md","ref":"content/posts/primeira-aplicacao-em-django.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","livereload"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"theme-api":{"languages":[],"split":true,"theme":"dark"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Python e Django Básico","gitbook":"*","description":"Anotações sobre Python e Django"},"file":{"path":"content/posts/trabalhando-com-templates-django-e-arquivos-estaticos.md","mtime":"2017-03-18T23:10:33.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-18T22:00:30.666Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
