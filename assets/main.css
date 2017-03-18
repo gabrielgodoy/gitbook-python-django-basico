@@ -1,0 +1,72 @@
+.page-wrapper {
+    padding-bottom: 30px;
+}
+
+ul.summary li span {
+    opacity: .5;
+}
+
+ul.summary li a {
+    transition: color .3s
+}
+
+ul.summary > li > a,
+ul.summary > li > span {
+    font-weight: bold;
+}
+
+ul.summary li a:hover {
+    color: #008cff;
+    text-decoration: none !important;
+}
+
+pre.language- {
+    border-radius: 4px;
+}
+
+.articles {
+    opacity: .8;
+}
+
+p > code {
+    padding: 2px 6px !important;
+    background: #F2F7F9 !important;
+    color: #256FC7 !important;
+    border-radius: 4px;
+    font-size: 80%;
+}
+
+.markdown-section p {
+    color: #616161 !important;
+    line-height: 1.75;
+    font-size: 19px;
+}
+
+.markdown-section h3 {
+    color: rgba(68, 68, 68, .85);
+    margin: 60px 0 20px;
+}
+
+.markdown-section ul,
+.markdown-section ol {
+    font-size: 19px;
+}
+
+.book.color-theme-3 .book-body section a,
+.markdown-section a {
+    color: #F38B72;
+}
+
+.markdown-section li {
+    position: relative;
+    margin: 0 auto 15px;
+    color: #7a7a7a;
+    line-height: 28px;
+}
+
+.markdown-section img {
+    border: 1px solid #F1F2F1!important;
+    max-width: 650px;
+    margin: 0 auto;
+    display: block;
+}

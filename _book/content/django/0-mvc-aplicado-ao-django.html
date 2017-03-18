@@ -1,0 +1,412 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>MVC aplicado ao Django · Python e Django Básico</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        <meta name="author" content="Gabriel Godoy">
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism-tomorrow.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-theme-api/theme-api.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../../assets/main.css">
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="1-django-conceitos-basicos.html" />
+    
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introdução
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    Django
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.2.1" data-path="0-mvc-aplicado-ao-django.html">
+            
+                <a href="0-mvc-aplicado-ao-django.html">
+            
+                    
+                    MVC aplicado ao Django
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="1-django-conceitos-basicos.html">
+            
+                <a href="1-django-conceitos-basicos.html">
+            
+                    
+                    Conceitos básicos
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="2-estrutura-de-arquivos.html">
+            
+                <a href="2-estrutura-de-arquivos.html">
+            
+                    
+                    Estrutura de arquivos
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="comecando-com-o-django/0-comecando-com-o-django.html">
+            
+                <a href="comecando-com-o-django/0-comecando-com-o-django.html">
+            
+                    
+                    Começando com o Django
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.4.1" data-path="comecando-com-o-django/1-criando-models.html">
+            
+                <a href="comecando-com-o-django/1-criando-models.html">
+            
+                    
+                    Criando Models
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.2" data-path="comecando-com-o-django/2-criando-templates.html">
+            
+                <a href="comecando-com-o-django/2-criando-templates.html">
+            
+                    
+                    Criando Templates
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.3" data-path="comecando-com-o-django/3-atualizando-o-banco.html">
+            
+                <a href="comecando-com-o-django/3-atualizando-o-banco.html">
+            
+                    
+                    Atualizando o banco
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="links-uteis.html">
+            
+                <a href="links-uteis.html">
+            
+                    
+                    Links úteis
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    Posts
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../posts/primeira-aplicacao-em-django.html">
+            
+                <a href="../posts/primeira-aplicacao-em-django.html">
+            
+                    
+                    Construa sua primeira aplicação em Django
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../posts/trabalhando-com-templates-django-e-arquivos-estaticos.html">
+            
+                <a href="../posts/trabalhando-com-templates-django-e-arquivos-estaticos.html">
+            
+                    
+                    Trabalhando com template Django e arquivos estáticos
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >MVC aplicado ao Django</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="mvc-aplicado-ao-django">MVC aplicado ao Django</h1>
+<p>O Django possui uma arquitetura separada em Model, View e Controller (MVC). </p>
+<p>A arquitetura MVC separa as responsabilidades da aplica&#xE7;&#xE3;o e tornar o c&#xF3;digo mais leg&#xED;vel.</p>
+<p>Na verdade o Django &#xE9; muitas vezes visto como uma arquitetura MTV (Model, Template e View)</p>
+<h2 id="model">Model</h2>
+<p>No model &#xE9; definido o &quot;molde&quot;, ou estrutura dos dados da sua aplica&#xE7;&#xE3;o. No Django esse molde dos dados &#xE9; feito no arquivo <code>models-py</code> do seu app, atrav&#xE9;s de classes que descrevem a estrutura de um determinado dado.</p>
+<p>Exemplo de uma classe no <code>models.py</code> no Django:</p>
+<pre class="language-"><code class="lang-python"><span class="token keyword">class</span> <span class="token class-name">Pessoa</span><span class="token punctuation">(</span>models<span class="token punctuation">.</span>Model<span class="token punctuation">)</span><span class="token punctuation">:</span>
+     nome <span class="token operator">=</span> models<span class="token punctuation">.</span>CharField<span class="token punctuation">(</span>max_length<span class="token operator">=</span><span class="token number">50</span><span class="token punctuation">)</span>
+     idade <span class="token operator">=</span> models<span class="token punctuation">.</span>IntegerField<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="view">View</h2>
+<p>A view &#xE9; a camada de apresenta&#xE7;&#xE3;o do seu site ao usu&#xE1;rio final. Na view s&#xE3;o exibidos os dados do model ao usu&#xE1;rio. <strong>Esse papel &#xE9; feito pelos templates no caso do Django</strong>.</p>
+<h2 id="controller">Controller</h2>
+<p>O controller &#xE9; respons&#xE1;vel por ligar os model com as views e realizar qualquer l&#xF3;gica intermedi&#xE1;ria entre eles como manipula&#xE7;&#xE3;o de dados. O controller, como o nome j&#xE1; diz, controla a maneira como os dados fluem entre o model e a view, e vice-versa.</p>
+<p>O controller no Django fica em grande parte por baixo dos panos do pr&#xF3;prio framework.</p>
+<p>O papel do controller no Django pode ser atribu&#xED;do a suas views tamb&#xE9;m, que escolhem qual conte&#xFA;do ser&#xE3;o exibidos em cada template.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"MVC aplicado ao Django","level":"1.2.1","depth":2,"next":{"title":"Conceitos básicos","level":"1.2.2","depth":2,"path":"content/django/1-django-conceitos-basicos.md","ref":"content/django/1-django-conceitos-basicos.md","articles":[]},"previous":{"title":"Django","level":"1.2","depth":1,"ref":"","articles":[{"title":"MVC aplicado ao Django","level":"1.2.1","depth":2,"path":"content/django/0-mvc-aplicado-ao-django.md","ref":"content/django/0-mvc-aplicado-ao-django.md","articles":[]},{"title":"Conceitos básicos","level":"1.2.2","depth":2,"path":"content/django/1-django-conceitos-basicos.md","ref":"content/django/1-django-conceitos-basicos.md","articles":[]},{"title":"Estrutura de arquivos","level":"1.2.3","depth":2,"path":"content/django/2-estrutura-de-arquivos.md","ref":"content/django/2-estrutura-de-arquivos.md","articles":[]},{"title":"Começando com o Django","level":"1.2.4","depth":2,"path":"content/django/comecando-com-o-django/0-comecando-com-o-django.md","ref":"content/django/comecando-com-o-django/0-comecando-com-o-django.md","articles":[{"title":"Criando Models","level":"1.2.4.1","depth":3,"path":"content/django/comecando-com-o-django/1-criando-models.md","ref":"content/django/comecando-com-o-django/1-criando-models.md","articles":[]},{"title":"Criando Templates","level":"1.2.4.2","depth":3,"path":"content/django/comecando-com-o-django/2-criando-templates.md","ref":"content/django/comecando-com-o-django/2-criando-templates.md","articles":[]},{"title":"Atualizando o banco","level":"1.2.4.3","depth":3,"path":"content/django/comecando-com-o-django/3-atualizando-o-banco.md","ref":"content/django/comecando-com-o-django/3-atualizando-o-banco.md","articles":[]}]},{"title":"Links úteis","level":"1.2.5","depth":2,"path":"content/django/links-uteis.md","ref":"content/django/links-uteis.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","livereload"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"theme-api":{"languages":[],"split":true,"theme":"dark"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Python e Django Básico","gitbook":"*","description":"Anotações sobre Python e Django"},"file":{"path":"content/django/0-mvc-aplicado-ao-django.md","mtime":"2017-03-18T18:53:41.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-18T21:44:21.159Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-theme-api/theme-api.js"></script>
+        
+    
+
+    </body>
+</html>
+

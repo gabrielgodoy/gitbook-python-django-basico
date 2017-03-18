@@ -1,0 +1,23 @@
+{
+	"title": "Python e Django Básico",
+	"description": "Anotações sobre Python e Django",
+	"author": "Gabriel Godoy",
+	"styles": {
+		"website": "./assets/main.css"
+	},
+	"plugins": [
+		"theme-api",
+		"prism", 
+		"-highlight"
+	],
+	"pluginsConfig": {
+		"theme-api": {
+			"theme": "dark"
+		},
+		"prism": {
+			"css": [
+				"prismjs/themes/prism-tomorrow.css"
+			]
+		}
+	}
+}

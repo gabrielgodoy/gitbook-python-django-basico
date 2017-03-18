@@ -1,0 +1,812 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Construa sua primeira aplicação em Django · Python e Django Básico</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        <meta name="author" content="Gabriel Godoy">
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism-tomorrow.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-theme-api/theme-api.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../../assets/main.css">
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="trabalhando-com-templates-django-e-arquivos-estaticos.html" />
+    
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introdução
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    Django
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../django/0-mvc-aplicado-ao-django.html">
+            
+                <a href="../django/0-mvc-aplicado-ao-django.html">
+            
+                    
+                    MVC aplicado ao Django
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../django/1-django-conceitos-basicos.html">
+            
+                <a href="../django/1-django-conceitos-basicos.html">
+            
+                    
+                    Conceitos básicos
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../django/2-estrutura-de-arquivos.html">
+            
+                <a href="../django/2-estrutura-de-arquivos.html">
+            
+                    
+                    Estrutura de arquivos
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../django/comecando-com-o-django/0-comecando-com-o-django.html">
+            
+                <a href="../django/comecando-com-o-django/0-comecando-com-o-django.html">
+            
+                    
+                    Começando com o Django
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.4.1" data-path="../django/comecando-com-o-django/1-criando-models.html">
+            
+                <a href="../django/comecando-com-o-django/1-criando-models.html">
+            
+                    
+                    Criando Models
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.2" data-path="../django/comecando-com-o-django/2-criando-templates.html">
+            
+                <a href="../django/comecando-com-o-django/2-criando-templates.html">
+            
+                    
+                    Criando Templates
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4.3" data-path="../django/comecando-com-o-django/3-atualizando-o-banco.html">
+            
+                <a href="../django/comecando-com-o-django/3-atualizando-o-banco.html">
+            
+                    
+                    Atualizando o banco
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../django/links-uteis.html">
+            
+                <a href="../django/links-uteis.html">
+            
+                    
+                    Links úteis
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    Posts
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.3.1" data-path="primeira-aplicacao-em-django.html">
+            
+                <a href="primeira-aplicacao-em-django.html">
+            
+                    
+                    Construa sua primeira aplicação em Django
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="trabalhando-com-templates-django-e-arquivos-estaticos.html">
+            
+                <a href="trabalhando-com-templates-django-e-arquivos-estaticos.html">
+            
+                    
+                    Trabalhando com template Django e arquivos estáticos
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >Construa sua primeira aplicação em Django</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="construa-sua-primeira-aplica&#xE7;&#xE3;o-em-django">Construa sua primeira aplica&#xE7;&#xE3;o em Django</h1>
+<p>Esse post &#xE9; uma tradu&#xE7;&#xE3;o <a href="https://scotch.io/tutorials/build-your-first-python-and-django-application" target="_blank">desse post</a></p>
+<p>Voc&#xEA; j&#xE1; deve ter ouvido falar do Python antes, especialmente se voc&#xEA; j&#xE1; desenvolve por um tempo. Se n&#xE3;o, Python &#xE9; uma linguagem de programa&#xE7;&#xE3;o de alto n&#xED;vel, de uso geral. Isso significa que voc&#xEA; pode usar Python para desenvolver desde um jogo simples at&#xE9; um site com milh&#xF5;es de usu&#xE1;rios por m&#xEA;s. Na verdade, v&#xE1;rios sites que possuem milh&#xF5;es de visitantes por m&#xEA;s contam com Python para alguns de seus servi&#xE7;os. Exemplos incluem o <a href="https://www.youtube.com/" target="_blank">YouTube</a> e o <a href="https://www.dropbox.com/" target="_blank">Dropbox</a>.</p>
+<p><img src="../../assets/images/python.png" alt="Python"></p>
+<p>Dito isto, por que voc&#xEA; deve usar Python em primeiro lugar? Por que n&#xE3;o uma das muitas outras linguagens populares como Ruby ou PHP? Bem, com o Python voc&#xEA; obt&#xE9;m os seguintes benef&#xED;cios:</p>
+<ol>
+<li>Sintaxe f&#xE1;cil</li>
+<li>Comunidade incr&#xED;vel em torno da l&#xED;ngua.</li>
+<li>F&#xE1;cil de aprender</li>
+<li>O Python &#xE9; &#xFA;til para as mais variadas tarefas, desde o shell b&#xE1;sico at&#xE9; o desenvolvimento avan&#xE7;ado na web.</li>
+</ol>
+<hr>
+<h2 id="quando-n&#xE3;o-usar-o-python">Quando n&#xE3;o usar o Python</h2>
+<p>Enquanto voc&#xEA; pode facilmente escrever um aplicativo Desktop com Python usando ferramentas como <a href="http://http//www.wxpython.org/" target="_blank">wxPython</a>, voc&#xEA; geralmente faria melhor usando ferramentas especializadas oferecidas por plataformas como .NET no Windows.</p>
+<p>Voc&#xEA; tamb&#xE9;m n&#xE3;o deve usar Python quando seu caso de uso espec&#xED;fico tem requisitos muito especializados que s&#xE3;o melhor atendidos por outros idiomas. Um exemplo &#xE9; quando voc&#xEA; est&#xE1; construindo um sistema incorporado, um campo no qual linguagens como C, C ++ e Java dominam.</p>
+<hr>
+<h2 id="python-2-vs-python-3">Python 2 vs Python 3</h2>
+<p>Python 2.7.x e 3.x ambos s&#xE3;o usados extensivamente na web. O Python 3 introduziu altera&#xE7;&#xF5;es na linguagem que exigiu que as aplica&#xE7;&#xF5;es escritas em Python 2 fossem reescritas para trabalhar com Python 3.x. No entanto, a maioria das bibliotecas que voc&#xEA; precisar&#xE1; usar agora foram portadas para Python 3.</p>
+<p>Este tutorial usar&#xE1; Python 3 que est&#xE1; na vers&#xE3;o 3.5.1 no momento da escrita. Os princ&#xED;pios permanecem os mesmos embora pequenas modifica&#xE7;&#xF5;es de sintaxe ser&#xE3;o necess&#xE1;rias para ser compat&#xED;vel com o Python 2.7.x.</p>
+<hr>
+<h2 id="alguns-exemplos-de-c&#xF3;digo-em-python">Alguns exemplos de c&#xF3;digo em Python</h2>
+<h3 id="hello-world">HELLO WORLD</h3>
+<p>Como eu disse antes, um dos principais benef&#xED;cios do Python &#xE9; sua &quot;sintaxe leg&#xED;vel. Qu&#xE3;o f&#xE1;cil? Confira a vers&#xE3;o do Python do omnipresente Hello World.</p>
+<pre class="language-"><code class="lang-python"><span class="token comment" spellcheck="true"># This line of code will print &quot;Hello, World!&quot; to your terminal</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&quot;Hello, World!&quot;</span><span class="token punctuation">)</span>
+</code></pre>
+<p>Este c&#xF3;digo imprime Hello, World! para o console. Voc&#xEA; pode facilmente experimentar esse c&#xF3;digo visitando <a href="https://repl.it/languages/python3" target="_blank">este site</a>, colando os exemplos de c&#xF3;digo no editor no lado direito da p&#xE1;gina e clicando no bot&#xE3;o &quot;executar&quot; acima da p&#xE1;gina para ver o output.</p>
+<h3 id="l&#xF3;gica-condicional">L&#xF3;gica condicional</h3>
+<p>A l&#xF3;gica condicional &#xE9; t&#xE3;o f&#xE1;cil quanto o Hello World. Aqui est&#xE1; algum c&#xF3;digo para verificar se a idade do usu&#xE1;rio &#xE9; acima de 18, e se for, para imprimir <code>Accesso permitido</code> ou <code>Accesso n&#xE3;o permitido</code> caso contr&#xE1;rio.</p>
+<pre class="language-"><code class="lang-python"><span class="token comment" spellcheck="true"># read in age</span>
+age <span class="token operator">=</span> int<span class="token punctuation">(</span>input<span class="token punctuation">(</span><span class="token string">&quot;Qual sua idade?&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token keyword">if</span> age <span class="token operator">&gt;=</span> <span class="token number">18</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&quot;Accesso permitido&quot;</span><span class="token punctuation">)</span>
+<span class="token keyword">elif</span> age <span class="token operator">&lt;</span> <span class="token number">18</span> <span class="token operator">and</span> age <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&quot;Accesso n&#xE3;o permitido&quot;</span><span class="token punctuation">)</span>
+<span class="token keyword">else</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&quot;Idade inv&#xE1;lida&quot;</span><span class="token punctuation">)</span>
+</code></pre>
+<p>A fun&#xE7;&#xE3;o <code>input()</code> &#xE9; usada para ler o que &#xE9; digitado no teclado. Portanto, voc&#xEA; precisar&#xE1; digitar algo no prompt do terminal ap&#xF3;s executar o script para que o restante do script seja executado. Observe que a fun&#xE7;&#xE3;o <code>input()</code> &#xE9; envolvida na fun&#xE7;&#xE3;o <code>int()</code>.</p>
+<p>Isso ocorre porque <code>input()</code> l&#xEA; em valores como strings e ainda precisamos da idade ser um inteiro. Temos, portanto, que converter o input do teclado em uma string sen&#xE3;o vamos obter um erro, por exemplo, quando verificar se a string &#xE9; maior que 18.</p>
+<p>Finalmente, observe a instru&#xE7;&#xE3;o <code>else</code> que &#xE9; executada para qualquer outra entrada que n&#xE3;o se enquadre nos crit&#xE9;rios que est&#xE3;o sendo verificados no <code>if</code>.</p>
+<hr>
+<h2 id="tipos-de-dados-abstratos">Tipos de dados abstratos</h2>
+<p>Python tamb&#xE9;m possui tipos de dados abstratos nativos para armazenar cole&#xE7;&#xF5;es de itens. Um exemplo &#xE9; uma lista que pode ser usada para manter vari&#xE1;veis de qualquer tipo. O c&#xF3;digo a seguir mostra como criar uma lista e iterar por ela para imprimir cada item no terminal.</p>
+<pre class="language-"><code class="lang-python"><span class="token comment" spellcheck="true"># Cria uma lista chamada my_list</span>
+my_list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token string">&quot;python&quot;</span><span class="token punctuation">,</span> <span class="token number">67</span><span class="token punctuation">,</span>  <span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+
+<span class="token comment" spellcheck="true"># Fa&#xE7;a o loop em my_list e d&#xEA; um print em cada item</span>
+<span class="token keyword">for</span> item <span class="token keyword">in</span> my_list<span class="token punctuation">:</span>
+    <span class="token keyword">print</span> item
+</code></pre>
+<p>O c&#xF3;digo acima cria uma lista com n&#xFA;meros, uma string e uma lista (sim, as listas podem conter outras listas!). Para iterar atrav&#xE9;s de listas, um loop <code>for-in</code> &#xE9; &#xFA;til. Lembre-se, as listas s&#xE3;o indexadas por zero, para que tamb&#xE9;m possamos acessar itens da lista usando &#xED;ndices. Por exemplo, para produzir a string <code>python</code>, voc&#xEA; pode escrever:</p>
+<pre class="language-"><code class="lang-python"><span class="token comment" spellcheck="true"># create a list called my_list</span>
+my_list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token string">&quot;python&quot;</span><span class="token punctuation">,</span> <span class="token number">67</span><span class="token punctuation">,</span>  <span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">]</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span>my_list<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+</code></pre>
+<hr>
+<h3 id="dicion&#xE1;rios">Dicion&#xE1;rios</h3>
+<p>Outro tipo de dados que o Python tem nativo s&#xE3;o dicion&#xE1;rios. Os dicion&#xE1;rios armazenam chave e valor, parecido com objetos JSON. Criar um dicion&#xE1;rio &#xE9; simples:</p>
+<pre class="language-"><code class="lang-python"><span class="token comment" spellcheck="true"># create a dictionary</span>
+person <span class="token operator">=</span> <span class="token punctuation">{</span>
+            <span class="token string">&quot;name&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;Amos&quot;</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;age&quot;</span><span class="token punctuation">:</span> <span class="token number">23</span><span class="token punctuation">,</span>
+            <span class="token string">&quot;hobbies&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&quot;Travelling&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;Swimming&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;Coding&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;Music&quot;</span><span class="token punctuation">]</span>
+        <span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true"># iterate through the dict and print the keys</span>
+<span class="token keyword">for</span> key <span class="token keyword">in</span> person<span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true"># iterate through the dict&apos;s keys and print their values</span>
+<span class="token keyword">for</span> key <span class="token keyword">in</span> person<span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>person<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">)</span>
+</code></pre>
+<p>Agora vamos falar sobre Django</p>
+<hr>
+<h2 id="django">Django</h2>
+<p><img src="../../assets/images/django.png" alt="Django"></p>
+<p>O Django &#xE9; uma estrutura escrita em Python para a web. &#xC9; livre e de c&#xF3;digo aberto j&#xE1; esta no mercado desde 2005. &#xC9; um framework maduro, e vem com excelente documenta&#xE7;&#xE3;o e recursos inclu&#xED;dos. </p>
+<p>Algumas ferramentas que fornece s&#xE3;o:</p>
+<ol>
+<li>Servidor leve para desenvolvimento e testes</li>
+<li>Boa linguagem de template</li>
+<li>Recursos nativos de seguran&#xE7;a como CSRF</li>
+</ol>
+<p>H&#xE1; muitas outras coisas &#xFA;teis inclu&#xED;das no Django. Vamos usar o Django para construir nosso site neste tutorial.</p>
+<hr>
+<h2 id="configurando">Configurando</h2>
+<p>Neste tutorial, vou mostrar como colocar um site do Django funcionando. Antes, pegue uma c&#xF3;pia do Python mais recente.</p>
+<p>Se voc&#xEA; est&#xE1; no mac voc&#xEA; pode instalar o Python com o <a href="https://brew.sh/" target="_blank">brew</a></p>
+<pre class="language-"><code class="lang-bash">brew <span class="token function">install</span> python3
+</code></pre>
+<p>Depois de instalar a vers&#xE3;o correta para o seu sistema operacional, voc&#xEA; precisar&#xE1; certificar-se de que ele est&#xE1; configurado corretamente. Abra um terminal e digite:</p>
+<pre class="language-"><code>python3
+</code></pre><p>Voc&#xEA; deve ver algo parecido com o seguinte:</p>
+<pre class="language-"><code class="lang-bash">Python 3.5.1 <span class="token punctuation">(</span>v3.5.1:37a07cee5969, Dec  5 2015, 21:12:44<span class="token punctuation">)</span> 
+<span class="token punctuation">[</span>GCC 4.2.1 <span class="token punctuation">(</span>Apple Inc. build 5666<span class="token punctuation">)</span> <span class="token punctuation">(</span>dot 3<span class="token punctuation">)</span><span class="token punctuation">]</span> on darwin
+Type <span class="token string">&quot;help&quot;</span>, <span class="token string">&quot;copyright&quot;</span>, <span class="token string">&quot;credits&quot;</span> or <span class="token string">&quot;license&quot;</span> <span class="token keyword">for</span> <span class="token function">more</span> information.
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span>
+</code></pre>
+<p>Este &#xE9; o shell interativo do Python. Pressione <code>CTRL + D</code> para sair desse shell</p>
+<hr>
+<h2 id="configurando-o-ambiente">Configurando o ambiente</h2>
+<p>Para evitar poluir nosso escopo global com pacotes de Python, vamos usar um ambiente virtual para armazenar nossos pacotes para esse projeto espec&#xED;fico. O gerenciador de ambiente virtual que vamos usar &#xE9; o <a href="https://virtualenv.pypa.io/en/stable/" target="_blank">virtualenv</a>. E junto com ele vamos usar o <a href="https://virtualenvwrapper.readthedocs.io/en/latest/" target="_blank">virtualenvwrapper</a> que &#xE9; uma extens&#xE3;o do virtualenv que tornam os comandos do virtualenv muito mais f&#xE1;ceis atrav&#xE9;s de atalhos.</p>
+<p>Vamos usar o gerenciador de pacotes do Python <code>pip</code> para instalar este e outros pacotes como o Django, que precisaremos mais tarde. Primeiro, vamos instalar o virtualenv e o virtualenvwrapper.</p>
+<pre class="language-"><code class="lang-bash">pip <span class="token function">install</span> virtualenv
+pip <span class="token function">install</span> virtualenvwrapper
+</code></pre>
+<p>Agora &#xE9; preciso configurar as v&#xE1;riaves de ambiente no seu sistema operacional. Caso esteja no Mac, &#xE9; preciso adicionar algumas linhas no arquivo de configura&#xE7;&#xE3;o de shell que voc&#xEA; usa. <strong>Mude os caminhos de acordo com as suas configura&#xE7;&#xF5;es.</strong></p>
+<p>Edite o arquivo de acordo com o shell que voc&#xEA; usa, Exemplo: <code>~/.bashrc</code>, <code>~/.zshrc</code>, etc...</p>
+<pre class="language-"><code class="lang-bash"><span class="token comment" spellcheck="true"># virtualenvwrapper</span>
+
+<span class="token comment" spellcheck="true"># Every virtualenv created will use this python</span>
+<span class="token function">export</span> VIRTUALENVWRAPPER_PYTHON<span class="token operator">=</span>/usr/local/bin/python3
+
+<span class="token comment" spellcheck="true"># Path to virtualenv executable</span>
+<span class="token function">export</span> VIRTUALENVWRAPPER_VIRTUALENV<span class="token operator">=</span>/Library/Frameworks/Python.framework/Versions/3.6/bin/virtualenv
+
+<span class="token comment" spellcheck="true"># Path to virtualenvs</span>
+<span class="token function">export</span> WORKON_HOME<span class="token operator">=</span><span class="token variable">$HOME</span>/.virtualenvs
+
+<span class="token comment" spellcheck="true"># Path to virtualenv project folders</span>
+<span class="token function">export</span> PROJECT_HOME<span class="token operator">=</span><span class="token variable">$HOME</span>/Documents/python-venv-projects
+
+<span class="token comment" spellcheck="true"># Runs virtualenvwrapper script</span>
+<span class="token function">source</span> /Library/Frameworks/Python.framework/Versions/3.6/bin/virtualenvwrapper.sh
+</code></pre>
+<p>Caso tenha d&#xFA;vidas na configura&#xE7;&#xE3;o do virtualenvwrapper, ou precise instalar em outros sistemas operacionais, <a href="http://virtualenvwrapper.readthedocs.io/en/latest/install.html" target="_blank">veja mais detalhes aqui</a></p>
+<p>Depois de instalados e configurados, crie um ambiente para o seu projeto:</p>
+<pre class="language-"><code>mkproject [NOME_DO_PROJETO]
+</code></pre><p>Esse comando acima cria um novo virtualenv na pasta definida em <code>WORKON_HOME</code>, e um novo diret&#xF3;rio em <code>PROJECT_HOME</code>. Esse comando tamb&#xE9;m ir&#xE1; ativar o ambiente virtual, e j&#xE1; ir&#xE1; te levar para a pasta do projeto que voc&#xEA; acabou de criar.</p>
+<hr>
+<h2 id="instalando-o-django">Instalando o Django</h2>
+<p>Com o seu ambiente virtual ativado, digite</p>
+<pre class="language-"><code class="lang-bash">pip <span class="token function">install</span> django
+</code></pre>
+<hr>
+<h2 id="criando-um-app">Criando um app</h2>
+<p>Agora que o Django est&#xE1; instalado, vamos rodar o comando do Django que inicia um novo projeto.</p>
+<pre class="language-"><code class="lang-bash">django-admin startproject helloapp
+</code></pre>
+<p>Este comando cria um esqueleto de app com a seguinte estrutura:</p>
+<pre class="language-"><code>helloapp
+&#x251C;&#x2500;helloapp
+&#x2502;   &#x251C;&#x2500;&#x2500; __init__.py
+&#x2502;   &#x251C;&#x2500;&#x2500; settings.py
+&#x2502;   &#x251C;&#x2500;&#x2500; urls.py
+&#x2502;   &#x2514;&#x2500;&#x2500; wsgi.py
+&#x2514;&#x2500;&#x2500; manage.py
+</code></pre><p>Quando voc&#xEA; olha para a pasta helloapp que foi criada, voc&#xEA; encontrar&#xE1; um arquivo chamado <code>manage.py</code> e outra pasta chamada <code>helloapp</code>. Esta &#xE9; a pasta principal do projeto e cont&#xE9;m as configura&#xE7;&#xF5;es do projeto em um arquivo chamado <code>settings.py</code> e as rotas do projeto no arquivo chamado <code>urls.py</code>. Abra o arquivo <code>settings.py</code> para se familiarizar com seu conte&#xFA;do.</p>
+<hr>
+<h2 id="mudando-as-configura&#xE7;&#xF5;es-do-app">Mudando as configura&#xE7;&#xF5;es do App</h2>
+<p>Vamos mudar algumas configura&#xE7;&#xF5;es. Abra o arquivo <code>settings.py</code> no seu editor favorito. Encontre uma se&#xE7;&#xE3;o chamada <code>INSTALLED_APPS</code> que se parece com isso:</p>
+<pre class="language-"><code class="lang-python"><span class="token comment" spellcheck="true"># helloapp/settings.py</span>
+INSTALLED_APPS <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token string">&apos;django.contrib.admin&apos;</span><span class="token punctuation">,</span>
+    <span class="token string">&apos;django.contrib.auth&apos;</span><span class="token punctuation">,</span>
+    <span class="token string">&apos;django.contrib.contenttypes&apos;</span><span class="token punctuation">,</span>
+    <span class="token string">&apos;django.contrib.sessions&apos;</span><span class="token punctuation">,</span>
+    <span class="token string">&apos;django.contrib.messages&apos;</span><span class="token punctuation">,</span>
+    <span class="token string">&apos;django.contrib.staticfiles&apos;</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span>
+</code></pre>
+<p>O Django opera com o conceito de apps. Um app &#xE9; uma unidade de c&#xF3;digo aut&#xF4;noma que pode ser executada por conta pr&#xF3;pria. Um app pode fazer muitas coisas, como servir uma p&#xE1;gina da web no navegador ou manipular a autentica&#xE7;&#xE3;o do usu&#xE1;rio ou qualquer outra coisa que voc&#xEA; possa imaginar. O Django vem com alguns apps padr&#xE3;o pr&#xE9;-instalados, como apps de autentica&#xE7;&#xE3;o e gerenciador de sess&#xF5;es. Os apps que criaremos ou apps de terceiros que precisaremos ser&#xE3;o adicionados na parte inferior da lista <code>INSTALLED_APPS</code>, logo ap&#xF3;s os apps instalados por padr&#xE3;o.</p>
+<p>Antes de criar um app, vamos alterar o fuso hor&#xE1;rio da nossa aplica&#xE7;&#xE3;o. O Django usa os fuso hor&#xE1;rios da <code>base de dados tz</code>, cuja lista pode ser encontrada <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones" target="_blank">aqui</a>.</p>
+<p>A configura&#xE7;&#xE3;o do fuso hor&#xE1;rio se parece com isso.</p>
+<pre class="language-"><code class="lang-python"><span class="token comment" spellcheck="true"># helloapp/settings.py</span>
+TIME_ZONE <span class="token operator">=</span> <span class="token string">&apos;UTC&apos;</span>
+</code></pre>
+<p>Altere para algo que fa&#xE7;a mais sentido com o seu pr&#xF3;prio fuso hor&#xE1;rio, como no exemplo abaixo:</p>
+<pre class="language-"><code class="lang-python"><span class="token comment" spellcheck="true"># helloapp/settings.py</span>
+TIME_ZONE <span class="token operator">=</span> <span class="token string">&apos;America/Los_Angeles&apos;</span>
+</code></pre>
+<hr>
+<h2 id="criando-seu-pr&#xF3;prio-app">Criando seu pr&#xF3;prio app</h2>
+<p>&#xC9; importante notar que os apps do Django seguem a arquitetura Model, View, Template. Em poucas palavras, o app obt&#xE9;m dados de um Model, a View faz algo com os dados e, em seguida, renderiza um template contendo as informa&#xE7;&#xF5;es processadas. <strong>Os templates do Django correspondem as Views no MVC tradicional e as Views do Django podem ser comparadas aos Controllers encontrados no MVC tradicional.</strong></p>
+<p>Dito isto, vamos criar um app. D&#xEA; <code>cd</code> na primeira pasta <code>helloapp</code> e digite;</p>
+<pre class="language-"><code class="lang-bash">python manage.py howdy
+</code></pre>
+<p>Este comando criar&#xE1; um app chamado <code>howdy</code>. </p>
+<p>Sua estrutura de arquivos agora deve ser algo como isso:</p>
+<pre class="language-"><code>helloapp
+&#x251C;&#x2500;&#x2500; helloapp
+&#x2502;        &#x251C;&#x2500;&#x2500; __init__.py
+&#x2502;        &#x251C;&#x2500;&#x2500; settings.py
+&#x2502;        &#x251C;&#x2500;&#x2500; urls.py
+&#x2502;        &#x2514;&#x2500;&#x2500; wsgi.py
+&#x251C;&#x2500;&#x2500; howdy
+&#x2502;        &#x251C;&#x2500;&#x2500; __init__.py
+&#x2502;        &#x251C;&#x2500;&#x2500; admin.py
+&#x2502;        &#x251C;&#x2500;&#x2500; apps.py
+&#x2502;        &#x251C;&#x2500;&#x2500; migrations
+&#x2502;        &#x251C;&#x2500;&#x2500; models.py
+&#x2502;        &#x251C;&#x2500;&#x2500; tests.py
+&#x2502;        &#x2514;&#x2500;&#x2500; views.py
+&#x2514;&#x2500;&#x2500; manage.py
+</code></pre><p>Para que o Django reconhe&#xE7;a o nosso novo app, precisamos adicionar o nome do app &#xE0; lista <code>INSTALLED_APPS</code> no nosso arquivo <code>settings.py</code>.</p>
+<pre class="language-"><code class="lang-python"><span class="token comment" spellcheck="true"># helloapp/settings.py</span>
+INSTALLED_APPS <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token string">&apos;django.contrib.admin&apos;</span><span class="token punctuation">,</span>
+    <span class="token string">&apos;django.contrib.auth&apos;</span><span class="token punctuation">,</span>
+    <span class="token string">&apos;django.contrib.contenttypes&apos;</span><span class="token punctuation">,</span>
+    <span class="token string">&apos;django.contrib.sessions&apos;</span><span class="token punctuation">,</span>
+    <span class="token string">&apos;django.contrib.messages&apos;</span><span class="token punctuation">,</span>
+    <span class="token string">&apos;django.contrib.staticfiles&apos;</span><span class="token punctuation">,</span>
+    <span class="token string">&apos;howdy&apos;</span>
+<span class="token punctuation">]</span>
+</code></pre>
+<p>Uma vez que isso &#xE9; feito, vamos executar o nosso servidor e ver qual ser&#xE1; o output. O Django vem com um servidor web que, embora &#xFA;til durante o desenvolvimento, nunca deve ser usado na produ&#xE7;&#xE3;o. Execute o servidor da seguinte maneira:</p>
+<pre class="language-"><code class="lang-bash">python manage.py runserver
+</code></pre>
+<p>Seu output deve ser algo como:</p>
+<pre class="language-"><code class="lang-bash">Performing system checks<span class="token punctuation">..</span>.
+
+System check identified no issues <span class="token punctuation">(</span>0 silenced<span class="token punctuation">)</span>.
+
+You have unapplied migrations<span class="token punctuation">;</span> your app may not work properly <span class="token keyword">until</span> they are applied.
+Run <span class="token string">&apos;python manage.py migrate&apos;</span> to apply them.
+
+June 04, 2016 - 07:42:08
+Django version 1.9.6, using settings <span class="token string">&apos;helloapp.settings&apos;</span>
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+</code></pre>
+<p>Se voc&#xEA; olhar com cuidado, voc&#xEA; ver&#xE1; um aviso de que voc&#xEA; tem migra&#xE7;&#xF5;es n&#xE3;o aplicadas que devem ser feitas. Ignore isso por enquanto. V&#xE1; para seu navegador e acesse <code>http://localhost:8000/</code>. Se tudo estiver funcionando corretamente, voc&#xEA; deve ver a p&#xE1;gina de boas-vindas do Django.</p>
+<p><img src="../../assets/images/django-welcome.png" alt="Django welcome"></p>
+<p>Vamos substituir esta p&#xE1;gina pelo nosso pr&#xF3;prio template. Mas primeiro, vamos falar de migra&#xE7;&#xF5;es.</p>
+<hr>
+<h2 id="migra&#xE7;&#xF5;es">Migra&#xE7;&#xF5;es</h2>
+<p>As migra&#xE7;&#xF5;es tornam mais f&#xE1;cil para voc&#xEA; alterar seu esquema de banco de dados (modelo) sem ter que perder nenhum dado. Sempre que criar um novo modelo de banco de dados, a execu&#xE7;&#xE3;o das migra&#xE7;&#xF5;es atualizar&#xE1; suas tabelas de banco de dados para usar o novo esquema sem que voc&#xEA; tenha que perder quaisquer dados ou passar pelo processo de descartar e recriar o banco de dados voc&#xEA; mesmo.</p>
+<p>O Django vem com algumas migra&#xE7;&#xF5;es j&#xE1; criadas para seus apps padr&#xE3;o. Se o seu servidor ainda estiver em execu&#xE7;&#xE3;o, aperte <code>CTRL + C</code>. E aplique as migra&#xE7;&#xF5;es digitando:</p>
+<pre class="language-"><code>python manage.py migrate
+</code></pre><p>Se for bem sucedido, voc&#xEA; ver&#xE1; um output semelhante a esse:</p>
+<pre class="language-"><code>Operations to perform:
+  Apply all migrations: sessions, auth, contenttypes, admin
+Running migrations:
+  Rendering model states... DONE
+  Applying contenttypes.0001_initial... OK
+  Applying auth.0001_initial... OK
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying auth.0007_alter_validators_add_error_messages... OK
+  Applying sessions.0001_initial... OK
+</code></pre><p>Executar o servidor agora n&#xE3;o mostrar&#xE1; mais nenhum aviso de migra&#xE7;&#xE3;o pendente.</p>
+<hr>
+<h2 id="urls-e-templates">URLs e Templates</h2>
+<p>Quando execut&#xE1;mos o servidor, a p&#xE1;gina padr&#xE3;o do Django foi mostrada. Precisamos do Django para acessar o nosso app <code>howdy</code> quando algu&#xE9;m acessa o URL da p&#xE1;gina inicial que &#xE9; <code>/</code>. Para isso, precisamos definir uma URL que dir&#xE1; ao Django onde procurar o template da p&#xE1;gina inicial.</p>
+<p>Abra o arquivo <code>urls.py</code> dentro da pasta interna <code>helloapp</code>. Esse arquivo deve ser algo parecido com:</p>
+<pre class="language-"><code class="lang-python"> <span class="token comment" spellcheck="true"># helloapp/urls.py</span>
+ <span class="token triple-quoted-string string">&quot;&quot;&quot;helloapp URL Configuration
+
+The `urlpatterns` list routes URLs to views. For more information please see:
+
+https://docs.djangoproject.com/en/1.9/topics/http/urls/
+
+Examples:
+Function views
+    1. Add an import:  from my_app import views
+    2. Add a URL to urlpatterns:  url(r&apos;^$&apos;, views.home, name=&apos;home&apos;)
+Class-based views
+    1. Add an import:  from other_app.views import Home
+    2. Add a URL to urlpatterns:  url(r&apos;^$&apos;, Home.as_view(), name=&apos;home&apos;)
+Including another URLconf
+    1. Import the include() function: from django.conf.urls import url, include
+    2. Add a URL to urlpatterns:  url(r&apos;^blog/&apos;, include(&apos;blog.urls&apos;))
+&quot;&quot;&quot;</span>
+<span class="token keyword">from</span> django<span class="token punctuation">.</span>conf<span class="token punctuation">.</span>urls <span class="token keyword">import</span> url
+<span class="token keyword">from</span> django<span class="token punctuation">.</span>contrib <span class="token keyword">import</span> admin
+
+urlpatterns <span class="token operator">=</span> <span class="token punctuation">[</span>
+    url<span class="token punctuation">(</span>r<span class="token string">&apos;^admin/&apos;</span><span class="token punctuation">,</span> admin<span class="token punctuation">.</span>site<span class="token punctuation">.</span>urls<span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span>
+</code></pre>
+<p>Como voc&#xEA; pode ver, existe um padr&#xE3;o de URL existente para o site de administra&#xE7;&#xE3;o do Django que vem por padr&#xE3;o. Vamos adicionar nossa pr&#xF3;pria url para apontar para o nosso app howdy. Edite o arquivo para ficar assim:</p>
+<pre class="language-"><code class="lang-python"><span class="token comment" spellcheck="true"># helloapp/urls.py</span>
+<span class="token keyword">from</span> django<span class="token punctuation">.</span>conf<span class="token punctuation">.</span>urls <span class="token keyword">import</span> url<span class="token punctuation">,</span> include
+<span class="token keyword">from</span> django<span class="token punctuation">.</span>contrib <span class="token keyword">import</span> admin
+
+urlpatterns <span class="token operator">=</span> <span class="token punctuation">[</span>
+    url<span class="token punctuation">(</span>r<span class="token string">&apos;^admin/&apos;</span><span class="token punctuation">,</span> admin<span class="token punctuation">.</span>site<span class="token punctuation">.</span>urls<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    url<span class="token punctuation">(</span>r<span class="token string">&apos;^&apos;</span><span class="token punctuation">,</span> include<span class="token punctuation">(</span><span class="token string">&apos;howdy.urls&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span>
+</code></pre>
+<p>Observe que adicionamos um import para <code>include</code> do <code>django.conf.urls</code>, e adicionamos um pattern de url para uma rota vazia. Quando algu&#xE9;m acessa a home, (no nosso caso <code>http://localhost:8000</code>), o Django procurar&#xE1; mais defini&#xE7;&#xF5;es de url no app <code>howdy</code>. Como n&#xE3;o h&#xE1; nenhum, executar o app ir&#xE1; produzir um <code>ImportError</code>.</p>
+<pre class="language-"><code class="lang-python"><span class="token punctuation">.</span>
+<span class="token punctuation">.</span>
+ImportError<span class="token punctuation">:</span> No module named <span class="token string">&apos;howdy.urls&apos;</span>
+</code></pre>
+<p>Vamos corrigir isso. V&#xE1; para a pasta do app <code>howdy</code> e crie um arquivo chamado <code>urls.py</code>. A pasta <code>howdy</code> agora deve se parecer com isto.</p>
+<pre class="language-"><code>&#x251C;&#x2500;&#x2500; howdy
+&#x2502;   &#x251C;&#x2500;&#x2500; __init__.py
+&#x2502;   &#x251C;&#x2500;&#x2500; admin.py
+&#x2502;   &#x251C;&#x2500;&#x2500; apps.py
+&#x2502;   &#x251C;&#x2500;&#x2500; migrations
+&#x2502;   &#x2502;   &#x251C;&#x2500;&#x2500; __init__.py
+&#x2502;   &#x251C;&#x2500;&#x2500; models.py
+&#x2502;   &#x251C;&#x2500;&#x2500; tests.py
+&#x2502;   &#x251C;&#x2500;&#x2500; urls.py
+&#x2502;   &#x2514;&#x2500;&#x2500; views.py
+</code></pre><p>Dentro do novo arquivo urls.py, escreva isso:</p>
+<pre class="language-"><code class="lang-python"><span class="token comment" spellcheck="true"># howdy/urls.py</span>
+<span class="token keyword">from</span> django<span class="token punctuation">.</span>conf<span class="token punctuation">.</span>urls <span class="token keyword">import</span> url
+<span class="token keyword">from</span> howdy <span class="token keyword">import</span> views
+
+urlpatterns <span class="token operator">=</span> <span class="token punctuation">[</span>
+    url<span class="token punctuation">(</span>r<span class="token string">&apos;^$&apos;</span><span class="token punctuation">,</span> views<span class="token punctuation">.</span>HomePageView<span class="token punctuation">.</span>as_view<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span>
+</code></pre>
+<p>Esse c&#xF3;digo importa as views do app <code>howdy</code> e espera que uma view chamada <code>HomePageView</code> seja definida. Como n&#xE3;o temos uma, abra o arquivo <code>views.py</code> no app <code>howdy</code> e escreva esse c&#xF3;digo:</p>
+<pre class="language-"><code class="lang-python"> <span class="token comment" spellcheck="true"># howdy/views.py</span>
+<span class="token keyword">from</span> django<span class="token punctuation">.</span>shortcuts <span class="token keyword">import</span> render
+<span class="token keyword">from</span> django<span class="token punctuation">.</span>views<span class="token punctuation">.</span>generic <span class="token keyword">import</span> TemplateView
+
+<span class="token comment" spellcheck="true"># Create your views here.</span>
+<span class="token keyword">class</span> <span class="token class-name">HomePageView</span><span class="token punctuation">(</span>TemplateView<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">get</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> request<span class="token punctuation">,</span> <span class="token operator">**</span>kwargs<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> render<span class="token punctuation">(</span>request<span class="token punctuation">,</span> <span class="token string">&apos;index.html&apos;</span><span class="token punctuation">,</span> context<span class="token operator">=</span>None<span class="token punctuation">)</span>
+</code></pre>
+<p>Este arquivo define uma view chamada <code>HomePageView</code>. As views do Django recebem um <code>request</code> e retornam um <code>response</code>. No nosso caso, o m&#xE9;todo <code>get</code> espera uma solicita&#xE7;&#xE3;o HTTP GET para o url definida no arquivo <code>urls.py</code>. Se quis&#xE9;ssemos, poder&#xED;amos renomear nosso m&#xE9;todo para POST para processar requisi&#xE7;&#xF5;es HTTP de m&#xE9;todo POST.</p>
+<p>Uma vez que uma requisi&#xE7;&#xE3;o HTTP de m&#xE9;todo GET foi recebida, o m&#xE9;todo processa um template chamado <code>index.html</code> que &#xE9; apenas um arquivo HTML normal que poderia ter tags especiais de template Django escritas ao lado das tags HTML normais. Se voc&#xEA; executar o servidor agora, voc&#xEA; ver&#xE1; a seguinte p&#xE1;gina de erro:</p>
+<p><img src="../../assets/images/template-does-not-exist.png" alt="Template does not exist"></p>
+<p>Isto &#xE9; porque n&#xF3;s n&#xE3;o temos nenhum template! O Django procura templates em uma pasta de templates dentro do seu app, ent&#xE3;o crie um em sua pasta do app <code>howdy</code>.</p>
+<pre class="language-"><code class="lang-bash"><span class="token function">mkdir</span> templates
+</code></pre>
+<p>Entre na pasta <code>templates</code> que voc&#xEA; acabou de criar e crie um arquivo chamado <code>index.html</code></p>
+<pre class="language-"><code>(env) hello/helloapp/howdy/templates
+ &gt; touch index.html
+</code></pre><p>Dentro do arquivo <code>index.html</code>, cole esse c&#xF3;digo:</p>
+<pre class="language-"><code class="lang-html"><span class="token comment" spellcheck="true">&lt;!-- howdy/templates/index.html --&gt;</span>
+<span class="token doctype">&lt;!DOCTYPE html&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>utf-8<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>Howdy!<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">&gt;</span></span>Howdy! I am Learning Django!<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<p>Agora rode o servidor do Django</p>
+<pre class="language-"><code>python manage.py runserver
+</code></pre><p>O template criado deve ser exibido em <code>http://localhost:8000/</code></p>
+<p><img src="../../assets/images/template-criado.png" alt="Template criado"></p>
+<hr>
+<h2 id="linkando-p&#xE1;ginas">Linkando p&#xE1;ginas</h2>
+<p>Vamos adicionar outra p&#xE1;gina. Em sua pasta <code>howdy/templates</code>, adicione um arquivo chamado <code>about.html</code>. Dentro dela, escreva este c&#xF3;digo HTML:</p>
+<pre class="language-"><code class="lang-html"><span class="token comment" spellcheck="true">&lt;!-- howdy/templates/about.html --&gt;</span>
+<span class="token doctype">&lt;!DOCTYPE html&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>utf-8<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>Howdy!<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">&gt;</span></span>Welcome to the about page<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis neque ex. Donec feugiat egestas dictum. In eget erat sit amet elit pellentesque convallis nec vitae turpis. Vivamus et molestie nisl. Aenean non suscipit velit. Nunc eleifend convallis consectetur. Phasellus ornare dolor eu mi vestibulum, ornare tempus lacus imperdiet. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque ut sem ligula. Mauris volutpat vestibulum dui in cursus. Donec aliquam orci pellentesque, interdum neque sit amet, vulputate purus. Quisque volutpat cursus nisl, in volutpat velit lacinia id. Maecenas id felis diam. 
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>/<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>Go back home<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<p>Depois disso, edite a p&#xE1;gina <code>index.html</code> original para ficar assim:</p>
+<pre class="language-"><code class="lang-html"><span class="token comment" spellcheck="true">&lt;!-- howdy/templates/index.html --&gt;</span>
+<span class="token doctype">&lt;!DOCTYPE html&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>utf-8<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>Howdy!<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">&gt;</span></span>Howdy! I am Learning Django!<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">&gt;</span></span>
+     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>/about/<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>About Me<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+</code></pre>
+<p>Clicar no link <code>About</code> n&#xE3;o funcionar&#xE1; ainda porque nosso app n&#xE3;o tem uma url <code>/about/</code> definida. Vamos editar o arquivo <code>urls.py</code> no nosso app <code>howdy</code> para adicion&#xE1;-la.</p>
+<pre class="language-"><code class="lang-python"><span class="token comment" spellcheck="true"># howdy/urls.py</span>
+<span class="token keyword">from</span> django<span class="token punctuation">.</span>conf<span class="token punctuation">.</span>urls <span class="token keyword">import</span> url
+<span class="token keyword">from</span> howdy <span class="token keyword">import</span> views
+
+urlpatterns <span class="token operator">=</span> <span class="token punctuation">[</span>
+    url<span class="token punctuation">(</span>r<span class="token string">&apos;^$&apos;</span><span class="token punctuation">,</span> views<span class="token punctuation">.</span>HomePageView<span class="token punctuation">.</span>as_view<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    url<span class="token punctuation">(</span>r<span class="token string">&apos;^about/$&apos;</span><span class="token punctuation">,</span> views<span class="token punctuation">.</span>AboutPageView<span class="token punctuation">.</span>as_view<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true"># Add this /about/ route</span>
+<span class="token punctuation">]</span>
+</code></pre>
+<p>Depois de adicionar a rota, precisamos adicionar uma view para renderizar o template <code>about.html</code> quando acessarmos a url <code>/about/</code>. Vamos editar o arquivo <code>views.py</code> no app <code>howdy</code>.</p>
+<pre class="language-"><code class="lang-python"><span class="token comment" spellcheck="true"># howdy/views.py</span>
+<span class="token keyword">from</span> django<span class="token punctuation">.</span>shortcuts <span class="token keyword">import</span> render
+<span class="token keyword">from</span> django<span class="token punctuation">.</span>views<span class="token punctuation">.</span>generic <span class="token keyword">import</span> TemplateView
+
+<span class="token keyword">class</span> <span class="token class-name">HomePageView</span><span class="token punctuation">(</span>TemplateView<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">get</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> request<span class="token punctuation">,</span> <span class="token operator">**</span>kwargs<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> render<span class="token punctuation">(</span>request<span class="token punctuation">,</span> <span class="token string">&apos;index.html&apos;</span><span class="token punctuation">,</span> context<span class="token operator">=</span>None<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true"># Add this view</span>
+<span class="token keyword">class</span> <span class="token class-name">AboutPageView</span><span class="token punctuation">(</span>TemplateView<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    template_name <span class="token operator">=</span> <span class="token string">&quot;about.html&quot;</span>
+</code></pre>
+<p>Observe que na segunda view, eu n&#xE3;o defini um m&#xE9;todo get. Esta &#xE9; apenas outra maneira de usar a classe <code>TemplateView</code>. Se voc&#xEA; definir o atributo <code>template_name</code>, uma requisi&#xE7;&#xE3;o <code>get</code> para essa view usar&#xE1; automaticamente o template definido. Tente alterar o <code>HomePageView</code> para usar o formato usado em <code>AboutPageView</code>.</p>
+<p>Executando o servidor agora e acessando a home deve exibir o nosso template original com o link rec&#xE9;m-adicionado para a p&#xE1;gina <code>about</code>.</p>
+<p><img src="../../assets/images/template-com-about.png" alt="Template com about"></p>
+<p>Ao clicar no link &quot;About me&quot;, voc&#xEA; deve ser direcionado para a p&#xE1;gina <code>About</code>.</p>
+<p><img src="../../assets/images/about-page.png" alt="About page"></p>
+<p>Na p&#xE1;gina About, clique no link <code>Go back home</code> deve redirecion&#xE1;-lo de volta para a p&#xE1;gina de original. Tente editar esses dois templates para adicionar mais informa&#xE7;&#xF5;es sobre voc&#xEA;.</p>
+<hr>
+<h2 id="conclus&#xE3;o">Conclus&#xE3;o</h2>
+<p>Esse foi apenas uma breve explica&#xE7;&#xE3;o sobre como ter um site em Django instalado e funcionando. Voc&#xEA; pode ler mais sobre o Django nos <a href="https://www.djangoproject.com/" target="_blank">documentos oficiais</a>. O c&#xF3;digo completo deste tutorial tamb&#xE9;m pode ser encontrado no <a href="https://github.com/andela-aomondi/helloapp" target="_blank">Github</a>.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Construa sua primeira aplicação em Django","level":"1.3.1","depth":2,"next":{"title":"Trabalhando com template Django e arquivos estáticos","level":"1.3.2","depth":2,"path":"content/posts/trabalhando-com-templates-django-e-arquivos-estaticos.md","ref":"content/posts/trabalhando-com-templates-django-e-arquivos-estaticos.md","articles":[]},"previous":{"title":"Posts","level":"1.3","depth":1,"ref":"","articles":[{"title":"Construa sua primeira aplicação em Django","level":"1.3.1","depth":2,"path":"content/posts/primeira-aplicacao-em-django.md","ref":"content/posts/primeira-aplicacao-em-django.md","articles":[]},{"title":"Trabalhando com template Django e arquivos estáticos","level":"1.3.2","depth":2,"path":"content/posts/trabalhando-com-templates-django-e-arquivos-estaticos.md","ref":"content/posts/trabalhando-com-templates-django-e-arquivos-estaticos.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","livereload"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"theme-api":{"languages":[],"split":true,"theme":"dark"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Python e Django Básico","gitbook":"*","description":"Anotações sobre Python e Django"},"file":{"path":"content/posts/primeira-aplicacao-em-django.md","mtime":"2017-03-18T21:55:18.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-18T21:44:21.159Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-theme-api/theme-api.js"></script>
+        
+    
+
+    </body>
+</html>
+

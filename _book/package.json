@@ -1,0 +1,15 @@
+{
+  "name": "gitbook-python-django-basico",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Gabriel <ggodoyoliveira@gmail.com> (http://www.gabrielgodoy.com/)",
+  "license": "MIT",
+  "dependencies": {
+    "gitbook-api": "2.1.3"
+  }
+}
