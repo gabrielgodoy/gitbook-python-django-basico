@@ -3,7 +3,6 @@
 * [Introdução](README.md)
 * Python
     * Básico
-        * [Declarando variáveis](content/python/basics/declarando-variavel.md)
         * [Comentários](content/python/basics/comentarios.md)
         * [Comparações](content/python/basics/comparacoes.md)
         * [Condicionais](content/python/basics/condicionais.md)
