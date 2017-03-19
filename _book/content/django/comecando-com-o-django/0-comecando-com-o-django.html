@@ -318,6 +318,55 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="come&#xE7;ando-com-o-django">Come&#xE7;ando com o Django</h1>
+<p>Se voc&#xEA; est&#xE1; no mac voc&#xEA; pode instalar o Python com o <a href="https://brew.sh/" target="_blank">brew</a></p>
+<pre class="language-"><code class="lang-bash">brew <span class="token function">install</span> python3
+</code></pre>
+<p>Depois de instalar a vers&#xE3;o correta para o seu sistema operacional, voc&#xEA; precisar&#xE1; certificar-se de que ele est&#xE1; configurado corretamente. Abra um terminal e digite:</p>
+<pre class="language-"><code>python3
+</code></pre><p>Voc&#xEA; deve ver algo parecido com o seguinte:</p>
+<pre class="language-"><code class="lang-bash">Python 3.5.1 <span class="token punctuation">(</span>v3.5.1:37a07cee5969, Dec  5 2015, 21:12:44<span class="token punctuation">)</span> 
+<span class="token punctuation">[</span>GCC 4.2.1 <span class="token punctuation">(</span>Apple Inc. build 5666<span class="token punctuation">)</span> <span class="token punctuation">(</span>dot 3<span class="token punctuation">)</span><span class="token punctuation">]</span> on darwin
+Type <span class="token string">&quot;help&quot;</span>, <span class="token string">&quot;copyright&quot;</span>, <span class="token string">&quot;credits&quot;</span> or <span class="token string">&quot;license&quot;</span> <span class="token keyword">for</span> <span class="token function">more</span> information.
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span>
+</code></pre>
+<p>Este &#xE9; o shell interativo do Python. Pressione <code>CTRL + D</code> para sair desse shell</p>
+<hr>
+<h2 id="configurando-o-ambiente">Configurando o ambiente</h2>
+<p>Para evitar poluir nosso escopo global com pacotes de Python, vamos usar um ambiente virtual para armazenar nossos pacotes para esse projeto espec&#xED;fico. O gerenciador de ambiente virtual que vamos usar &#xE9; o <a href="https://virtualenv.pypa.io/en/stable/" target="_blank">virtualenv</a>. E junto com ele vamos usar o <a href="https://virtualenvwrapper.readthedocs.io/en/latest/" target="_blank">virtualenvwrapper</a> que &#xE9; uma extens&#xE3;o do virtualenv que tornam os comandos do virtualenv muito mais f&#xE1;ceis atrav&#xE9;s de atalhos.</p>
+<p>Vamos usar o gerenciador de pacotes do Python <code>pip</code> para instalar este e outros pacotes como o Django, que precisaremos mais tarde. Primeiro, vamos instalar o virtualenv e o virtualenvwrapper.</p>
+<pre class="language-"><code class="lang-bash">pip <span class="token function">install</span> virtualenv
+pip <span class="token function">install</span> virtualenvwrapper
+</code></pre>
+<p>Agora &#xE9; preciso configurar as v&#xE1;riaves de ambiente no seu sistema operacional. Caso esteja no Mac, &#xE9; preciso adicionar algumas linhas no arquivo de configura&#xE7;&#xE3;o de shell que voc&#xEA; usa. <strong>Mude os caminhos de acordo com as suas configura&#xE7;&#xF5;es.</strong></p>
+<p>Edite o arquivo de acordo com o shell que voc&#xEA; usa, Exemplo: <code>~/.bashrc</code>, <code>~/.zshrc</code>, etc...</p>
+<pre class="language-"><code class="lang-bash"><span class="token comment" spellcheck="true"># virtualenvwrapper</span>
+
+<span class="token comment" spellcheck="true"># Every virtualenv created will use this python</span>
+<span class="token function">export</span> VIRTUALENVWRAPPER_PYTHON<span class="token operator">=</span>/usr/local/bin/python3
+
+<span class="token comment" spellcheck="true"># Path to virtualenv executable</span>
+<span class="token function">export</span> VIRTUALENVWRAPPER_VIRTUALENV<span class="token operator">=</span>/Library/Frameworks/Python.framework/Versions/3.6/bin/virtualenv
+
+<span class="token comment" spellcheck="true"># Path to virtualenvs</span>
+<span class="token function">export</span> WORKON_HOME<span class="token operator">=</span><span class="token variable">$HOME</span>/.virtualenvs
+
+<span class="token comment" spellcheck="true"># Path to virtualenv project folders</span>
+<span class="token function">export</span> PROJECT_HOME<span class="token operator">=</span><span class="token variable">$HOME</span>/Documents/python-venv-projects
+
+<span class="token comment" spellcheck="true"># Runs virtualenvwrapper script</span>
+<span class="token function">source</span> /Library/Frameworks/Python.framework/Versions/3.6/bin/virtualenvwrapper.sh
+</code></pre>
+<p>Caso tenha d&#xFA;vidas na configura&#xE7;&#xE3;o do virtualenvwrapper, ou precise instalar em outros sistemas operacionais, <a href="http://virtualenvwrapper.readthedocs.io/en/latest/install.html" target="_blank">veja mais detalhes aqui</a></p>
+<p>Depois de instalados e configurados, crie um ambiente para o seu projeto:</p>
+<pre class="language-"><code>mkproject [NOME_DO_PROJETO]
+</code></pre><p>Esse comando acima cria um novo virtualenv na pasta definida em <code>WORKON_HOME</code>, e um novo diret&#xF3;rio em <code>PROJECT_HOME</code>. Esse comando tamb&#xE9;m ir&#xE1; ativar o ambiente virtual, e j&#xE1; ir&#xE1; te levar para a pasta do projeto que voc&#xEA; acabou de criar.</p>
+<hr>
+<h2 id="instalando-o-django">Instalando o Django</h2>
+<p>Com o seu ambiente virtual ativado, digite:</p>
+<pre class="language-"><code class="lang-bash">pip <span class="token function">install</span> django
+</code></pre>
+<hr>
+<h2 id="criando-o-projeto-django">Criando o projeto Django</h2>
 <pre class="language-"><code class="lang-bash"><span class="token comment" spellcheck="true"># Crie um projeto inicial</span>
 django-admin startproject <span class="token punctuation">[</span>PROJECT_NAME<span class="token punctuation">]</span>
 </code></pre>
@@ -381,7 +430,7 @@ python manage.py runserver
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Começando com o Django","level":"1.2.4","depth":2,"next":{"title":"Criando Models","level":"1.2.4.1","depth":3,"path":"content/django/comecando-com-o-django/1-criando-models.md","ref":"content/django/comecando-com-o-django/1-criando-models.md","articles":[]},"previous":{"title":"Estrutura de arquivos","level":"1.2.3","depth":2,"path":"content/django/2-estrutura-de-arquivos.md","ref":"content/django/2-estrutura-de-arquivos.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","livereload"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"theme-api":{"languages":[],"split":true,"theme":"dark"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Python e Django Básico","gitbook":"*","description":"Anotações sobre Python e Django"},"file":{"path":"content/django/comecando-com-o-django/0-comecando-com-o-django.md","mtime":"2017-03-18T21:59:15.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-18T22:00:30.666Z"},"basePath":"../../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Começando com o Django","level":"1.2.4","depth":2,"next":{"title":"Criando Models","level":"1.2.4.1","depth":3,"path":"content/django/comecando-com-o-django/1-criando-models.md","ref":"content/django/comecando-com-o-django/1-criando-models.md","articles":[]},"previous":{"title":"Estrutura de arquivos","level":"1.2.3","depth":2,"path":"content/django/2-estrutura-de-arquivos.md","ref":"content/django/2-estrutura-de-arquivos.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","livereload"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"theme-api":{"languages":[],"split":true,"theme":"dark"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Python e Django Básico","gitbook":"*","description":"Anotações sobre Python e Django"},"file":{"path":"content/django/comecando-com-o-django/0-comecando-com-o-django.md","mtime":"2017-03-19T05:15:12.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-19T05:18:44.647Z"},"basePath":"../../..","book":{"language":""}});
         });
     </script>
 </div>

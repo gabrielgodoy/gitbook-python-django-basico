@@ -1,5 +1,11 @@
 # Começando com o Django
 
+{% include "../../common/python-and-virtualenv.md" %}
+
+---
+
+## Criando o projeto Django
+
 ```bash
 # Crie um projeto inicial
 django-admin startproject [PROJECT_NAME]
