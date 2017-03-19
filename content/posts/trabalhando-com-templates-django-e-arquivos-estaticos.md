@@ -22,7 +22,7 @@ Primeiro crie um projeto com a ajuda do [virtualenvwrapper](https://virtualenvwr
 mkproject projects
 ```
 
-Vamos agora usar pip para instalar o Django em nosso ambiente.
+Vamos agora usar o `pip` para instalar o Django em nosso ambiente.
 
 ```
 pip install django
@@ -36,9 +36,9 @@ Em seguida, vamos chamar o script `django-admin` para criar nossa aplicação em
 django-admin startproject djangotemplates
 ```
 
-Se você verificar a estrutura de pastas de seus projetos, agora deverá ter uma nova pasta chamada `djangotemplates` criada pelo Django além da pasta anterior que criamos.
+Se você verificar a estrutura de pastas de seus projetos, agora deverá ter uma nova pasta chamada `djangotemplates` criada pelo Django, além da pasta anterior que criamos.
 
-Dê um `cd` em `djangotemplates`
+Dê um `cd` na pasta `djangotemplates`
 
 Sua estrutura de pasta agora deve ser semelhante a esta:
 
@@ -71,7 +71,11 @@ Abra o arquivo `settings.py` dentro da pasta interna `djangotemplates`. Na parte
 STATIC_URL = '/static/'
 ```
 
-Esta linha diz ao Django para anexar `static` na url base (no nosso caso `localhost:8000`) quando for procurar por arquivos estáticos. No Django, você poderia ter uma pasta `static` quase em qualquer lugar que você quiser. Você pode até ter mais de uma pasta `static`, uma em cada app por exemplo. No entanto, para manter as coisas simples, vou usar apenas uma pasta `static` na raíz da nossa pasta do projeto. Vamos criar uma mais tarde. Por enquanto, vamos adicionar algumas linhas no arquivo `settings.py` para que fique assim:
+Esta linha diz ao Django para anexar `static` na url base (no nosso caso `localhost:8000`) quando for procurar por arquivos estáticos. 
+
+No Django, você poderia ter uma pasta `static` quase em qualquer lugar que você quiser. Você pode até ter mais de uma pasta `static`, uma em cada app por exemplo. No entanto, para manter as coisas simples, vou usar apenas uma pasta `static` na raíz do projeto. Vamos criar essa pasta mais tarde. 
+
+Por enquanto, vamos adicionar algumas linhas no arquivo `settings.py` para que fique assim:
 
 ```python
 # djangotemplates/djangotemplates/settings.py
@@ -81,7 +85,7 @@ Esta linha diz ao Django para anexar `static` na url base (no nosso caso `localh
 
 STATIC_URL = '/static/'
 
-# Add these new lines
+# Adicione essas novas linhas
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
@@ -91,7 +95,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 O tuple `STATICFILES_DIRS` diz ao Django onde procurar arquivos estáticos que não estão vinculados a nenhum app específico. Nesse caso, acabamos de dizer ao Django que também procure arquivos estáticos em uma pasta chamada `static` em nossa pasta raíz, e não apenas em nossos apps.
 
-O Django também fornece um mecanismo para coletar arquivos estáticos em um único local para que possam ser facilmente servidos. Usando o comando `collectstatic`, o Django procura todos os arquivos estáticos em seus apps e entrega onde no lugar que você configurou o `STATIC_ROOT`. No nosso caso, estamos dizendo ao Django que, quando executamos `python manage.py collecttstatic`, reunimos todos os arquivos estáticos em uma pasta chamada `staticfiles` no diretório raíz do projeto. Esse recurso é muito útil para arquivos estáticos, especialmente em configurações de produção.
+O Django também fornece um mecanismo para coletar arquivos estáticos em um único local para que possam ser facilmente servidos. Usando o comando `collectstatic`, o Django procura todos os arquivos estáticos em seus apps e entrega eles no caminho que foi definido na variável `STATIC_ROOT`. 
+
+No nosso caso, estamos dizendo ao Django que, quando executamos `python manage.py collectstatic`, reunimos todos os arquivos estáticos em uma pasta chamada `staticfiles` no diretório raíz do projeto. Esse recurso é muito útil para arquivos estáticos, especialmente em configurações de produção.
 
 ---
 
@@ -110,7 +116,7 @@ djangotemplates
 --manage.py
 ```
 
-Dentro desta pasta é onde vamos ter todos os CSS e JS. Vamos adicionar duas pastas dentro da pasta `static` para armazenar nossos arquivos, uma chamada `css` e a outra chamada `js`. Dentro da pasta `css`, crie um arquivo chamado `main.css`. Adicione um `main.js` na pasta `js` também. Sua pasta `static` deve agora ter esta aparência:
+Dentro desta pasta é onde vamos ter todos os arquivos de CSS e JS. Vamos adicionar duas pastas dentro da pasta `static` para armazenar nossos arquivos, uma chamada `css` e a outra chamada `js`. Dentro da pasta `css`, crie um arquivo chamado `main.css`. Adicione um `main.js` na pasta `js` também. Sua pasta `static` deve agora ter esta aparência:
 
 ```
 --static
@@ -350,7 +356,7 @@ Escreva este código dentro dele:
       Django Sample Site - {% block title %}{% endblock %}
     </title>
 
-    <script src="{% static 'js/main.js' %}"></script> <!-- This is how to include a static file -->
+    <script src="{% static 'js/main.js' %}"></script> <!-- assim que se inclui um arquivo estático -->
     <link rel="stylesheet" href="{% static 'css/main.css' %}" type="text/css" />
   </head>
   <body>

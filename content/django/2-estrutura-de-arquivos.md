@@ -1,4 +1,4 @@
-# Estrutura de arquivos básica
+# Estrutura de arquivos em Projetos e Apps
 
 ## Projeto 
 
