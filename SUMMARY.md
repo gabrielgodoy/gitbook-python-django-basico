@@ -7,9 +7,9 @@
         * [Operadores](content/python/basics/operadores.md)
         * [Estruturas de Controle](content/python/basics/estruturas-de-controle.md)
         * [Funções](content/python/basics/funcoes.md)
-        * [Import](content/python/basics/import.md)
         * [Loops](content/python/basics/loops.md)
-        * [dir() e help()](content/python/basics/dir-e-help.md)
+        * [print(), dir() e help()](content/python/basics/print-dir-e-help.md)
+        * [Import](content/python/basics/import.md)
         * [Lidando com exceptions](content/python/basics/lidando-com-exceptions.md)
         * [Usando o 'with'](content/python/basics/with.md)
     * Tipos

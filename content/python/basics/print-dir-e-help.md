@@ -1,3 +1,11 @@
+# print()
+Serve para imprimir o valor de alguma variável da tela
+
+```python
+a = 2
+print(a) # 2
+```
+
 # dir()
 
 Exibe todo os métodos exstentes em um determinado objeto
