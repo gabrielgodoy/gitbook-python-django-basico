@@ -1,6 +1,6 @@
 # Tuples
 
-Tuple é uma sequência de objetos imutáveis
+Tuple é uma sequência de `objetos imutáveis`
 
 Diferente de Lists, Tuples não podem ser mudados
 

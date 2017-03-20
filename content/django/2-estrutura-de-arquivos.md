@@ -18,7 +18,7 @@ A configuração do arquivo urls.py é responsável por mapear as URL do seu sit
 
 Quando uma URL acessada pelo usuário corresponde com algum padrão configurado nesse arquivo, alguma coisa que foi configurada para aquele padrão acontece 
  
-Cada app no Django terá um arquivo próprio url.py dentro da sua pasta para administrar URLs. A configuração das URLs estará contida dentro da pasta de cada App.
+Cada app no Django terá um arquivo próprio `url.py` dentro da sua pasta para administrar URLs. A configuração das URLs estará contida dentro da pasta de cada App.
 
 
 # App

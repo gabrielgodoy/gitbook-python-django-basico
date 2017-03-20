@@ -4,19 +4,21 @@
 * Python
     * Básico
         * [Comentários](content/python/basics/comentarios.md)
-        * [Comparações](content/python/basics/comparacoes.md)
-        * [Condicionais](content/python/basics/condicionais.md)
+        * [Operadores](content/python/basics/operadores.md)
+        * [Estruturas de Controle](content/python/basics/estruturas-de-controle.md)
         * [Funções](content/python/basics/funcoes.md)
         * [Import](content/python/basics/import.md)
         * [Loops](content/python/basics/loops.md)
+        * [dir() e help()](content/python/basics/dir-e-help.md)
         * [Lidando com exceptions](content/python/basics/lidando-com-exceptions.md)
         * [Usando o 'with'](content/python/basics/with.md)
     * Tipos
-        * [Listas](content/python/types/list.md)
-        * [Dicionários](content/python/types/dictionary.md)
-        * [Sets](content/python/types/set.md)
-        * [Strings](content/python/types/string.md)
-        * [Tuples](content/python/types/tuple.md)
+        * ["" Strings](content/python/types/string.md)
+        * [ Numbers](content/python/types/numbers.md)
+        * [[ ] Listas](content/python/types/list.md)
+        * [{ } Dicionários](content/python/types/dictionary.md)
+        * [{ } Sets](content/python/types/set.md)
+        * [( ) Tuples](content/python/types/tuple.md)
         * [Classes](content/python/types/class.md)
         * [Herança de classes](content/python/types/class-inheritance.md)
 * Django

@@ -8,7 +8,8 @@
 	"plugins": [
 		"theme-api",
 		"prism", 
-		"-highlight"
+		"-highlight",
+		"hints"
 	],
 	"pluginsConfig": {
 		"theme-api": {
