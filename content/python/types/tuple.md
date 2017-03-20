@@ -2,9 +2,9 @@
 
 Tuple é uma sequência de `objetos imutáveis`
 
-Diferente de Lists, Tuples não podem ser mudados
+Diferente de Listas, os items de um Tuple não podem ser mudados
 
-Eles são evolvidos por parentêses, e listas por colchetes
+Eles são envolvidos por parênteses `()`
 
 ```python
 # Tuples
