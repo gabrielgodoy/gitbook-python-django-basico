@@ -3,7 +3,7 @@
 ```python
 import functions  # importando meu módulo customizado
 
-# Function from another module called functions
+# Chamada de Função do módulo 'functions'
 functions.variadic_function(1, 2, 3, 4, 5)
 ```
 

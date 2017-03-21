@@ -8,7 +8,7 @@ print(a) # 2
 
 # dir()
 
-Exibe todo os métodos exstentes em um determinado objeto
+Exibe todo os métodos existentes em um determinado objeto
 
 ```python
 dir("teste")
