@@ -4,6 +4,6 @@
 # Comentário de uma linha
 
 '''
-Bloco de comntário, com múltiplas linhas
+Bloco de comentário, com múltiplas linhas
 '''
 ```

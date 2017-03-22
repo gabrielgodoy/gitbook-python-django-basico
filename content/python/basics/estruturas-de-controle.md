@@ -25,7 +25,7 @@ conditionals('banana')
 numbers = [1, 5, 6, 9]
 
 def dont_print_if_numbers():
-    for n in range(15):  # range() printa de 0 a 15
+    for n in range(15):  # range(15) printa de 0 a 14
         if n in numbers:  # Não dê print caso o número esteja presente na lista 'numbers'
             continue
         print(n)

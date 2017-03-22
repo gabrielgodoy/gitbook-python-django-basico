@@ -6,7 +6,7 @@ shopping_list = ['banana', 'apple', 'jelly']
 # Usando o método enumerate para pegar a referência do index na iteração
 def enumerate_example():
     for index, item in enumerate(shopping_list):
-        print(index, item)
+        print(index, item) #0 banana...
 
 enumerate_example()
 ```

@@ -2,7 +2,7 @@
 
 O Django possui uma arquitetura separada em Model, View e Controller (MVC). 
 
-A arquitetura MVC separa as responsabilidades da aplicação e tornar o código mais legível.
+A arquitetura MVC separa as responsabilidades da aplicação e torna o código mais legível.
 
 {% hint style='info' %}
 Na verdade o Django é muitas vezes visto como uma arquitetura **MTV (Model, Template e View)**

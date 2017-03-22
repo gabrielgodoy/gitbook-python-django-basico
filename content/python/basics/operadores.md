@@ -32,6 +32,9 @@ print('x * y =', x * y)
 # Output: x / y = 3.75
 print('x / y =', x / y)
 
+# Output: x % y = 75
+print('x % y =', x % y)
+
 # Output: x // y = 3
 print('x // y =', x // y)
 
@@ -42,7 +45,7 @@ print('x ** y =', x ** y)
 ## Operadores de comparação
 `>`   Maior que - Verdadeiro se o operador esquerdo é maior que o direito `x > y`
 
-`<`   Menos que - Verdadeiro se o operador esquerdo for menor que o direito `x < y`
+`<`   Menor que - Verdadeiro se o operador esquerdo for menor que o direito `x < y`
 
 `==`  Igual a - Verdadeiro se ambos os operadores forem iguais `x == y`
 

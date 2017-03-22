@@ -24,7 +24,7 @@ key_words_arguments(age=32, height=160)
 ```python
 # Argumentos flexíveis, parecidos com rest params em Javascript
 def variadic_function(*args):
-    print(type(args))
+    print(type(args)) #<class 'tuple'>
     for a in args:
         print(a)
 
