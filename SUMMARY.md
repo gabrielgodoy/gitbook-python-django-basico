@@ -2,9 +2,13 @@
 
 * [Introdução](README.md)
 * Python
-    * Básico
+    * [Básico](content/python/basics/comentarios.md)
         * [Comentários](content/python/basics/comentarios.md)
-        * [Operadores](content/python/basics/operadores.md)
+        * [Operadores](content/python/basics/operadores-matematicos.md)
+            * [Operadores Matemáticos](content/python/basics/operadores-matematicos.md)
+            * [Operadores Lógicos](content/python/basics/operadores-logicos.md)
+            * [Operadores de Comparação](content/python/basics/operadores-de-comparacao.md)
+            * [Operadores Especiais](content/python/basics/operadores-especiais.md)
         * [Estruturas de Controle](content/python/basics/estruturas-de-controle.md)
         * [Funções](content/python/basics/funcoes.md)
         * [Loops](content/python/basics/loops.md)
@@ -12,7 +16,7 @@
         * [Import](content/python/basics/import.md)
         * [Lidando com exceptions](content/python/basics/lidando-com-exceptions.md)
         * [Usando o 'with'](content/python/basics/with.md)
-    * Tipos
+    * [Tipos](content/python/types/string.md)
         * ["" Strings](content/python/types/string.md)
         * [ Numbers](content/python/types/numbers.md)
         * [[ ] Listas](content/python/types/list.md)
@@ -21,12 +25,12 @@
         * [( ) Tuples](content/python/types/tuple.md)
         * [Classes](content/python/types/class.md)
         * [Herança de classes](content/python/types/class-inheritance.md)
-* Django
+* [Django](content/django/0-mvc-aplicado-ao-django.md)
     * [MVC aplicado ao Django](content/django/0-mvc-aplicado-ao-django.md)
     * [Conceitos básicos](content/django/1-django-conceitos-basicos.md)
     * [Estrutura de arquivos](content/django/2-estrutura-de-arquivos.md)
     * [Atualizando o banco](content/django/3-atualizando-o-banco.md)
     * [Links úteis](content/django/links-uteis.md)
-* Posts
+* [Posts](content/posts/primeira-aplicacao-em-django.md)
     * [Construa sua primeira aplicação em Django](content/posts/primeira-aplicacao-em-django.md)
     * [Trabalhando com template Django e arquivos estáticos](content/posts/trabalhando-com-templates-django-e-arquivos-estaticos.md)

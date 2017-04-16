@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Operadores · Python e Django Básico</title>
+        <title>Operadores Especiais · Python e Django Básico</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -22,6 +22,10 @@
             
                 
                 <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-hints/plugin-hints.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
                 
             
                 
@@ -60,7 +64,7 @@
     <link rel="next" href="estruturas-de-controle.html" />
     
     
-    <link rel="prev" href="comentarios.html" />
+    <link rel="prev" href="operadores-de-comparacao.html" />
     
 
     </head>
@@ -116,14 +120,14 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.1" >
+        <li class="chapter " data-level="1.2.1" data-path="comentarios.html">
             
-                <span>
+                <a href="comentarios.html">
             
                     
                     Básico
             
-                </span>
+                </a>
             
 
             
@@ -143,9 +147,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.1.2" data-path="operadores.html">
+        <li class="chapter " data-level="1.2.1.2" data-path="operadores-matematicos.html">
             
-                <a href="operadores.html">
+                <a href="operadores-matematicos.html">
             
                     
                     Operadores
@@ -153,6 +157,64 @@
                 </a>
             
 
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.2.1" data-path="operadores-matematicos.html">
+            
+                <a href="operadores-matematicos.html">
+            
+                    
+                    Operadores Matemáticos
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.2" data-path="operadores-logicos.html">
+            
+                <a href="operadores-logicos.html">
+            
+                    
+                    Operadores Lógicos
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.2.3" data-path="operadores-de-comparacao.html">
+            
+                <a href="operadores-de-comparacao.html">
+            
+                    
+                    Operadores de Comparação
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.1.2.4" data-path="operadores-especiais.html">
+            
+                <a href="operadores-especiais.html">
+            
+                    
+                    Operadores Especiais
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
             
         </li>
     
@@ -252,14 +314,14 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.2" >
+        <li class="chapter " data-level="1.2.2" data-path="../types/string.html">
             
-                <span>
+                <a href="../types/string.html">
             
                     
                     Tipos
             
-                </span>
+                </a>
             
 
             
@@ -380,14 +442,14 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3" >
+        <li class="chapter " data-level="1.3" data-path="../../django/0-mvc-aplicado-ao-django.html">
             
-                <span>
+                <a href="../../django/0-mvc-aplicado-ao-django.html">
             
                     
                     Django
             
-                </span>
+                </a>
             
 
             
@@ -464,14 +526,14 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4" >
+        <li class="chapter " data-level="1.4" data-path="../../posts/primeira-aplicacao-em-django.html">
             
-                <span>
+                <a href="../../posts/primeira-aplicacao-em-django.html">
             
                     
                     Posts
             
-                </span>
+                </a>
             
 
             
@@ -539,7 +601,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../../.." >Operadores</a>
+        <a href="../../.." >Operadores Especiais</a>
     </h1>
 </div>
 
@@ -554,91 +616,14 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="operadores">Operadores</h1>
-<h2 id="operadores-matem&#xE1;ticos">Operadores Matem&#xE1;ticos</h2>
-<p><code>+</code>   Adiciona dois operadores  <code>x + y</code></p>
-<p><code>-</code>   Subtrai operador &#xE0; direita da esquerda <code>x - y</code></p>
-<p><code>*</code>   Multiplica dois operadores <code>x * y</code></p>
-<p><code>/</code>   Divide o operador esquerdo pelo direito (sempre resulta em float) <code>x / y</code></p>
-<p><code>%</code>   M&#xF3;dulo - restante da divis&#xE3;o do operador esquerdo pelo direito <code>x % y</code> (restante de x / y)</p>
-<p><code>//</code>  Floor division - divis&#xE3;o que resulta em n&#xFA;mero inteiro ajustado para a esquerda na linha de n&#xFA;mero <code>x // y</code></p>
-<p><code>**</code>  Exponente - operador esquerdo elevado &#xE0; pot&#xEA;ncia da direita <code>x ** y</code> (x &#xE0; pot&#xEA;ncia de y)</p>
-<pre class="language-"><code class="lang-python">x <span class="token operator">=</span> <span class="token number">15</span>
-y <span class="token operator">=</span> <span class="token number">4</span>
-
-<span class="token comment" spellcheck="true"># Output: x + y = 19</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&apos;x + y =&apos;</span><span class="token punctuation">,</span> x <span class="token operator">+</span> y<span class="token punctuation">)</span>
-
-<span class="token comment" spellcheck="true"># Output: x - y = 11</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&apos;x - y =&apos;</span><span class="token punctuation">,</span> x <span class="token operator">-</span> y<span class="token punctuation">)</span>
-
-<span class="token comment" spellcheck="true"># Output: x * y = 60</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&apos;x * y =&apos;</span><span class="token punctuation">,</span> x <span class="token operator">*</span> y<span class="token punctuation">)</span>
-
-<span class="token comment" spellcheck="true"># Output: x / y = 3.75</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&apos;x / y =&apos;</span><span class="token punctuation">,</span> x <span class="token operator">/</span> y<span class="token punctuation">)</span>
-
-<span class="token comment" spellcheck="true"># Output: x % y = 75</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&apos;x % y =&apos;</span><span class="token punctuation">,</span> x <span class="token operator">%</span> y<span class="token punctuation">)</span>
-
-<span class="token comment" spellcheck="true"># Output: x // y = 3</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&apos;x // y =&apos;</span><span class="token punctuation">,</span> x <span class="token operator">//</span> y<span class="token punctuation">)</span>
-
-<span class="token comment" spellcheck="true"># Output: x ** y = 50625</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&apos;x ** y =&apos;</span><span class="token punctuation">,</span> x <span class="token operator">**</span> y<span class="token punctuation">)</span>
-</code></pre>
-<h2 id="operadores-de-compara&#xE7;&#xE3;o">Operadores de compara&#xE7;&#xE3;o</h2>
-<p><code>&gt;</code>   Maior que - Verdadeiro se o operador esquerdo &#xE9; maior que o direito <code>x &gt; y</code></p>
-<p><code>&lt;</code>   Menor que - Verdadeiro se o operador esquerdo for menor que o direito <code>x &lt; y</code></p>
-<p><code>==</code>  Igual a - Verdadeiro se ambos os operadores forem iguais <code>x == y</code></p>
-<p><code>!=</code>  Diferente de - Verdadeiro se os operadores n&#xE3;o s&#xE3;o iguais <code>x != y</code></p>
-<p><code>&gt;=</code>  Maior ou igual a - Verdadeiro se o operador esquerdo for maior ou igual ao direito <code>x &gt;= y</code></p>
-<p><code>&lt;=</code>  Menor ou igual a - Verdadeiro se o operador esquerdo for menor ou igual ao direito <code>x &lt;= y</code></p>
-<pre class="language-"><code class="lang-python">x <span class="token operator">=</span> <span class="token number">10</span>
-y <span class="token operator">=</span> <span class="token number">12</span>
-
-<span class="token comment" spellcheck="true"># Output: x &gt; y is False</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&apos;x &gt; y  is&apos;</span><span class="token punctuation">,</span> x <span class="token operator">&gt;</span> y<span class="token punctuation">)</span>
-
-<span class="token comment" spellcheck="true"># Output: x &lt; y is True</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&apos;x &lt; y  is&apos;</span><span class="token punctuation">,</span> x <span class="token operator">&lt;</span> y<span class="token punctuation">)</span>
-
-<span class="token comment" spellcheck="true"># Output: x == y is False</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&apos;x == y is&apos;</span><span class="token punctuation">,</span> x <span class="token operator">==</span> y<span class="token punctuation">)</span>
-
-<span class="token comment" spellcheck="true"># Output: x != y is True</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&apos;x != y is&apos;</span><span class="token punctuation">,</span> x <span class="token operator">!=</span> y<span class="token punctuation">)</span>
-
-<span class="token comment" spellcheck="true"># Output: x &gt;= y is False</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&apos;x &gt;= y is&apos;</span><span class="token punctuation">,</span> x <span class="token operator">&gt;=</span> y<span class="token punctuation">)</span>
-
-<span class="token comment" spellcheck="true"># Output: x &lt;= y is True</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&apos;x &lt;= y is&apos;</span><span class="token punctuation">,</span> x <span class="token operator">&lt;=</span> y<span class="token punctuation">)</span>
-</code></pre>
-<h2 id="operadores-l&#xF3;gicos">Operadores L&#xF3;gicos</h2>
-<p><code>and</code> True se ambos os operadores forem verdadeiros <code>x e y</code></p>
-<p><code>or</code>  True se qualquer um dos operadores for verdadeiro <code>x ou y</code></p>
-<p><code>not</code> True se o operador &#xE9; falso (complementa o operador) <code>n&#xE3;o x</code></p>
-<pre class="language-"><code class="lang-python">x <span class="token operator">=</span> <span class="token boolean">True</span>
-y <span class="token operator">=</span> <span class="token boolean">False</span>
-
-<span class="token comment" spellcheck="true"># Output: x and y is False</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&apos;x and y is&apos;</span><span class="token punctuation">,</span> x <span class="token operator">and</span> y<span class="token punctuation">)</span>
-
-<span class="token comment" spellcheck="true"># Output: x or y is True</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&apos;x or y is&apos;</span><span class="token punctuation">,</span> x <span class="token operator">or</span> y<span class="token punctuation">)</span>
-
-<span class="token comment" spellcheck="true"># Output: not x is False</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&apos;not x is&apos;</span><span class="token punctuation">,</span> <span class="token operator">not</span> x<span class="token punctuation">)</span>
-</code></pre>
-<h2 id="operadores-especiais">Operadores especiais</h2>
+                                <h2 id="operadores-especiais">Operadores especiais</h2>
 <h3 id="operadores-de-identidade">Operadores de identidade</h3>
 <p><code>is</code> e <code>is not</code> s&#xE3;o operadores de identidade. Eles s&#xE3;o usados para verificar se dois valores (ou vari&#xE1;veis) est&#xE3;o localizados na mesma parte da mem&#xF3;ria. Duas vari&#xE1;veis que s&#xE3;o iguais n&#xE3;o significa que sejam id&#xEA;nticas.</p>
 <p>Diferen&#xE7;a entre <code>is</code> e <code>==</code></p>
 <p><code>is</code> checa por identidade</p>
 <p><code>a is b</code> &#xE9; verdadeiro caso a e b s&#xE3;o o mesmo objeto (os dois s&#xE3;o armazenados no mesmo endere&#xE7;o na mem&#xF3;ria)</p>
 <p><code>==</code> checa por igualdade de valor</p>
-<p>retorna verdadeiro caso os objetos referidos pelas vari&#xE1;veis s&#xE3;o iguais em valor </p>
+<p>retorna verdadeiro caso os objetos referidos pelas vari&#xE1;veis s&#xE3;o iguais em valor</p>
 <pre class="language-"><code class="lang-python"><span class="token number">1000</span> <span class="token keyword">is</span> <span class="token number">10</span> <span class="token operator">*</span> <span class="token number">100</span>  <span class="token comment" spellcheck="true"># False - N&#xE3;o s&#xE3;o o mesmo objeto</span>
 <span class="token number">1000</span> <span class="token operator">==</span> <span class="token number">10</span> <span class="token operator">*</span> <span class="token number">100</span>  <span class="token comment" spellcheck="true"># True - S&#xE3;o iguais em valor</span>
 </code></pre>
@@ -694,7 +679,7 @@ y <span class="token operator">=</span> <span class="token punctuation">{</span>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Operadores","level":"1.2.1.2","depth":3,"next":{"title":"Estruturas de Controle","level":"1.2.1.3","depth":3,"path":"content/python/basics/estruturas-de-controle.md","ref":"content/python/basics/estruturas-de-controle.md","articles":[]},"previous":{"title":"Comentários","level":"1.2.1.1","depth":3,"path":"content/python/basics/comentarios.md","ref":"content/python/basics/comentarios.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","hints","livereload"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"livereload":{},"search":{},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-api":{"languages":[],"split":true,"theme":"dark"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Python e Django Básico","gitbook":"*","description":"Anotações sobre Python e Django"},"file":{"path":"content/python/basics/operadores.md","mtime":"2017-03-21T16:59:08.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-03-21T16:37:29.119Z"},"basePath":"../../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Operadores Especiais","level":"1.2.1.2.4","depth":4,"next":{"title":"Estruturas de Controle","level":"1.2.1.3","depth":3,"path":"content/python/basics/estruturas-de-controle.md","ref":"content/python/basics/estruturas-de-controle.md","articles":[]},"previous":{"title":"Operadores de Comparação","level":"1.2.1.2.3","depth":4,"path":"content/python/basics/operadores-de-comparacao.md","ref":"content/python/basics/operadores-de-comparacao.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","hints","expandable-chapters","livereload"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"livereload":{},"search":{},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-api":{"languages":[],"split":true,"theme":"dark"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Python e Django Básico","gitbook":"*","description":"Anotações sobre Python e Django"},"file":{"path":"content/python/basics/operadores-especiais.md","mtime":"2017-04-16T05:54:14.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-16T06:15:12.245Z"},"basePath":"../../..","book":{"language":""}});
         });
     </script>
 </div>
@@ -702,6 +687,10 @@ y <span class="token operator">=</span> <span class="token punctuation">{</span>
         
     <script src="../../../gitbook/gitbook.js"></script>
     <script src="../../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
     
         
         <script src="../../../gitbook/gitbook-plugin-livereload/plugin.js"></script>

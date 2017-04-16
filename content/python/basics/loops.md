@@ -1,5 +1,6 @@
 # Loops
 
+## For...in
 ```python
 shopping_list = ['banana', 'apple', 'jelly']
 
@@ -18,22 +19,6 @@ def get_me_range():
 ```
 
 ```python
-def get_me_range_delimitators():
-    for x in range(4, 10):
-        print(x)
-```
-
-```python
-# Range method => range(start, end, incrementor)
-
-def get_me_range_incrementor():
-    for number in range(4, 10, 2):  # 4 6 8
-        print(number)
-
-get_me_range_incrementor()
-```
-
-```python
 # Range method
 def get_magic_number(magic_number):
     for n in range(100):
@@ -45,3 +30,4 @@ def get_magic_number(magic_number):
 
 get_magic_number(26)
 ```
+

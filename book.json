@@ -1,24 +1,25 @@
 {
-	"title": "Python e Django Básico",
-	"description": "Anotações sobre Python e Django",
-	"author": "Gabriel Godoy",
-	"styles": {
-		"website": "./assets/main.css"
-	},
-	"plugins": [
-		"theme-api",
-		"prism", 
-		"-highlight",
-		"hints"
-	],
-	"pluginsConfig": {
-		"theme-api": {
-			"theme": "dark"
-		},
-		"prism": {
-			"css": [
-				"prismjs/themes/prism-tomorrow.css"
-			]
-		}
-	}
+  "title": "Python e Django Básico",
+  "description": "Anotações sobre Python e Django",
+  "author": "Gabriel Godoy",
+  "styles": {
+    "website": "./assets/main.css"
+  },
+  "plugins": [
+    "theme-api",
+    "prism",
+    "-highlight",
+    "hints",
+    "expandable-chapters"
+  ],
+  "pluginsConfig": {
+    "theme-api": {
+      "theme": "dark"
+    },
+    "prism": {
+      "css": [
+        "prismjs/themes/prism-tomorrow.css"
+      ]
+    }
+  }
 }

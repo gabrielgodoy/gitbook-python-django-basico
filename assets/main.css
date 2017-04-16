@@ -70,3 +70,7 @@ p > code {
     margin: 0 auto;
     display: block;
 }
+
+.token.comment, .token.block-comment, .token.prolog, .token.doctype, .token.cdata {
+  color: #555 !important;
+}
