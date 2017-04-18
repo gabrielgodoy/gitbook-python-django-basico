@@ -13,7 +13,6 @@
         * [Funções](content/python/basics/funcoes.md)
             * [Funções nativas](content/python/basics/funcoes-nativas.md)
         * [Loops](content/python/basics/loops.md)
-        * [print(), dir() e help()](content/python/basics/print-dir-e-help.md)
         * [Import](content/python/basics/import.md)
         * [Lidando com exceptions](content/python/basics/lidando-com-exceptions.md)
         * [Usando o 'with'](content/python/basics/with.md)
