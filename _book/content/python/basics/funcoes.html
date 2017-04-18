@@ -61,7 +61,7 @@
     <link rel="shortcut icon" href="../../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="loops.html" />
+    <link rel="next" href="funcoes-nativas.html" />
     
     
     <link rel="prev" href="estruturas-de-controle.html" />
@@ -166,7 +166,7 @@
                 <a href="operadores-matematicos.html">
             
                     
-                    Operadores Matemáticos
+                    Matemáticos
             
                 </a>
             
@@ -179,7 +179,7 @@
                 <a href="operadores-logicos.html">
             
                     
-                    Operadores Lógicos
+                    Lógicos
             
                 </a>
             
@@ -192,7 +192,7 @@
                 <a href="operadores-de-comparacao.html">
             
                     
-                    Operadores de Comparação
+                    Comparação
             
                 </a>
             
@@ -205,7 +205,7 @@
                 <a href="operadores-especiais.html">
             
                     
-                    Operadores Especiais
+                    Especiais
             
                 </a>
             
@@ -241,6 +241,25 @@
                 </a>
             
 
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1.4.1" data-path="funcoes-nativas.html">
+            
+                <a href="funcoes-nativas.html">
+            
+                    
+                    Funções nativas
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
             
         </li>
     
@@ -617,17 +636,16 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="fun&#xE7;&#xF5;es">Fun&#xE7;&#xF5;es</h1>
-<p><a href="https://docs.python.org/3.6/library/functions.html" target="_blank">Lista de fun&#xE7;&#xF5;es nativas dispon&#xED;veis no Python</a></p>
-<pre class="language-"><code class="lang-python"><span class="token comment" spellcheck="true"># Default parameters</span>
-<span class="token keyword">def</span> <span class="token function">key_words_arguments</span><span class="token punctuation">(</span>name<span class="token operator">=</span><span class="token string">&apos;Gabriel&apos;</span><span class="token punctuation">,</span> age<span class="token operator">=</span><span class="token number">30</span><span class="token punctuation">,</span> height<span class="token operator">=</span><span class="token number">180</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+<p>Par&#xE2;metros default</p>
+<pre class="language-"><code class="lang-python"><span class="token keyword">def</span> <span class="token function">key_words_arguments</span><span class="token punctuation">(</span>name<span class="token operator">=</span><span class="token string">&apos;Gabriel&apos;</span><span class="token punctuation">,</span> age<span class="token operator">=</span><span class="token number">30</span><span class="token punctuation">,</span> height<span class="token operator">=</span><span class="token number">180</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token keyword">print</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> age<span class="token punctuation">,</span> height<span class="token punctuation">)</span>
-</code></pre>
-<pre class="language-"><code class="lang-python"><span class="token comment" spellcheck="true"># Substitua os argumentos que voc&#xEA; deseja referenciando eles diretamente</span>
+
+<span class="token comment" spellcheck="true"># Substitua os argumentos que voc&#xEA; deseja referenciando eles diretamente</span>
 <span class="token comment" spellcheck="true"># A fun&#xE7;&#xE3;o sabe qual argumento se deseja substituir</span>
 key_words_arguments<span class="token punctuation">(</span>age<span class="token operator">=</span><span class="token number">32</span><span class="token punctuation">,</span> height<span class="token operator">=</span><span class="token number">160</span><span class="token punctuation">)</span>
 </code></pre>
-<pre class="language-"><code class="lang-python"><span class="token comment" spellcheck="true"># Argumentos flex&#xED;veis, parecidos com rest params em Javascript</span>
-<span class="token keyword">def</span> <span class="token function">variadic_function</span><span class="token punctuation">(</span><span class="token operator">*</span>args<span class="token punctuation">)</span><span class="token punctuation">:</span>
+<p>Argumentos flex&#xED;veis, parecidos com par&#xE2;metros rest em Javascript</p>
+<pre class="language-"><code class="lang-python"><span class="token keyword">def</span> <span class="token function">variadic_function</span><span class="token punctuation">(</span><span class="token operator">*</span>args<span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token keyword">print</span><span class="token punctuation">(</span>type<span class="token punctuation">(</span>args<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#&lt;class &apos;tuple&apos;&gt;</span>
     <span class="token keyword">for</span> a <span class="token keyword">in</span> args<span class="token punctuation">:</span>
         <span class="token keyword">print</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span>
@@ -650,18 +668,6 @@ print_body_parts<span class="token punctuation">(</span><span class="token opera
 
 printdict<span class="token punctuation">(</span>john<span class="token operator">=</span><span class="token number">10</span><span class="token punctuation">,</span> jill<span class="token operator">=</span><span class="token number">12</span><span class="token punctuation">,</span> david<span class="token operator">=</span><span class="token number">15</span><span class="token punctuation">)</span>
 </code></pre>
-<h2 id="exemplo-de-fun&#xE7;&#xF5;es-nativas">Exemplo de fun&#xE7;&#xF5;es nativas</h2>
-<h3 id="range">range()</h3>
-<pre class="language-"><code class="lang-python"><span class="token comment" spellcheck="true"># Range method =&gt; range(start, end, incrementor)</span>
-
-<span class="token keyword">def</span> <span class="token function">get_me_range_incrementor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">for</span> number <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">:</span>  <span class="token comment" spellcheck="true"># 4 6 8</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span>number<span class="token punctuation">)</span>
-
-get_me_range_incrementor<span class="token punctuation">(</span><span class="token punctuation">)</span>
-</code></pre>
-<h3 id="len">len()</h3>
-<p>Return the length (the number of items) of an object.</p>
 
                                 
                                 </section>
@@ -695,7 +701,7 @@ get_me_range_incrementor<span class="token punctuation">(</span><span class="tok
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Funções","level":"1.2.1.4","depth":3,"next":{"title":"Loops","level":"1.2.1.5","depth":3,"path":"content/python/basics/loops.md","ref":"content/python/basics/loops.md","articles":[]},"previous":{"title":"Estruturas de Controle","level":"1.2.1.3","depth":3,"path":"content/python/basics/estruturas-de-controle.md","ref":"content/python/basics/estruturas-de-controle.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","hints","expandable-chapters"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"search":{},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-api":{"languages":[],"split":true,"theme":"dark"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Python e Django Básico","gitbook":"*","description":"Anotações sobre Python e Django"},"file":{"path":"content/python/basics/funcoes.md","mtime":"2017-04-16T06:24:40.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-16T19:40:44.651Z"},"basePath":"../../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Funções","level":"1.2.1.4","depth":3,"next":{"title":"Funções nativas","level":"1.2.1.4.1","depth":4,"path":"content/python/basics/funcoes-nativas.md","ref":"content/python/basics/funcoes-nativas.md","articles":[]},"previous":{"title":"Estruturas de Controle","level":"1.2.1.3","depth":3,"path":"content/python/basics/estruturas-de-controle.md","ref":"content/python/basics/estruturas-de-controle.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","hints","expandable-chapters"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"search":{},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-api":{"languages":[],"split":true,"theme":"dark"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Python e Django Básico","gitbook":"*","description":"Anotações sobre Python e Django"},"file":{"path":"content/python/basics/funcoes.md","mtime":"2017-04-18T04:18:00.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-18T05:10:55.977Z"},"basePath":"../../..","book":{"language":""}});
         });
     </script>
 </div>
