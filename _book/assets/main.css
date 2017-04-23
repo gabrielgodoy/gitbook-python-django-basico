@@ -44,7 +44,7 @@ p > code {
 
 .markdown-section h3 {
     color: rgba(68, 68, 68, .85);
-    margin: 20px 0 20px;
+    margin: 20px 0 0;
 }
 
 .markdown-section ul,
