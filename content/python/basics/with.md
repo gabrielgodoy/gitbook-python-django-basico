@@ -2,6 +2,7 @@
 
 ```python
 # O with vai automaticamente fechar o arquivo depois que o bloco de código rodar
+
 with open('output.txt', 'w') as file:
     file.write('Hi there!')
 ```

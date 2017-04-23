@@ -7,6 +7,8 @@ class Animal:
 
     def walk(self):
         print('Andando como um animal andaria')
+
+algum_animal = Animal()  # Cria uma nova instância da classe Animal
 ```
 
 ```python
@@ -30,11 +32,10 @@ class Cat(Animal):  # Cat herda da classe Animal
             print(str(self.life) + ' life left' if self.life is 1 else str(self.life) + ' lives left')
 
     # Define um estado inicial para as instâncias dessa classe
-    def __init__(self, name):  # Chamado automaticamente quando um novo objeto é criado, como constructors em Javascript
-        # variável da instância
+    def __init__(self, name):  # Chamado automaticamente quando um novo objeto é criado
         self.name = name  # name é único para cada instância
 
-my_cat = Cat('Puffy')  # Cria uma nova instância
+my_cat = Cat('Puffy')  # Cria uma nova instância da classe Cat
 print(my_cat.name)  # Puffy
 
 my_cat.meow()  # meow!

@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Lidando com exceptions · Python e Django Básico</title>
+        <title>Lidando com exceções · Python e Django Básico</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -218,12 +218,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.1.3" data-path="estruturas-de-controle.html">
+        <li class="chapter " data-level="1.2.1.3" data-path="condicionais.html">
             
-                <a href="estruturas-de-controle.html">
+                <a href="condicionais.html">
             
                     
-                    Estruturas de Controle
+                    Condicionais
             
                 </a>
             
@@ -231,7 +231,20 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.1.4" data-path="funcoes.html">
+        <li class="chapter " data-level="1.2.1.4" data-path="loops.html">
+            
+                <a href="loops.html">
+            
+                    
+                    Repetições (Loops)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.5" data-path="funcoes.html">
             
                 <a href="funcoes.html">
             
@@ -245,7 +258,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.1.4.1" data-path="funcoes-nativas.html">
+        <li class="chapter " data-level="1.2.1.5.1" data-path="funcoes-nativas.html">
             
                 <a href="funcoes-nativas.html">
             
@@ -260,19 +273,6 @@
     
 
             </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2.1.5" data-path="loops.html">
-            
-                <a href="loops.html">
-            
-                    
-                    Loops
-            
-                </a>
-            
-
             
         </li>
     
@@ -294,7 +294,7 @@
                 <a href="lidando-com-exceptions.html">
             
                     
-                    Lidando com exceptions
+                    Lidando com exceções
             
                 </a>
             
@@ -607,7 +607,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../../.." >Lidando com exceptions</a>
+        <a href="../../.." >Lidando com exceções</a>
     </h1>
 </div>
 
@@ -622,36 +622,36 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="lidando-com-exceptions">Lidando com exceptions</h1>
-<p>Algumas Exceptions nativas (<a href="https://docs.python.org/2/library/exceptions.html" target="_blank">https://docs.python.org/2/library/exceptions.html</a>)</p>
-<pre class="language-"><code class="lang-python"><span class="token comment" spellcheck="true"># SyntaxError Wrong written code</span>
-<span class="token comment" spellcheck="true"># fav_number = int(in put(&apos;What is your favorite number?\n&apos;))</span>
+                                <h1 id="lidando-com-exce&#xE7;&#xF5;es">Lidando com Exce&#xE7;&#xF5;es</h1>
+<p>Algumas Exce&#xE7;&#xF5;es nativas (<a href="https://docs.python.org/2/library/exceptions.html" target="_blank">https://docs.python.org/2/library/exceptions.html</a>)</p>
+<pre class="language-"><code class="lang-python"><span class="token comment" spellcheck="true"># SyntaxError significa C&#xF3;digo escrito de maneira errada</span>
+numero_favorito <span class="token operator">=</span> int<span class="token punctuation">(</span><span class="token keyword">in</span> put<span class="token punctuation">(</span><span class="token string">&apos;Qual seu n&#xFA;mero favorito?\n&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># SyntaxError por causa do &quot;in put&quot;</span>
 
-<span class="token comment" spellcheck="true"># ValueError: Code waiting for a number, but user inserted a string</span>
-
-<span class="token comment" spellcheck="true"># ZeroDivisionError: Raised when the second argument of a division or modulo operation is zero</span>
+<span class="token comment" spellcheck="true"># ValueError: O script esperava um n&#xFA;mero, mas usu&#xE1;rio inseriu unma string</span>
+<span class="token comment" spellcheck="true"># ZeroDivisionError: &#xC9; exibido quando o segundo argumento da divis&#xE3;o ou m&#xF3;dulo &#xE9; zero</span>
 </code></pre>
 <h2 id="lidando-com-erros">Lidando com erros</h2>
-<pre class="language-"><code class="lang-python"><span class="token comment" spellcheck="true"># Run the code over and over again, until the user inserts a number correctly</span>
-<span class="token comment" spellcheck="true"># If a number is inserted correctly break from the loop</span>
+<pre class="language-"><code class="lang-python"><span class="token comment" spellcheck="true"># Execute o c&#xF3;digo v&#xE1;rias vezes, at&#xE9; que o usu&#xE1;rio insira um n&#xFA;mero corretamente</span>
+<span class="token comment" spellcheck="true"># Se um n&#xFA;mero &#xE9; inserido corretamente, d&#xEA; um break do loop</span>
+
 <span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
     <span class="token keyword">try</span><span class="token punctuation">:</span>
-        fav_number <span class="token operator">=</span> int<span class="token punctuation">(</span>input<span class="token punctuation">(</span><span class="token string">&apos;What is your favorite number?\n&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token number">18</span> <span class="token operator">/</span> fav_number<span class="token punctuation">)</span>
+        numero_favorito <span class="token operator">=</span> int<span class="token punctuation">(</span>input<span class="token punctuation">(</span><span class="token string">&apos;Qual seu numero favorito?\n&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token number">18</span> <span class="token operator">/</span> numero_favorito<span class="token punctuation">)</span>
         <span class="token keyword">break</span>
     <span class="token keyword">except</span> ValueError<span class="token punctuation">:</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&apos;The input must be a number&apos;</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&apos;O input precisa ser um numero&apos;</span><span class="token punctuation">)</span>
     <span class="token keyword">except</span> ZeroDivisionError<span class="token punctuation">:</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&apos;Don\&apos;t pick zero&apos;</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&apos;Nao escolha zero&apos;</span><span class="token punctuation">)</span>
 
-    <span class="token comment" spellcheck="true"># To handle All exceptions</span>
+    <span class="token comment" spellcheck="true"># Para lidar com TODAS as exce&#xE7;&#xF5;es</span>
     <span class="token keyword">except</span><span class="token punctuation">:</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&apos;Some unknown error&apos;</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&apos;Aconteceu um erro desconhecido&apos;</span><span class="token punctuation">)</span>
 
-    <span class="token comment" spellcheck="true"># Execute this line of code no matter what.</span>
-    <span class="token comment" spellcheck="true"># It occurs every single time in the loop</span>
+    <span class="token comment" spellcheck="true"># Execute essa linha abaixo en todos os casos</span>
+    <span class="token comment" spellcheck="true"># Essa linha executa todas as vezes no loop</span>
     <span class="token keyword">finally</span><span class="token punctuation">:</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&apos;loop completed&apos;</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&apos;loop completado&apos;</span><span class="token punctuation">)</span>
 </code></pre>
 
                                 
@@ -686,7 +686,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Lidando com exceptions","level":"1.2.1.7","depth":3,"next":{"title":"Usando o 'with'","level":"1.2.1.8","depth":3,"path":"content/python/basics/with.md","ref":"content/python/basics/with.md","articles":[]},"previous":{"title":"Import","level":"1.2.1.6","depth":3,"path":"content/python/basics/import.md","ref":"content/python/basics/import.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","hints","expandable-chapters"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"search":{},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-api":{"languages":[],"split":true,"theme":"dark"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Python e Django Básico","gitbook":"*","description":"Anotações sobre Python e Django"},"file":{"path":"content/python/basics/lidando-com-exceptions.md","mtime":"2017-03-19T05:59:41.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-18T05:12:53.684Z"},"basePath":"../../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Lidando com exceções","level":"1.2.1.7","depth":3,"next":{"title":"Usando o 'with'","level":"1.2.1.8","depth":3,"path":"content/python/basics/with.md","ref":"content/python/basics/with.md","articles":[]},"previous":{"title":"Import","level":"1.2.1.6","depth":3,"path":"content/python/basics/import.md","ref":"content/python/basics/import.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","hints","expandable-chapters"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"search":{},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-api":{"languages":[],"split":true,"theme":"dark"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Python e Django Básico","gitbook":"*","description":"Anotações sobre Python e Django"},"file":{"path":"content/python/basics/lidando-com-exceptions.md","mtime":"2017-04-23T15:56:44.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-23T16:00:57.332Z"},"basePath":"../../..","book":{"language":""}});
         });
     </script>
 </div>

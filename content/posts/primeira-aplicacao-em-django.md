@@ -5,7 +5,7 @@ Esse post é uma tradução [desse post](https://scotch.io/tutorials/build-your-
 Você já deve ter ouvido falar do Python antes, especialmente se você já desenvolve por um tempo. Se não, Python é uma linguagem de programação de alto nível, de uso geral. Isso significa que você pode usar Python para desenvolver desde um jogo simples até um site com milhões de usuários por mês. Na verdade, vários sites que possuem milhões de visitantes por mês contam com Python para alguns de seus serviços. Exemplos incluem o [YouTube](https://www.youtube.com/) e o [Dropbox](https://www.dropbox.com/).
 
 ![Python](../../assets/images/python.png)
-   
+
 Dito isto, por que você deve usar Python em primeiro lugar? Por que não uma das muitas outras linguagens populares como Ruby ou PHP? Bem, com o Python você obtém os seguintes benefícios:
 
 1. Sintaxe fácil
@@ -13,7 +13,7 @@ Dito isto, por que você deve usar Python em primeiro lugar? Por que não uma da
 3. Fácil de aprender
 4. O Python é útil para as mais variadas tarefas, desde o shell básico até o desenvolvimento avançado na web.
 
---- 
+---
 
 ## Quando não usar o Python
 
@@ -121,7 +121,7 @@ Agora vamos falar sobre Django
 
 ![Django](../../assets/images/django.png)
 
-O Django é uma estrutura escrita em Python para a web. É livre e de código aberto já esta no mercado desde 2005. É um framework maduro, e vem com excelente documentação e recursos incluídos. 
+O Django é uma estrutura escrita em Python para a web. É livre e de código aberto já esta no mercado desde 2005. É um framework maduro, e vem com excelente documentação e recursos incluídos.
 
 Algumas ferramentas que fornece são:
 
@@ -152,10 +152,10 @@ python3
 Você deve ver algo parecido com o seguinte:
 
 ```bash
-Python 3.5.1 (v3.5.1:37a07cee5969, Dec  5 2015, 21:12:44) 
+Python 3.5.1 (v3.5.1:37a07cee5969, Dec  5 2015, 21:12:44)
 [GCC 4.2.1 (Apple Inc. build 5666) (dot 3)] on darwin
 Type "help", "copyright", "credits" or "license" for more information.
->>> 
+>>>
 ```
 
 Este é o shell interativo do Python. Pressione `CTRL + D` para sair desse shell
@@ -288,7 +288,7 @@ Dito isto, vamos criar um app. Dê `cd` na primeira pasta `helloapp` e digite;
 python manage.py howdy
 ```
 
-Este comando criará um app chamado `howdy`. 
+Este comando criará um app chamado `howdy`.
 
 Sua estrutura de arquivos agora deve ser algo como isso:
 
@@ -546,7 +546,7 @@ Vamos adicionar outra página. Em sua pasta `howdy/templates`, adicione um arqui
     <body>
         <h1>Welcome to the about page</h1>
     <p>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis neque ex. Donec feugiat egestas dictum. In eget erat sit amet elit pellentesque convallis nec vitae turpis. Vivamus et molestie nisl. Aenean non suscipit velit. Nunc eleifend convallis consectetur. Phasellus ornare dolor eu mi vestibulum, ornare tempus lacus imperdiet. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque ut sem ligula. Mauris volutpat vestibulum dui in cursus. Donec aliquam orci pellentesque, interdum neque sit amet, vulputate purus. Quisque volutpat cursus nisl, in volutpat velit lacinia id. Maecenas id felis diam. 
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis neque ex. Donec feugiat egestas dictum. In eget erat sit amet elit pellentesque convallis nec vitae turpis. Vivamus et molestie nisl. Aenean non suscipit velit. Nunc eleifend convallis consectetur. Phasellus ornare dolor eu mi vestibulum, ornare tempus lacus imperdiet. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque ut sem ligula. Mauris volutpat vestibulum dui in cursus. Donec aliquam orci pellentesque, interdum neque sit amet, vulputate purus. Quisque volutpat cursus nisl, in volutpat velit lacinia id. Maecenas id felis diam.
     </p>
     <a href="/">Go back home</a>
     </body>

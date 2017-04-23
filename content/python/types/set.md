@@ -1,10 +1,10 @@
 # Sets
 
-Sets rejeitam valores duplicados
+Sets somente permitem valores únicos. O Set rejeita valores duplicados
 
 ```python
-mySet = {1, 2, 3, 4, 3, 2}
+meuSet = {1, 2, 3, 4, 3, 2}
 
-for number in mySet:
-    print(number)  # Print only 1, 2, 3, 4
+for number in meuSet:
+    print(number)  # Printa somente 1, 2, 3, 4
 ```

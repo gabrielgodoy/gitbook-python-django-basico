@@ -1,38 +1,37 @@
-# Lidando com exceptions
+# Lidando com Exceções
 
-Algumas Exceptions nativas (https://docs.python.org/2/library/exceptions.html)
+Algumas Exceções nativas (https://docs.python.org/2/library/exceptions.html)
 
 ```python
-# SyntaxError Wrong written code
-# fav_number = int(in put('What is your favorite number?\n'))
+# SyntaxError significa Código escrito de maneira errada
+numero_favorito = int(in put('Qual seu número favorito?\n')) # SyntaxError por causa do "in put"
 
-# ValueError: Code waiting for a number, but user inserted a string
-
-# ZeroDivisionError: Raised when the second argument of a division or modulo operation is zero
+# ValueError: O script esperava um número, mas usuário inseriu unma string
+# ZeroDivisionError: É exibido quando o segundo argumento da divisão ou módulo é zero
 ```
-
 
 ## Lidando com erros
 
 ```python
-# Run the code over and over again, until the user inserts a number correctly
-# If a number is inserted correctly break from the loop
+# Execute o código várias vezes, até que o usuário insira um número corretamente
+# Se um número é inserido corretamente, dê um break do loop
+
 while True:
     try:
-        fav_number = int(input('What is your favorite number?\n'))
-        print(18 / fav_number)
+        numero_favorito = int(input('Qual seu numero favorito?\n'))
+        print(18 / numero_favorito)
         break
     except ValueError:
-        print('The input must be a number')
+        print('O input precisa ser um numero')
     except ZeroDivisionError:
-        print('Don\'t pick zero')
+        print('Nao escolha zero')
 
-    # To handle All exceptions
+    # Para lidar com TODAS as exceções
     except:
-        print('Some unknown error')
+        print('Aconteceu um erro desconhecido')
 
-    # Execute this line of code no matter what.
-    # It occurs every single time in the loop
+    # Execute essa linha abaixo en todos os casos
+    # Essa linha executa todas as vezes no loop
     finally:
-        print('loop completed')
+        print('loop completado')
 ```

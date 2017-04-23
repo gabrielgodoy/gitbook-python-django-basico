@@ -218,12 +218,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.1.3" data-path="estruturas-de-controle.html">
+        <li class="chapter " data-level="1.2.1.3" data-path="condicionais.html">
             
-                <a href="estruturas-de-controle.html">
+                <a href="condicionais.html">
             
                     
-                    Estruturas de Controle
+                    Condicionais
             
                 </a>
             
@@ -231,7 +231,20 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.1.4" data-path="funcoes.html">
+        <li class="chapter " data-level="1.2.1.4" data-path="loops.html">
+            
+                <a href="loops.html">
+            
+                    
+                    Repetições (Loops)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.5" data-path="funcoes.html">
             
                 <a href="funcoes.html">
             
@@ -245,7 +258,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.1.4.1" data-path="funcoes-nativas.html">
+        <li class="chapter " data-level="1.2.1.5.1" data-path="funcoes-nativas.html">
             
                 <a href="funcoes-nativas.html">
             
@@ -260,19 +273,6 @@
     
 
             </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2.1.5" data-path="loops.html">
-            
-                <a href="loops.html">
-            
-                    
-                    Loops
-            
-                </a>
-            
-
             
         </li>
     
@@ -294,7 +294,7 @@
                 <a href="lidando-com-exceptions.html">
             
                     
-                    Lidando com exceptions
+                    Lidando com exceções
             
                 </a>
             
@@ -628,31 +628,25 @@
 <p><code>*</code>   Multiplica dois operadores <code>x * y</code></p>
 <p><code>/</code>   Divide o operador esquerdo pelo direito (sempre resulta em float) <code>x / y</code></p>
 <p><code>%</code>   M&#xF3;dulo - restante da divis&#xE3;o do operador esquerdo pelo direito <code>x % y</code> (restante de x / y)</p>
-<p><code>//</code>  Floor division - divis&#xE3;o que resulta em n&#xFA;mero inteiro ajustado para a esquerda na linha de n&#xFA;mero <code>x // y</code></p>
+<p><code>//</code>  Floor division - divis&#xE3;o que resulta em n&#xFA;mero inteiro arredondado para baixo <code>x // y</code></p>
 <p><code>**</code>  Exponente - operador esquerdo elevado &#xE0; pot&#xEA;ncia da direita <code>x ** y</code> (x &#xE0; pot&#xEA;ncia de y)</p>
 <pre class="language-"><code class="lang-python">x <span class="token operator">=</span> <span class="token number">15</span>
 y <span class="token operator">=</span> <span class="token number">4</span>
 
-<span class="token comment" spellcheck="true"># Output: x + y = 19</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&apos;x + y =&apos;</span><span class="token punctuation">,</span> x <span class="token operator">+</span> y<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&apos;x + y =&apos;</span><span class="token punctuation">,</span> x <span class="token operator">+</span> y<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 15 + 4 = 19</span>
 
-<span class="token comment" spellcheck="true"># Output: x - y = 11</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&apos;x - y =&apos;</span><span class="token punctuation">,</span> x <span class="token operator">-</span> y<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&apos;x - y =&apos;</span><span class="token punctuation">,</span> x <span class="token operator">-</span> y<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 15 - 4 = 11</span>
 
-<span class="token comment" spellcheck="true"># Output: x * y = 60</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&apos;x * y =&apos;</span><span class="token punctuation">,</span> x <span class="token operator">*</span> y<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&apos;x * y =&apos;</span><span class="token punctuation">,</span> x <span class="token operator">*</span> y<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 15 * 4 = 60</span>
 
-<span class="token comment" spellcheck="true"># Output: x / y = 3.75</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&apos;x / y =&apos;</span><span class="token punctuation">,</span> x <span class="token operator">/</span> y<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&apos;x / y =&apos;</span><span class="token punctuation">,</span> x <span class="token operator">/</span> y<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 15 / 4 = 3 (Python 2 &#xE9; divis&#xE3;o em int)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&apos;x / y =&apos;</span><span class="token punctuation">,</span> x <span class="token operator">/</span> y<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 15 / 4 = 3.75 (Python 3 &#xE9; divis&#xE3;o em float)</span>
 
-<span class="token comment" spellcheck="true"># Output: x % y = 75</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&apos;x % y =&apos;</span><span class="token punctuation">,</span> x <span class="token operator">%</span> y<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&apos;x % y =&apos;</span><span class="token punctuation">,</span> x <span class="token operator">%</span> y<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 15 % 4 = 3</span>
 
-<span class="token comment" spellcheck="true"># Output: x // y = 3</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&apos;x // y =&apos;</span><span class="token punctuation">,</span> x <span class="token operator">//</span> y<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&apos;x // y =&apos;</span><span class="token punctuation">,</span> x <span class="token operator">//</span> y<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 15 // 4 = 3</span>
 
-<span class="token comment" spellcheck="true"># Output: x ** y = 50625</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&apos;x ** y =&apos;</span><span class="token punctuation">,</span> x <span class="token operator">**</span> y<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&apos;x ** y =&apos;</span><span class="token punctuation">,</span> x <span class="token operator">**</span> y<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># 15 ** 4 = 50625</span>
 </code></pre>
 
                                 
@@ -687,7 +681,7 @@ y <span class="token operator">=</span> <span class="token number">4</span>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Operadores","level":"1.2.1.2","depth":3,"next":{"title":"Matemáticos","level":"1.2.1.2.1","depth":4,"path":"content/python/basics/operadores-matematicos.md","ref":"content/python/basics/operadores-matematicos.md","articles":[]},"previous":{"title":"Comentários","level":"1.2.1.1","depth":3,"path":"content/python/basics/comentarios.md","ref":"content/python/basics/comentarios.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","hints","expandable-chapters"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"search":{},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-api":{"languages":[],"split":true,"theme":"dark"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Python e Django Básico","gitbook":"*","description":"Anotações sobre Python e Django"},"file":{"path":"content/python/basics/operadores-matematicos.md","mtime":"2017-04-18T04:06:23.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-18T05:12:53.684Z"},"basePath":"../../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Operadores","level":"1.2.1.2","depth":3,"next":{"title":"Matemáticos","level":"1.2.1.2.1","depth":4,"path":"content/python/basics/operadores-matematicos.md","ref":"content/python/basics/operadores-matematicos.md","articles":[]},"previous":{"title":"Comentários","level":"1.2.1.1","depth":3,"path":"content/python/basics/comentarios.md","ref":"content/python/basics/comentarios.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","hints","expandable-chapters"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"search":{},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-api":{"languages":[],"split":true,"theme":"dark"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Python e Django Básico","gitbook":"*","description":"Anotações sobre Python e Django"},"file":{"path":"content/python/basics/operadores-matematicos.md","mtime":"2017-04-23T03:31:17.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-23T16:00:57.332Z"},"basePath":"../../..","book":{"language":""}});
         });
     </script>
 </div>

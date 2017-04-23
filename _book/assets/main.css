@@ -44,7 +44,7 @@ p > code {
 
 .markdown-section h3 {
     color: rgba(68, 68, 68, .85);
-    margin: 60px 0 20px;
+    margin: 20px 0 20px;
 }
 
 .markdown-section ul,
@@ -73,4 +73,18 @@ p > code {
 
 .token.comment, .token.block-comment, .token.prolog, .token.doctype, .token.cdata {
   color: #555 !important;
+}
+
+.markdown-section table td {
+  padding: 0 2px !important;
+}
+
+.markdown-section hr {
+  height: 2px !important;
+  margin: 15px 0 !important;
+}
+
+#funções-nativas ~ h4 {
+  margin-top: 5px !important;
+  margin-bottom: 0 !important;
 }

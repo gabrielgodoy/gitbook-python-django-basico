@@ -64,7 +64,7 @@
     <link rel="next" href="lidando-com-exceptions.html" />
     
     
-    <link rel="prev" href="loops.html" />
+    <link rel="prev" href="funcoes-nativas.html" />
     
 
     </head>
@@ -218,12 +218,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.1.3" data-path="estruturas-de-controle.html">
+        <li class="chapter " data-level="1.2.1.3" data-path="condicionais.html">
             
-                <a href="estruturas-de-controle.html">
+                <a href="condicionais.html">
             
                     
-                    Estruturas de Controle
+                    Condicionais
             
                 </a>
             
@@ -231,7 +231,20 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.1.4" data-path="funcoes.html">
+        <li class="chapter " data-level="1.2.1.4" data-path="loops.html">
+            
+                <a href="loops.html">
+            
+                    
+                    Repetições (Loops)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.5" data-path="funcoes.html">
             
                 <a href="funcoes.html">
             
@@ -245,7 +258,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.1.4.1" data-path="funcoes-nativas.html">
+        <li class="chapter " data-level="1.2.1.5.1" data-path="funcoes-nativas.html">
             
                 <a href="funcoes-nativas.html">
             
@@ -260,19 +273,6 @@
     
 
             </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2.1.5" data-path="loops.html">
-            
-                <a href="loops.html">
-            
-                    
-                    Loops
-            
-                </a>
-            
-
             
         </li>
     
@@ -294,7 +294,7 @@
                 <a href="lidando-com-exceptions.html">
             
                     
-                    Lidando com exceptions
+                    Lidando com exceções
             
                 </a>
             
@@ -623,16 +623,18 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="importando-m&#xF3;dulos">Importando m&#xF3;dulos</h1>
+<p>Voc&#xEA; import usando o nome do arquivo que deseja importar, e o nome da fun&#xE7;&#xE3;o</p>
 <pre class="language-"><code class="lang-python"><span class="token keyword">import</span> functions  <span class="token comment" spellcheck="true"># importando meu m&#xF3;dulo customizado</span>
 
 <span class="token comment" spellcheck="true"># Chamada de Fun&#xE7;&#xE3;o do m&#xF3;dulo &apos;functions&apos;</span>
-functions<span class="token punctuation">.</span>variadic_function<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span>
+functions<span class="token punctuation">.</span>alguma_funcao<span class="token punctuation">(</span><span class="token punctuation">)</span>
 </code></pre>
 <h2 id="duas-maneiras-de-importar-m&#xF3;dulos">Duas maneiras de importar m&#xF3;dulos:</h2>
 <pre class="language-"><code class="lang-python"><span class="token comment" spellcheck="true"># import urllib.request</span>
 <span class="token comment" spellcheck="true"># from urllib import request</span>
 </code></pre>
-<p>As duas maneiras est&#xE3;o importando o m&#xE9;todo request do m&#xF3;dulo urllib</p>
+<p>As duas maneiras est&#xE3;o importando o m&#xE9;todo <code>request</code> do m&#xF3;dulo <code>urllib</code>.</p>
+<p>O nome do arquivo do m&#xF3;dulo que se est&#xE1; importando &#xE9; <code>urllib.py</code></p>
 
                                 
                                 </section>
@@ -666,7 +668,7 @@ functions<span class="token punctuation">.</span>variadic_function<span class="t
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Import","level":"1.2.1.6","depth":3,"next":{"title":"Lidando com exceptions","level":"1.2.1.7","depth":3,"path":"content/python/basics/lidando-com-exceptions.md","ref":"content/python/basics/lidando-com-exceptions.md","articles":[]},"previous":{"title":"Loops","level":"1.2.1.5","depth":3,"path":"content/python/basics/loops.md","ref":"content/python/basics/loops.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","hints","expandable-chapters"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"search":{},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-api":{"languages":[],"split":true,"theme":"dark"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Python e Django Básico","gitbook":"*","description":"Anotações sobre Python e Django"},"file":{"path":"content/python/basics/import.md","mtime":"2017-03-22T03:45:02.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-18T05:12:53.684Z"},"basePath":"../../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Import","level":"1.2.1.6","depth":3,"next":{"title":"Lidando com exceções","level":"1.2.1.7","depth":3,"path":"content/python/basics/lidando-com-exceptions.md","ref":"content/python/basics/lidando-com-exceptions.md","articles":[]},"previous":{"title":"Funções nativas","level":"1.2.1.5.1","depth":4,"path":"content/python/basics/funcoes-nativas.md","ref":"content/python/basics/funcoes-nativas.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","hints","expandable-chapters"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"search":{},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-api":{"languages":[],"split":true,"theme":"dark"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Python e Django Básico","gitbook":"*","description":"Anotações sobre Python e Django"},"file":{"path":"content/python/basics/import.md","mtime":"2017-04-23T04:11:30.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-23T16:00:57.332Z"},"basePath":"../../..","book":{"language":""}});
         });
     </script>
 </div>

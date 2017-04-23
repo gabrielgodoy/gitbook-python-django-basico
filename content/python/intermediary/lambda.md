@@ -14,4 +14,5 @@ stocks = [
 
 # Get two cheapest stocks
 # lambda quick function gets the stock price for each stock
+
 print(heapq.nsmallest(2, stocks, key=lambda stock: stock['price']))

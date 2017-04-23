@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Estruturas de Controle · Python e Django Básico</title>
+        <title>Condicionais · Python e Django Básico</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -61,7 +61,7 @@
     <link rel="shortcut icon" href="../../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="funcoes.html" />
+    <link rel="next" href="loops.html" />
     
     
     <link rel="prev" href="operadores-especiais.html" />
@@ -218,12 +218,12 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.1.3" data-path="estruturas-de-controle.html">
+        <li class="chapter active" data-level="1.2.1.3" data-path="condicionais.html">
             
-                <a href="estruturas-de-controle.html">
+                <a href="condicionais.html">
             
                     
-                    Estruturas de Controle
+                    Condicionais
             
                 </a>
             
@@ -231,7 +231,20 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.1.4" data-path="funcoes.html">
+        <li class="chapter " data-level="1.2.1.4" data-path="loops.html">
+            
+                <a href="loops.html">
+            
+                    
+                    Repetições (Loops)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.5" data-path="funcoes.html">
             
                 <a href="funcoes.html">
             
@@ -245,7 +258,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.1.4.1" data-path="funcoes-nativas.html">
+        <li class="chapter " data-level="1.2.1.5.1" data-path="funcoes-nativas.html">
             
                 <a href="funcoes-nativas.html">
             
@@ -260,19 +273,6 @@
     
 
             </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2.1.5" data-path="loops.html">
-            
-                <a href="loops.html">
-            
-                    
-                    Loops
-            
-                </a>
-            
-
             
         </li>
     
@@ -294,7 +294,7 @@
                 <a href="lidando-com-exceptions.html">
             
                     
-                    Lidando com exceptions
+                    Lidando com exceções
             
                 </a>
             
@@ -607,7 +607,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../../.." >Estruturas de Controle</a>
+        <a href="../../.." >Condicionais</a>
     </h1>
 </div>
 
@@ -623,31 +623,30 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="condicionais">Condicionais</h1>
-<h2 id="if-elif-e-else"><code>if</code>, <code>elif</code> e <code>else</code></h2>
-<pre class="language-"><code class="lang-python">shopping_list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">&apos;banana&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;apple&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;jelly&apos;</span><span class="token punctuation">]</span>
+<h3 id="if-elif-e-else"><code>if</code>, <code>elif</code> e <code>else</code></h3>
+<pre class="language-"><code class="lang-python"><span class="token keyword">def</span> <span class="token function">verificaVelocidade</span><span class="token punctuation">(</span>velocidade<span class="token punctuation">)</span><span class="token punctuation">:</span>
+  limite_velocidade <span class="token operator">=</span> <span class="token number">110</span>
+  <span class="token keyword">if</span> velocidade <span class="token operator">&gt;</span> limite_velocidade<span class="token punctuation">:</span>
+    multa <span class="token operator">=</span> <span class="token punctuation">(</span>velocidade <span class="token operator">-</span> limite_velocidade<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">5</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&apos;Multado em &apos;</span> <span class="token operator">+</span> str<span class="token punctuation">(</span>multa<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">&apos; reais&apos;</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> multa
+  <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&apos;Velocidade aceitavel&apos;</span><span class="token punctuation">)</span>
 
-<span class="token keyword">def</span> <span class="token function">conditionals</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">if</span> shopping_list<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token keyword">is</span> item<span class="token punctuation">:</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&apos;getting some &apos;</span> <span class="token operator">+</span> shopping_list<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+verificaVelocidade<span class="token punctuation">(</span><span class="token number">120</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true"># Multado em 50 reais</span>
+</code></pre>
+<pre class="language-"><code class="lang-python">lista_compra <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">&apos;banana&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;apple&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;jelly&apos;</span><span class="token punctuation">]</span>
 
-    <span class="token keyword">elif</span> shopping_list<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token keyword">is</span> item<span class="token punctuation">:</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&apos;getting some &apos;</span> <span class="token operator">+</span> shopping_list<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token keyword">def</span> <span class="token function">verificaItem</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> lista_compra<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token keyword">is</span> item<span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&apos;Pegando o item &apos;</span> <span class="token operator">+</span> lista_compra<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">elif</span> lista_compra<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token keyword">is</span> item<span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&apos;Pegando o item &apos;</span> <span class="token operator">+</span> lista_compra<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
 
     <span class="token keyword">else</span><span class="token punctuation">:</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&apos;No item found :(&apos;</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&apos;Nenhum item encontrado :(&apos;</span><span class="token punctuation">)</span>
 
-conditionals<span class="token punctuation">(</span><span class="token string">&apos;banana&apos;</span><span class="token punctuation">)</span>
-</code></pre>
-<h2 id="for-loop"><code>for</code> loop</h2>
-<pre class="language-"><code class="lang-python">numbers <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">]</span>
-
-<span class="token keyword">def</span> <span class="token function">dont_print_if_numbers</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">for</span> n <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">:</span>  <span class="token comment" spellcheck="true"># range(15) printa de 0 a 14</span>
-        <span class="token keyword">if</span> n <span class="token keyword">in</span> numbers<span class="token punctuation">:</span>  <span class="token comment" spellcheck="true"># N&#xE3;o d&#xEA; print caso o n&#xFA;mero esteja presente na lista &apos;numbers&apos;</span>
-            <span class="token keyword">continue</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span>
-
-dont_print_if_numbers<span class="token punctuation">(</span><span class="token punctuation">)</span>
+verificaItem<span class="token punctuation">(</span><span class="token string">&apos;banana&apos;</span><span class="token punctuation">)</span>
 </code></pre>
 
                                 
@@ -682,7 +681,7 @@ dont_print_if_numbers<span class="token punctuation">(</span><span class="token 
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Estruturas de Controle","level":"1.2.1.3","depth":3,"next":{"title":"Funções","level":"1.2.1.4","depth":3,"path":"content/python/basics/funcoes.md","ref":"content/python/basics/funcoes.md","articles":[{"title":"Funções nativas","level":"1.2.1.4.1","depth":4,"path":"content/python/basics/funcoes-nativas.md","ref":"content/python/basics/funcoes-nativas.md","articles":[]}]},"previous":{"title":"Especiais","level":"1.2.1.2.4","depth":4,"path":"content/python/basics/operadores-especiais.md","ref":"content/python/basics/operadores-especiais.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","hints","expandable-chapters"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"search":{},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-api":{"languages":[],"split":true,"theme":"dark"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Python e Django Básico","gitbook":"*","description":"Anotações sobre Python e Django"},"file":{"path":"content/python/basics/estruturas-de-controle.md","mtime":"2017-03-22T03:45:02.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-18T05:12:53.684Z"},"basePath":"../../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Condicionais","level":"1.2.1.3","depth":3,"next":{"title":"Repetições (Loops)","level":"1.2.1.4","depth":3,"path":"content/python/basics/loops.md","ref":"content/python/basics/loops.md","articles":[]},"previous":{"title":"Especiais","level":"1.2.1.2.4","depth":4,"path":"content/python/basics/operadores-especiais.md","ref":"content/python/basics/operadores-especiais.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","hints","expandable-chapters"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"search":{},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-api":{"languages":[],"split":true,"theme":"dark"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Python e Django Básico","gitbook":"*","description":"Anotações sobre Python e Django"},"file":{"path":"content/python/basics/condicionais.md","mtime":"2017-04-23T04:20:13.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-23T16:00:57.332Z"},"basePath":"../../..","book":{"language":""}});
         });
     </script>
 </div>

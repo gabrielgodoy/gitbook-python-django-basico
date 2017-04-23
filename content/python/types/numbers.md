@@ -4,11 +4,11 @@
 
 ```python
 a = 5
-print(a, "is of type", type(a)) # 5 is of type <class 'int'>
+print(a, "é do tipo", type(a)) # 5 é do tipo <class 'int'>
 
 a = 2.0
-print(a, "is of type", type(a)) # 2.0 is of type <class 'float'>
+print(a, "é do tipo", type(a)) # 2.0 é do tipo <class 'float'>
 
 a = 1+2j
-print(a, "is complex number?", isinstance(1+2j,complex)) # True
+print(a, "é um numero complexo?", isinstance(1+2j,complex)) # True
 ```

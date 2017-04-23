@@ -9,12 +9,9 @@
 x = True
 y = False
 
-# Output: x and y is False
-print('x and y is', x and y)
+print('x and y is', x and y) # x and y is False
 
-# Output: x or y is True
-print('x or y is', x or y)
+print('x or y is', x or y) # x or y is True
 
-# Output: not x is False
-print('not x is', not x)
+print('not x is', not x) # not x is False
 ```

@@ -1,10 +1,12 @@
 # Importando módulos
 
+Você import usando o nome do arquivo que deseja importar, e o nome da função
+
 ```python
 import functions  # importando meu módulo customizado
 
 # Chamada de Função do módulo 'functions'
-functions.variadic_function(1, 2, 3, 4, 5)
+functions.alguma_funcao()
 ```
 
 ## Duas maneiras de importar módulos:
@@ -14,4 +16,6 @@ functions.variadic_function(1, 2, 3, 4, 5)
 # from urllib import request
 ```
 
-As duas maneiras estão importando o método request do módulo urllib
+As duas maneiras estão importando o método `request` do módulo `urllib`.
+
+O nome do arquivo do módulo que se está importando é `urllib.py`

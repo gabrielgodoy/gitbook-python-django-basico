@@ -1,33 +1,31 @@
 # Herança de classes
 
 ```python
-class Plumber:
-    def fix_plumbs(self):
-        print('Fixing plumb')
+class Encanador:
+    def consertar_encanamento(self):
+        print('Consertando encanamento')
 
+class Mario(Encanador):
+    slogan = 'Sou eu. Mario!'
 
-class Mario(Plumber):
-    slogan = 'Its a me. Mario!'
-
-    def say_hi(self):
+    def falar(self):
         print(self.slogan)
 
-    def move(self):
-        print('moving')
-
+    def mover(self):
+        print('movendo')
 
 class Shroom:
-    def eat_shroom(self):
-        print('Now i am big')
+    def comer_cogumelo(self):
+        print('Agora sou grande')
 
-
-class BigMario(Mario, Plumber, Shroom):
-    pass  # Do nothing
-
+class BigMario(Mario, Encanador, Shroom): # Subclasse que herda das três outras classes criadas acima
+    pass  # Não faça nada
 
 big_mario = BigMario()
-big_mario.move()
-big_mario.eat_shroom()
-big_mario.fix_plumbs()
-big_mario.say_hi()
+big_mario.mover()
+big_mario.comer_cogumelo()
+big_mario.consertar_encanamento()
+big_mario.falar()
 ```
+
+![Python](../../../assets/images/mario.gif)

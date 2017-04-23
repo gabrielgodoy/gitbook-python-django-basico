@@ -1,6 +1,9 @@
 # Loops
 
-## For...in
+### for
+
+O `for...in` itera sobre um sequência
+
 ```python
 shopping_list = ['banana', 'apple', 'jelly']
 
@@ -19,15 +22,28 @@ def get_me_range():
 ```
 
 ```python
-# Range method
-def get_magic_number(magic_number):
+def getNumber(numero):
     for n in range(100):
-        if n is magic_number:
-            print(n, 'is the magic number!')
+        if n is numero:
+            print(n, 'e o numero!')
             break  # Sai do loop quando magicNumber é encontrado
         else:
-            print('no')
+            print('nao e o numero')
 
-get_magic_number(26)
+getNumber(26)
 ```
 
+
+### while
+
+No `while` o comando roda até uma condição ser alcançada
+
+```python
+def loopEmX():
+    x = 1
+    while x <= 3:
+        print(x)
+        x += 1
+
+loopEmX()
+```

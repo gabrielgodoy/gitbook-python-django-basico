@@ -10,7 +10,7 @@
 
 `%`   Módulo - restante da divisão do operador esquerdo pelo direito `x % y` (restante de x / y)
 
-`//`  Floor division - divisão que resulta em número inteiro ajustado para a esquerda na linha de número `x // y`
+`//`  Floor division - divisão que resulta em número inteiro arredondado para baixo `x // y`
 
 `**`  Exponente - operador esquerdo elevado à potência da direita `x ** y` (x à potência de y)
 
@@ -18,24 +18,18 @@
 x = 15
 y = 4
 
-# Output: x + y = 19
-print('x + y =', x + y)
+print('x + y =', x + y) # 15 + 4 = 19
 
-# Output: x - y = 11
-print('x - y =', x - y)
+print('x - y =', x - y) # 15 - 4 = 11
 
-# Output: x * y = 60
-print('x * y =', x * y)
+print('x * y =', x * y) # 15 * 4 = 60
 
-# Output: x / y = 3.75
-print('x / y =', x / y)
+print('x / y =', x / y) # 15 / 4 = 3 (Python 2 é divisão em int)
+print('x / y =', x / y) # 15 / 4 = 3.75 (Python 3 é divisão em float)
 
-# Output: x % y = 75
-print('x % y =', x % y)
+print('x % y =', x % y) # 15 % 4 = 3
 
-# Output: x // y = 3
-print('x // y =', x // y)
+print('x // y =', x // y) # 15 // 4 = 3
 
-# Output: x ** y = 50625
-print('x ** y =', x ** y)
+print('x ** y =', x ** y) # 15 ** 4 = 50625
 ```

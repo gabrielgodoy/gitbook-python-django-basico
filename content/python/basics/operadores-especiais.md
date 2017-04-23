@@ -31,15 +31,11 @@ Em um dicionário nós podemos somente testar pela presença da chave, não o va
 x = 'Hello world'
 y = {1:'a',2:'b'}
 
-# Output: True
-print('H' in x)
+print('H' in x) # True
 
-# Output: True
-print('hello' not in x)
+print('hello' not in x) # True
 
-# Output: True
-print(1 in y)
+print(1 in y) # True
 
-# Output: False
-print('a' in y)
+print('a' in y) # False
 ```

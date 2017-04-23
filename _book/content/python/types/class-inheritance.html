@@ -218,12 +218,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.1.3" data-path="../basics/estruturas-de-controle.html">
+        <li class="chapter " data-level="1.2.1.3" data-path="../basics/condicionais.html">
             
-                <a href="../basics/estruturas-de-controle.html">
+                <a href="../basics/condicionais.html">
             
                     
-                    Estruturas de Controle
+                    Condicionais
             
                 </a>
             
@@ -231,7 +231,20 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.1.4" data-path="../basics/funcoes.html">
+        <li class="chapter " data-level="1.2.1.4" data-path="../basics/loops.html">
+            
+                <a href="../basics/loops.html">
+            
+                    
+                    Repetições (Loops)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.1.5" data-path="../basics/funcoes.html">
             
                 <a href="../basics/funcoes.html">
             
@@ -245,7 +258,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.1.4.1" data-path="../basics/funcoes-nativas.html">
+        <li class="chapter " data-level="1.2.1.5.1" data-path="../basics/funcoes-nativas.html">
             
                 <a href="../basics/funcoes-nativas.html">
             
@@ -260,19 +273,6 @@
     
 
             </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2.1.5" data-path="../basics/loops.html">
-            
-                <a href="../basics/loops.html">
-            
-                    
-                    Loops
-            
-                </a>
-            
-
             
         </li>
     
@@ -294,7 +294,7 @@
                 <a href="../basics/lidando-com-exceptions.html">
             
                     
-                    Lidando com exceptions
+                    Lidando com exceções
             
                 </a>
             
@@ -623,36 +623,33 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="heran&#xE7;a-de-classes">Heran&#xE7;a de classes</h1>
-<pre class="language-"><code class="lang-python"><span class="token keyword">class</span> <span class="token class-name">Plumber</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">fix_plumbs</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&apos;Fixing plumb&apos;</span><span class="token punctuation">)</span>
+<pre class="language-"><code class="lang-python"><span class="token keyword">class</span> <span class="token class-name">Encanador</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">consertar_encanamento</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&apos;Consertando encanamento&apos;</span><span class="token punctuation">)</span>
 
+<span class="token keyword">class</span> <span class="token class-name">Mario</span><span class="token punctuation">(</span>Encanador<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    slogan <span class="token operator">=</span> <span class="token string">&apos;Sou eu. Mario!&apos;</span>
 
-<span class="token keyword">class</span> <span class="token class-name">Mario</span><span class="token punctuation">(</span>Plumber<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    slogan <span class="token operator">=</span> <span class="token string">&apos;Its a me. Mario!&apos;</span>
-
-    <span class="token keyword">def</span> <span class="token function">say_hi</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">falar</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
         <span class="token keyword">print</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>slogan<span class="token punctuation">)</span>
 
-    <span class="token keyword">def</span> <span class="token function">move</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&apos;moving&apos;</span><span class="token punctuation">)</span>
-
+    <span class="token keyword">def</span> <span class="token function">mover</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&apos;movendo&apos;</span><span class="token punctuation">)</span>
 
 <span class="token keyword">class</span> <span class="token class-name">Shroom</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">eat_shroom</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&apos;Now i am big&apos;</span><span class="token punctuation">)</span>
+    <span class="token keyword">def</span> <span class="token function">comer_cogumelo</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&apos;Agora sou grande&apos;</span><span class="token punctuation">)</span>
 
-
-<span class="token keyword">class</span> <span class="token class-name">BigMario</span><span class="token punctuation">(</span>Mario<span class="token punctuation">,</span> Plumber<span class="token punctuation">,</span> Shroom<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">pass</span>  <span class="token comment" spellcheck="true"># Do nothing</span>
-
+<span class="token keyword">class</span> <span class="token class-name">BigMario</span><span class="token punctuation">(</span>Mario<span class="token punctuation">,</span> Encanador<span class="token punctuation">,</span> Shroom<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token comment" spellcheck="true"># Subclasse que herda das tr&#xEA;s outras classes criadas acima</span>
+    <span class="token keyword">pass</span>  <span class="token comment" spellcheck="true"># N&#xE3;o fa&#xE7;a nada</span>
 
 big_mario <span class="token operator">=</span> BigMario<span class="token punctuation">(</span><span class="token punctuation">)</span>
-big_mario<span class="token punctuation">.</span>move<span class="token punctuation">(</span><span class="token punctuation">)</span>
-big_mario<span class="token punctuation">.</span>eat_shroom<span class="token punctuation">(</span><span class="token punctuation">)</span>
-big_mario<span class="token punctuation">.</span>fix_plumbs<span class="token punctuation">(</span><span class="token punctuation">)</span>
-big_mario<span class="token punctuation">.</span>say_hi<span class="token punctuation">(</span><span class="token punctuation">)</span>
+big_mario<span class="token punctuation">.</span>mover<span class="token punctuation">(</span><span class="token punctuation">)</span>
+big_mario<span class="token punctuation">.</span>comer_cogumelo<span class="token punctuation">(</span><span class="token punctuation">)</span>
+big_mario<span class="token punctuation">.</span>consertar_encanamento<span class="token punctuation">(</span><span class="token punctuation">)</span>
+big_mario<span class="token punctuation">.</span>falar<span class="token punctuation">(</span><span class="token punctuation">)</span>
 </code></pre>
+<p><img src="../../../assets/images/mario.gif" alt="Python"></p>
 
                                 
                                 </section>
@@ -686,7 +683,7 @@ big_mario<span class="token punctuation">.</span>say_hi<span class="token punctu
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Herança de classes","level":"1.2.2.8","depth":3,"next":{"title":"Django","level":"1.3","depth":1,"path":"content/django/0-mvc-aplicado-ao-django.md","ref":"content/django/0-mvc-aplicado-ao-django.md","articles":[{"title":"MVC aplicado ao Django","level":"1.3.1","depth":2,"path":"content/django/0-mvc-aplicado-ao-django.md","ref":"content/django/0-mvc-aplicado-ao-django.md","articles":[]},{"title":"Conceitos básicos","level":"1.3.2","depth":2,"path":"content/django/1-django-conceitos-basicos.md","ref":"content/django/1-django-conceitos-basicos.md","articles":[]},{"title":"Estrutura de arquivos","level":"1.3.3","depth":2,"path":"content/django/2-estrutura-de-arquivos.md","ref":"content/django/2-estrutura-de-arquivos.md","articles":[]},{"title":"Atualizando o banco","level":"1.3.4","depth":2,"path":"content/django/3-atualizando-o-banco.md","ref":"content/django/3-atualizando-o-banco.md","articles":[]},{"title":"Links úteis","level":"1.3.5","depth":2,"path":"content/django/links-uteis.md","ref":"content/django/links-uteis.md","articles":[]}]},"previous":{"title":"Classes","level":"1.2.2.7","depth":3,"path":"content/python/types/class.md","ref":"content/python/types/class.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","hints","expandable-chapters"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"search":{},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-api":{"languages":[],"split":true,"theme":"dark"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Python e Django Básico","gitbook":"*","description":"Anotações sobre Python e Django"},"file":{"path":"content/python/types/class-inheritance.md","mtime":"2017-03-19T06:16:02.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-18T05:12:53.684Z"},"basePath":"../../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Herança de classes","level":"1.2.2.8","depth":3,"next":{"title":"Django","level":"1.3","depth":1,"path":"content/django/0-mvc-aplicado-ao-django.md","ref":"content/django/0-mvc-aplicado-ao-django.md","articles":[{"title":"MVC aplicado ao Django","level":"1.3.1","depth":2,"path":"content/django/0-mvc-aplicado-ao-django.md","ref":"content/django/0-mvc-aplicado-ao-django.md","articles":[]},{"title":"Conceitos básicos","level":"1.3.2","depth":2,"path":"content/django/1-django-conceitos-basicos.md","ref":"content/django/1-django-conceitos-basicos.md","articles":[]},{"title":"Estrutura de arquivos","level":"1.3.3","depth":2,"path":"content/django/2-estrutura-de-arquivos.md","ref":"content/django/2-estrutura-de-arquivos.md","articles":[]},{"title":"Atualizando o banco","level":"1.3.4","depth":2,"path":"content/django/3-atualizando-o-banco.md","ref":"content/django/3-atualizando-o-banco.md","articles":[]},{"title":"Links úteis","level":"1.3.5","depth":2,"path":"content/django/links-uteis.md","ref":"content/django/links-uteis.md","articles":[]}]},"previous":{"title":"Classes","level":"1.2.2.7","depth":3,"path":"content/python/types/class.md","ref":"content/python/types/class.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-api","prism","-highlight","hints","expandable-chapters"],"styles":{"website":"./assets/main.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"search":{},"hints":{"danger":"fa fa-exclamation-circle","info":"fa fa-info-circle","tip":"fa fa-mortar-board","working":"fa fa-wrench"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-api":{"languages":[],"split":true,"theme":"dark"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Gabriel Godoy","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Python e Django Básico","gitbook":"*","description":"Anotações sobre Python e Django"},"file":{"path":"content/python/types/class-inheritance.md","mtime":"2017-04-23T15:39:49.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-04-23T16:00:57.332Z"},"basePath":"../../..","book":{"language":""}});
         });
     </script>
 </div>

@@ -4,54 +4,54 @@ Dicionários são `mutáveis` (https://docs.python.org/3/tutorial/datastructures
 
 ```python
 myDictionary = {
-    'apple': 'red round fruit',
-    'orange': 'orange round fruit'
+    'maca': 'fruta redonda e vermelha',
+    'laranja': 'fruta redonda e laranja'
 }
 
-print(myDictionary['apple']) #'red round fruit'
+print(myDictionary['maca']) # 'fruta redonda e vermelha'
 ```
 
 ## Loop em dicionários
 
 ```python
-heroes = {
+herois = {
     'batman': 'Bruce Wayne',
     'superman': 'Clark Kent',
     'flash': 'Barry Allen'
 }
 
 def loopMyDict(dictionary):
-    # para cada item em dictionary.items()
+    # Para cada item em dictionary.items()
     for key, value in dictionary.items(): #loop na chave e no valor
         print(key, 'is', value);
 
-loopMyDict(heroes)
+loopMyDict(herois)
 ```
 
 ##Alguns Métodos
 
 ```python
-#Inicia um Dicionário
+# Inicia um Dicionário
 dicio = {}
-heroes = {'batman': 'Bruce Wayne', 'superman': 'Clark Kent', 'flash': 'Barry Allen'}
+herois = {'batman': 'Bruce Wayne', 'superman': 'Clark Kent', 'flash': 'Barry Allen'}
 
-#Inserção
-heroes['wonder woman'] = 'Diana'
+# Inserindo um item novo ao dicionário
+herois['wonder woman'] = 'Diana'
 
-#Remoção
-heroes.pop('wonder woman')
-del heroes['batman']
+# Remoção
+herois.pop('wonder woman')
+del herois['batman']
 
-#Alteração
-heroes['wonder woman'] = 'Diana Princess'
+# Alterando um item já existente do dicionário
+herois['wonder woman'] = 'Diana Princess'
 
-#Verifica existência
-'aquaman' in heroes #False
-'superman' in heroes #True
+# Verificando existência de item no dicionário
+'aquaman' in herois # False
+'superman' in herois # True
 
-#Lista todas as chaves
-list(heroes.keys())
+# Listando todas as chaves do dicionário
+list(herois.keys())
 
-#Ordena as chaves
-sorted(heroes.keys())
+# Ordenando as chaves do dicionário
+sorted(herois.keys())
 ```
