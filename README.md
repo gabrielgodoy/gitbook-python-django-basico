@@ -11,7 +11,6 @@ Anotações sobre Python e Django básico
 - `npm install` instala dependência do projeto
 - `npm run installPlugins` instala plugin específicos do gitbook
 - `npm start` inicia projeto na porta `4000`
-
 - `npm run build` Para atualizar o gitbook final
 
 
